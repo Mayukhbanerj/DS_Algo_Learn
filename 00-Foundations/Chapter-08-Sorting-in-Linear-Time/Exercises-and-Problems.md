@@ -27,7 +27,11 @@ If a comparison sort used at most \(cn\) comparisons on at least a fraction \(f(
 
 ### 8.1-4 — Partly sorted positions
 
-The elements initially at positions divisible by 4 have only three possible final positions. The remaining positions are unrestricted. There are still \(\Omega(n!)\) possible relative orders among the unrestricted elements, up to a factor exponential in \(n\) for the restricted placements. The logarithm of the number of possible orders remains \(\Omega(n\lg n)\). A comparison decision tree therefore still needs height \(\Omega(n\lg n)\).
+Restrict attention to valid inputs in which every element initially at a position divisible by 4 is already in its final position. The remaining \(m=n-\lfloor n/4\rfloor=\Theta(n)\) elements may appear in any of their \(m!\) orders among the unrestricted positions. A correct comparison decision tree must distinguish all these possibilities, so its height is at least
+\[
+\lg(m!)=\Theta(m\lg m)=\Theta(n\lg n).
+\]
+Thus the restriction on every fourth position does not remove the comparison-sorting lower bound.
 
 ## Exercises 8.2 — Counting sort
 
@@ -155,7 +159,9 @@ For a point uniform in area, the squared radius \(R^2=x^2+y^2\) is uniform on \(
 
 ### 8.4-6 — Bucket sort for a known continuous distribution
 
-Apply the cumulative distribution function \(P(x)\) to each sample \(X_i\). For a continuous distribution, \(P(X_i)\) is uniform on \([0,1]\) (probability integral transform). Run ordinary bucket sort on these transformed values. Since \(P\) is computable in \(O(1)\), transformation costs \(O(n)\), and expected bucket-sort time is \(O(n)\). Preserve each original value alongside its transformed key.
+The probability-integral transform says that if the cumulative distribution function \(P\) is continuous, then \(U_i=P(X_i)\) is uniform on \([0,1]\). Compute each \(U_i\) in constant time, retain its associated original value \(X_i\), and bucket-sort the pairs by \(U_i\). Since \(P\) is nondecreasing, ordering by \(U_i\) also orders the original values; the transformed samples are uniform, so the expected running time is \(\Theta(n)\).
+
+**Source-wording caveat:** the exercise parenthetical specifically states that, given \(y\), one can find \(x\) with \(P(x)=y\) in \(O(1)\) time—an inverse-CDF operation. The algorithm above needs the forward evaluation \(P(X_i)\) in \(O(1)\) time. An inverse-CDF operation alone does not establish that forward-evaluation bound, so the exercise as printed appears to leave a computational assumption unstated. The probability-integral-transform solution is valid when forward CDF evaluation is also available in constant time.
 
 ## Problems for Chapter 8
 
@@ -170,7 +176,12 @@ Apply the cumulative distribution function \(P(x)\) to each sample \(X_i\). For 
 d(k)=\min_{1\le i<k}\{d(i)+d(k-i)+k\}.
 \]
 
-**(d)** The function \(f(i)=i\lg i+(k-i)\lg(k-i)\) is symmetric and convex. Its derivative is \(\lg(i/(k-i))\), which is zero at \(i=k/2\), where the minimum occurs. This recurrence yields \(d(k)=\Omega(k\lg k)\).
+**(d)** The function \(f(i)=i\lg i+(k-i)\lg(k-i)\) is symmetric and convex. Its derivative is \(\lg(i/(k-i))\), which is zero at \(i=k/2\), where the minimum occurs. The recurrence bound can be made explicit by induction. With \(d(1)=0\), assume \(d(t)\ge t\lg t\) for smaller positive \(t\). Then
+\[
+d(k)\ge \min_i\{i\lg i+(k-i)\lg(k-i)+k\}
+= k\lg(k/2)+k=k\lg k.
+\]
+Thus \(d(k)\ge k\lg k=\Omega(k\lg k)\).
 
 **(e)** The deterministic sorting tree has exactly \(n!\) reachable leaves, each probability \(1/n!\). Its expected comparisons are \(D(T_A)/n!=\Omega(\lg(n!))=\Omega(n\lg n)\).
 
