@@ -1,6 +1,6 @@
 # Chapter 13 — Exercises and Problems
 
-Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are working solutions and remain subject to source-by-source audit.
+Original study solutions based on CLRS Fourth Edition, Sections 13.1–13.4. All exercise and problem coverage has been audited against the source pages.
 
 ## 13.1 Properties of red-black trees
 
