@@ -20,6 +20,27 @@ def rod_cut(prices: Sequence[float], n: Optional[int] = None):
         revenue[length] = best
     return revenue[n], first
 
+def rod_cut_memoized(prices: Sequence[float], n: Optional[int] = None):
+    """Top-down memoized rod cutting; returns revenue and first-cut choices."""
+    if n is None:
+        n = len(prices)
+    if n < 0 or n > len(prices):
+        raise ValueError("n must be between 0 and len(prices)")
+    revenue = [None] * (n + 1)
+    first = [0] * (n + 1)
+    revenue[0] = 0
+    def solve(length):
+        if revenue[length] is not None:
+            return revenue[length]
+        best = float("-inf")
+        for piece in range(1, length + 1):
+            value = prices[piece - 1] + solve(length - piece)
+            if value > best:
+                best, first[length] = value, piece
+        revenue[length] = best
+        return best
+    return solve(n), first
+
 def reconstruct_cuts(first: Sequence[int], n: int) -> list[int]:
     cuts = []
     while n > 0:
@@ -47,6 +68,27 @@ def matrix_chain_order(dimensions: Sequence[int]):
                     best, s[i][j] = q, k
             m[i][j] = best
     return m[0][n - 1], s
+
+def matrix_chain_memoized(dimensions: Sequence[int]):
+    """Top-down memoized matrix-chain order; returns minimum cost and split table."""
+    n = len(dimensions) - 1
+    if n < 1 or any(d <= 0 for d in dimensions):
+        raise ValueError("need at least one matrix and positive dimensions")
+    memo = [[None] * n for _ in range(n)]
+    split = [[None] * n for _ in range(n)]
+    def solve(i, j):
+        if i == j:
+            return 0
+        if memo[i][j] is not None:
+            return memo[i][j]
+        best = float("inf")
+        for k in range(i, j):
+            value = solve(i, k) + solve(k + 1, j) + dimensions[i] * dimensions[k + 1] * dimensions[j + 1]
+            if value < best:
+                best, split[i][j] = value, k
+        memo[i][j] = best
+        return best
+    return solve(0, n - 1), split
 
 def matrix_chain_parenthesization(s) -> str:
     n = len(s)
