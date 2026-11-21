@@ -77,6 +77,11 @@ The right-child branch is the mirror image. Case 1 falls through to cases 2, 3, 
 
 Removing a BLACK node decreases the black count on paths through its old position. Treating x as carrying one extra black restores property 5 while fixup proceeds. The cases redistribute this extra black, absorb it into a RED x, or eliminate it at the root. The loop terminates when x is RED-and-black, x reaches the root, or case 4 resolves the deficit.
 
+## Visual aids
+
+- [Insertion fixup cases](images/insertion-fixup-cases.svg)
+- [Deletion fixup cases](images/deletion-fixup-cases.svg)
+
 ## Engineering checklist
 
 - Use one shared sentinel per tree and keep its parent correct during deletion.
