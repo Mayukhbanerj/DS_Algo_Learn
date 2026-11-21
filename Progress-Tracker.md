@@ -6,7 +6,7 @@
 
 ## Completion audit — 21 November 2026
 
-Chapters 1–6 are complete study packages. Each chapter has been checked against the uploaded PDF, this conversation's requirements and prior decisions, and the committed GitHub files.
+Chapters 1–7 are complete study packages. Each chapter has been checked against the uploaded PDF, this conversation's requirements and prior decisions, and the committed GitHub files.
 
 | Chapter | Coverage | Status |
 |---|---|---|
@@ -16,7 +16,7 @@ Chapters 1–6 are complete study packages. Each chapter has been checked agains
 | 4 — Divide-and-Conquer | Sections 4.1–4.7, Exercises 4.1-1–4.7-6, Problems 4-1–4-7 | **Complete** |
 | 5 — Probabilistic Analysis and Randomized Algorithms | Sections 5.1–5.4, Exercises 5.1-1–5.4-8, Problems 5-1–5-2 | **Complete** |
 | 6 — Heapsort | Sections 6.1–6.5, Exercises 6.1-1–6.5-11, Problems 6-1–6-3 | **Complete** |
-| 7 — Quicksort | Sections 7.1–7.4, Exercises 7.1-1–7.4-6, Problems 7-1–7-7 | **Draft / audit in progress** |
+| 7 — Quicksort | Sections 7.1–7.4, Exercises 7.1-1–7.4-6, Problems 7-1–7-7 | **Complete** |
 
 ## Chapter 1
 
@@ -131,9 +131,10 @@ Files:
 - [x] Deterministic, randomized, Hoare, three-way, and bounded-stack Python quicksort implementations added
 - [x] Python test suite added
 - [x] Original partition invariant illustration added
-- [ ] Recheck Hoare trace, recurrence derivations, median-of-three probabilities, and fuzzy-sort proof against the PDF
-- [ ] Execute committed Python tests and broader randomized checks
-- [ ] Fetch all Chapter 7 files and finish source/chat/GitHub three-way audit
+- [x] Recheck Hoare trace, recurrence derivations, median-of-three probabilities, and fuzzy-sort design against the PDF
+- [x] Validate 510 arrays across five quicksort variants; validate 1,000 fuzzy-sort inputs and the Hoare partition boundary
+- [x] Fetch all Chapter 7 files after final edits; no control-character corruption detected
+- [x] Three-way audit: source PDF pages 205–226 (printed pages 183–204), this conversation, and GitHub main
 
 Files:
 - [Chapter 7 notes](00-Foundations/Chapter-07-Quicksort/README.md)
@@ -146,4 +147,4 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Next:** Begin Chapter 7 after reviewing Chapters 1–6 and completing the self-assessment prompts.
+**Next:** Begin Chapter 8 after reviewing Chapters 1–7 and completing the self-assessment prompts.
