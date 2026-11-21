@@ -23,6 +23,7 @@ The goal is to develop algorithmic reasoning—not memorize solutions. Notes dis
 | `00-Foundations/Chapter-05-Probabilistic-Analysis/` | Chapter 5 notes, exercises, probability derivations |
 | `00-Foundations/Chapter-06-Heapsort/` | Chapter 6 notes, exercises, heap illustration |
 | `00-Foundations/Chapter-07-Quicksort/` | Chapter 7 notes, exercises, partition illustration |
+| `00-Foundations/Chapter-08-Sorting-in-Linear-Time/` | Chapter 8 notes, exercises, counting-sort illustration |
 | `Implementations/Python/` | Python implementations and tests |
 | `Progress-Tracker.md` | Study progress and next steps |
 
