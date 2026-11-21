@@ -197,7 +197,7 @@ Append 10 to the supplied heap:
 \]
 Its parent is 8, so exchange:
 \[
-\boxed{\langle15,13,10,5,12,8,9,4,0,6,2,1,7\rangle}.
+\boxed{\langle15,13,10,5,12,9,7,4,0,6,2,1,8\rangle}.
 \]
 The new key stops because its new parent 15 is larger.
 
