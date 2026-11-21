@@ -132,9 +132,20 @@ For the left-child, right-sibling representation, recursively print x.key, then 
 
 Use parent pointers to walk the tree without a stack. Maintain previous and current nodes. On entering a node from its parent, print it, then descend to its left child if present, otherwise its right child if present, otherwise ascend. On returning from the left child, descend right if present; otherwise ascend. On returning from the right child, ascend. Stop after returning from the root. Each edge is traversed at most twice and each node is printed once, giving Θ(n) time and O(1) extra space. The tree is never modified.
 
-### 10.3-6 — Sharing parent and child pointer storage
+### 10.3-6 — Two pointers and one boolean
 
-The node needs to retain enough information to distinguish whether its shared pointer denotes its parent or its leftmost child; the boolean is the tag for that interpretation, and the other pointer is used for the sibling link. The representation must be arranged consistently across each parent-child chain so that following sibling links reaches the designated first child and its stored parent reference. The exact pointer/tag invariant should be stated before implementing accessors; see the accompanying audit note, since the exercise's wording is easy to misread and this solution is not yet considered verified.
+Keep two pointers in each node, named `left` and `right`, and one boolean `last`.
+
+- `x.left` points to the leftmost (first) child of x, or NIL if x has no children.
+- For a node x that is not the last child of its parent, `x.right` points to its immediate right sibling and `x.last = false).
+- For the last child x of a parent p, `x.right` points to p and `x.last = true).
+- The root has no parent: set its `right = NIL` and `last = true).
+
+**Accessing all children of x.** Start at `c = x.left`. Visit c, then follow `c.right` while `c.last = false`. Stop after visiting the node whose `last` flag is true. This visits exactly x's children, in Θ(d) time for d children (and Θ(1) if d=0).
+
+**Accessing the parent of x.** Starting at x, follow `right` pointers until reaching the first node y with `y.last = true`. By the invariant, y is the last child in x's sibling chain, and `y.right` is the parent. Thus return `y.right`. This takes Θ(s) time, where s is the number of nodes from x through the last child of its parent, and hence O(degree(parent(x))). The parent is reached and identified without a third pointer.
+
+The boolean is essential: it distinguishes a right pointer that means “next sibling” from one that means “parent.” The child-chain and parent-chain interpretations are consistent because the last child is the unique terminator of each sibling chain.
 
 ## Problems for Chapter 10
 
@@ -190,8 +201,8 @@ E[X_t]=\sum_{r=1}^{n}\left(1-\frac{r}{n}\right)^t.
 
 **(g)** Choose t=ceil(sqrt(n)). Then t+n/t=O(sqrt(n)), proving O(sqrt(n)) expected search time.
 
-**(h)** Distinct keys ensure that each key rank identifies one node and that the useful random-skip interval has a single target boundary. With repeated keys, many physical positions can carry the target value; a random index may land on a duplicate that does not advance the search past a long run of equal keys. Thus random skips need not reduce the asymptotic traversal work; an input with a long block of equal keys can still force linear-time behavior.
+**(h)** Distinct keys make the target rank unique, which is needed for the tail-probability argument in (c). Repeated keys can defeat the strict skip condition `key[i] < key[j]`. For example, let the sorted list contain one smallest key followed by n−1 copies of a larger key v, and search for k>v. Once a random trial moves i into the block of v's, no later random trial can move i farther within that block, because `key[i] < key[j]` is false for every sampled duplicate. The remaining traversal is then linear in the expected distance to the end of the block (Θ(n)); random skips do not necessarily improve the asymptotic running time on inputs with repeated keys.
 
 ---
 
-**Audit status:** Draft solutions cover all listed exercises and problems. Exercise 10.3-6 and the compact-list probability argument in Problem 10-3 require a final proof audit before this chapter can be marked complete.
+**Audit status:** The pointer/tag invariant for Exercise 10.3-6 is now explicit. Problem 10-3's probability argument and duplicate-key limitation have been rechecked; the chapter still requires execution of the committed Python test file and a final source/chat/GitHub reconciliation.
