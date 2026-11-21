@@ -2,7 +2,7 @@ import unittest
 
 from hash_tables import (
     ChainedHashTable, DirectAddressSet, OpenAddressHashTable,
-    division_hash, multiplication_hash, universal_hash,
+    division_hash, linear_probing_delete, multiplication_hash, universal_hash,
 )
 
 
@@ -72,6 +72,30 @@ class TestOpenAddressing(unittest.TestCase):
         h = OpenAddressHashTable(8, hash1=lambda k: 0, hash2=lambda k: 2)
         with self.assertRaises(ValueError):
             h.insert(1, 1)
+
+    def test_linear_backward_shift_delete(self):
+        keys = [74, 43, 93, 18, 82, 38, 92]
+        table = [None] * 10
+        for key in keys:
+            for i in range(10):
+                q = (key + i) % 10
+                if table[q] is None:
+                    table[q] = key
+                    break
+        q = table.index(43)
+        linear_probing_delete(table, q, lambda key: key % 10)
+        for key in (74, 93, 18, 82, 38, 92):
+            start = key % 10
+            found = False
+            for i in range(10):
+                value = table[(start + i) % 10]
+                if value is None:
+                    break
+                if value == key:
+                    found = True
+                    break
+            self.assertTrue(found, key)
+        self.assertNotIn(43, table)
 
 
 class TestHashFunctions(unittest.TestCase):
