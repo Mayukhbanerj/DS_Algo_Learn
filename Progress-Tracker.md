@@ -160,7 +160,7 @@ Files:
 - [x] Clarify the inverse-CDF versus forward-CDF assumption in Exercise 8.4-6
 - [ ] Independently verify the nondivisible/padding argument in 8-7(g)–(h)
 - [ ] Execute the committed Python test file itself (the repository clone is unavailable in this environment); equivalent locally reconstructed checks have passed, but this is not a committed-suite execution
-- [ ] Fetch all Chapter 8 files and finish source/chat/GitHub three-way audit
+- [ ] Re-fetch all Chapter 8 files after the final proof edits and finish the source/chat/GitHub three-way audit
 
 Files:
 - [Chapter 8 notes](00-Foundations/Chapter-08-Sorting-in-Linear-Time/README.md)
