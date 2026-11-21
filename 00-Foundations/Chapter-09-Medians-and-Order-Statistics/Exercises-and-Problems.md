@@ -77,7 +77,7 @@ Binary-search a partition i in X and j=n−i in Y so the left halves contain n v
 ### 9-3 — Weighted median
 (a) Equal weights 1/n make the weighted-median condition the ordinary lower-median condition.
 (b) Sort by key and scan cumulative weights: O(n log n).
-(c) Partition around ordinary median; sum weights on each side and recurse into a side whose total exceeds 1/2, otherwise the pivot is the weighted median. Each step discards at least half: O(n).
+(c) Partition around the ordinary median and sum the weights strictly below and strictly above it. If the lower-side weight is at least 1/2, recurse on the lower side; if the upper-side weight is greater than 1/2, recurse on the upper side; otherwise the pivot is the weighted median. The strictness matters: the definition requires weight strictly below the answer to be <1/2 and weight strictly above it to be ≤1/2. Each recursive side has at most half the elements, so the total work is O(n).
 (d) In one dimension, weighted absolute-deviation cost is minimized at a weighted median.
 (e) Under Manhattan distance, x and y contributions separate; choose weighted medians independently for each coordinate.
 
@@ -104,7 +104,7 @@ E[X_i]\le 2\left(
 +\sum_{j=1}^{i-2}\frac{i-j-1}{i-j+1}
 \right).
 \]
-For the explicit constant, the first double sum is at most n: group by d=k−j; for each d there are at most d+1 crossing pairs, each contributing 1/(d+1), so each of the at most n distance classes contributes at most 1. In the second sum, (k−i−1)/(k−i+1)≤1, and there are n−i terms. In the third, (i−j−1)/(i−j+1)≤1, and there are i−2 terms. Thus the expression in (b) is at most 2[n+(n−i)+(i−2)]≤4n. This proves (c), and (d) follows because the partition work is proportional to the number of comparisons, giving O(n) expected running time. Part (d) follows because each partition's work is proportional to the number of comparisons, giving O(n) expected running time.
+For the explicit constant, the first double sum is at most n: group by d=k−j; for each d there are at most d+1 crossing pairs, each contributing 1/(d+1), so each of the at most n distance classes contributes at most 1. In the second sum, (k−i−1)/(k−i+1)≤1, and there are n−i terms. In the third, (i−j−1)/(i−j+1)≤1, and there are i−2 terms. Thus the expression in (b) is at most 2[n+(n−i)+(i−2)]≤4n. This proves (c). For (d), each partition takes time linear in the active subarray and its comparisons are bounded in expectation by the indicator-variable analysis, so the expected running time is O(n).
 
 ### 9-6 — Select with groups of three
 (a) For groups of odd size 2t+1 with t≥2, the median-of-medians pivot discards a fixed fraction on both sides. The pivot recursion has size about n/(2t+1), and the selection recursion is bounded by a fraction whose sum with 1/(2t+1) is strictly below 1. The recurrence is linear.
@@ -127,4 +127,4 @@ The recursive fractions sum to 8/9<1, so SELECT3 runs in O(n) worst-case time. T
 
 ## Audit notes
 
-This is an initial draft, not a completion claim. Detailed proofs still needed include 9.3-5, Problem 9-2(b), Problem 9-5(a)–(d), and Problem 9-6(c)–(d). The exact SELECT3 pseudocode and source diagram must be checked before finalizing those parts.
+The six-comparison construction, simplified randomized-selection recurrence, indicator-variable comparison probabilities, and SELECT3 outline have been expanded. Remaining work is a source-by-source audit of every exercise and problem, including the exact preprocessing/rounding argument in SELECT3 and fuller derivations for the lower-bound and small-order-statistic exercises. This companion is not yet marked complete.
