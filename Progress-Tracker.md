@@ -282,10 +282,12 @@ Files:
 - [x] Add initial Python unit tests; expand coverage to all insertion/deletion fixup cases
 - [x] Add original red-black insertion/deletion case diagrams
 - [x] Reconstruct fetched red-black implementation and all 8 unittest cases locally; all 8 passed, plus 31,434 seeded stress operations with invariant/order checks
-- [ ] Fetch every Chapter 13 file and reconcile source, chat, and GitHub main
+- [ ] Fetch every Chapter 13 file after final edits and reconcile source, chat, and GitHub main
 
 Files:
 - [Chapter 13 notes](00-Foundations/Chapter-13-Red-Black-Trees/README.md)
 - [Chapter 13 exercises and problems](00-Foundations/Chapter-13-Red-Black-Trees/Exercises-and-Problems.md)
+- [Insertion fixup cases](00-Foundations/Chapter-13-Red-Black-Trees/images/insertion-fixup-cases.svg)
+- [Deletion fixup cases](00-Foundations/Chapter-13-Red-Black-Trees/images/deletion-fixup-cases.svg)
 - [Python red-black tree implementation](Implementations/Python/red_black_tree.py)
 - [Python red-black tree tests](Implementations/Python/test_red_black_tree.py)
