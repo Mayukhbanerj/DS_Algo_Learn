@@ -55,7 +55,7 @@ class TestGreedyAlgorithms(unittest.TestCase):
         self.assertEqual(trace[2][2],"B")
 
     def test_coin_change(self):
-        self.assertEqual(len(coin_change_greedy(87,[25,10,5,1])),5)
+        self.assertEqual(len(coin_change_greedy(87,[25,10,5,1])),6)
         self.assertEqual(coin_change_dp(6,[1,3,4]),(2,[3,3]))
 
     def test_scheduling(self):
