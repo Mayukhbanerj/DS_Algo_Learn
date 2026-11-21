@@ -26,6 +26,7 @@ The goal is to develop algorithmic reasoning—not memorize solutions. Notes dis
 | `00-Foundations/Chapter-08-Sorting-in-Linear-Time/` | Chapter 8 notes, exercises, counting-sort illustration |
 | `00-Foundations/Chapter-09-Medians-and-Order-Statistics/` | Chapter 9 notes, exercises, selection illustration |
 | `00-Foundations/Chapter-10-Elementary-Data-Structures/` | Chapter 10 notes, exercises, data-structure illustrations |
+| `00-Foundations/Chapter-11-Hash-Tables/` | Chapter 11 notes, exercises, hash-table analysis |
 | `Implementations/Python/` | Python implementations and tests |
 | `Progress-Tracker.md` | Study progress and next steps |
 
