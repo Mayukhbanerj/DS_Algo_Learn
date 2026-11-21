@@ -257,12 +257,14 @@ Files:
 - [x] Correct Exercise 12.2-4 with a minimal five-node unsuccessful-search counterexample; verify Exercise 12.3-5 with an explicit noncommuting deletion example
 - [x] Complete O(h) successor-pointer-only algorithms for Exercise 12.3-6, including predecessor links and parent lookup
 - [x] Audit Problem 12-1 duplicate-key strategies and strengthen the randomized expected-cost argument; verify Problem 12-3 recurrence and Problem 12-4 Catalan derivation
-- [ ] Execute exact fetched Python source and tests; fix edge cases
+- [x] Exercise BST insertion/deletion logic locally across all 120 insertion permutations of five distinct keys and all 600 deletion steps; every invariant and inorder check passed
+- [ ] Execute the exact committed Python source and unittest file together in a repository checkout; local equivalent exhaustive checks are not a substitute
 - [x] Add original search-path counterexample SVG
 - [ ] Fetch every Chapter 12 file and reconcile source, chat, and GitHub main
 
 Files:
 - [Chapter 12 notes](00-Foundations/Chapter-12-Binary-Search-Trees/README.md)
+- [Search-path counterexample illustration](00-Foundations/Chapter-12-Binary-Search-Trees/images/search-path-counterexample.svg)
 - [Chapter 12 exercises and problems](00-Foundations/Chapter-12-Binary-Search-Trees/Exercises-and-Problems.md)
 - [Python BST implementation](Implementations/Python/binary_search_tree.py)
 - [Python BST tests](Implementations/Python/test_binary_search_tree.py)
