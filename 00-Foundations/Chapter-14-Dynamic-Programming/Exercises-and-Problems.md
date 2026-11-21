@@ -6,27 +6,27 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14.1-1. Call-count recurrence.** T(0)=1 and T(n)=1+Σ_{j=0}^{n−1}T(j). By induction, if T(j)=2^j, then T(n)=1+(2^n−1)=2^n.
 
-**14.1-2. Density-greedy counterexample.** A high price-per-unit first piece need not leave a remainder with a good decomposition. Construct a price table where the best-density length does not divide the optimal combination; provide a minimal numerical counterexample in the final audit.
+**14.1-2. Density-greedy counterexample.** For n=4, take prices p1=1,p2=5,p3=8,p4=9. The best density is length 3 (8/3), so greedy takes 3 then 1 for revenue 9. The optimum is 2+2 for revenue 10.
 
 **14.1-3. Fixed cut cost c.** Let r[0]=0 and r[j]=max(p[i]+r[j−i]−c·I[j−i>0]) for i=1…j. A cut is charged only when a nonempty remainder follows the first piece. O(n²) time.
 
-**14.1-4. Restrict first cut to floor(n/2).** Consider only i≤floor(n/2), but include the symmetric decomposition by allowing the first piece to be the larger side: use max over i≤floor(n/2) of r[i]+r[n−i], plus p[n] for no cut. For the one-sided recurrence p[i]+r[n−i], symmetry is not enough unless the price term is included for whichever side is chosen; state and verify the exact modification before final sign-off.
+**14.1-4. Restrict first cut to floor(n/2).** Use r[0]=0 and r[n]=max(p[n], max_{1≤i≤floor(n/2)}(p[i]+r[n−i])). Any nontrivial optimal decomposition has a piece of length at most n/2; choose such a piece as the first cut, and the remainder is optimally cut. The no-cut choice p[n] is handled separately.
 
 **14.1-5. Return an optimal solution.** Store s[j] whenever p[i]+r[j−i] improves r[j]. Reconstruct by repeatedly outputting s[j] and setting j←j−s[j].
 
-**14.1-6. Fibonacci DP.** Set F[0]=0,F[1]=1; for i=2…n set F[i]=F[i−1]+F[i−2]. The subproblem graph has n+1 vertices (0…n) and 2n−3 edges for n≥2, from i to i−1 and i−2 where defined. Time Θ(n), space Θ(n), or O(1) rolling space.
+**14.1-6. Fibonacci DP.** Set F[0]=0,F[1]=1; for i=2…n set F[i]=F[i−1]+F[i−2]. The subproblem graph has n+1 vertices (0…n) and 2n−1 edges for n≥1: n edges i→i−1 and n−1 edges i→i−2. Time Θ(n), space Θ(n), or O(1) rolling space.
 
 ## 14.2 Matrix-chain multiplication
 
-**14.2-1. Dimensions 5,10,3,12,5,50,6.** Use MATRIX-CHAIN-ORDER; compute m and s by increasing chain length, then PRINT-OPTIMAL-PARENS. Numerical table to be filled and independently checked.
+**14.2-1. Dimensions 5,10,3,12,5,50,6.** For p=(5,10,3,12,5,50,6), the minimum cost is 2010 and the optimal parenthesization is ((A1A2)((A3A4)(A5A6))). The upper-triangular m table by rows is: [0,150,330,405,1655,2010]; [0,0,360,330,2430,1950]; [0,0,0,180,930,1770]; [0,0,0,0,3000,1860]; [0,0,0,0,0,1500]; [0,0,0,0,0,0].
 
 **14.2-2. Multiply recursively.** If i=j return A_i. Otherwise k=s[i,j], recursively compute L=MULTIPLY(A,s,i,k), R=MULTIPLY(A,s,k+1,j), and return RECTANGULAR-MATRIX-MULTIPLY(L,R). The recursion performs exactly the multiplications described by the optimal parenthesization.
 
 **14.2-3. Catalan-scale parenthesizations.** The recurrence P(1)=1 and P(n)=Σ_{k=1}^{n−1}P(k)P(n−k) yields Catalan numbers C_(n−1), which are Θ(4^n/n^(3/2)); in particular P(n)=Ω(2^n). A substitution proof with constants remains to be expanded.
 
-**14.2-4. Subproblem graph.** Vertices are index intervals (i,j), 1≤i≤j≤n: n(n+1)/2 vertices. There is an edge from (i,j) to each direct subinterval (i,k) and (k+1,j), for every i≤k<j. Count the edges by summing 2(j−i) over all intervals; simplify in final audit.
+**14.2-4. Subproblem graph.** Vertices are index intervals (i,j), 1≤i≤j≤n: n(n+1)/2 vertices. Each interval of length L has 2(L−1) outgoing dependency edges. Thus E=2Σ_(L=2…n)(n−L+1)(L−1)=(n³−n)/3.
 
-**14.2-5. Table-reference count.** Count references to m[i,j] as a subproblem in every larger interval and split. The stated total is n³/3−n/3; derive by summing over interval lengths and split positions.
+**14.2-5. Table-reference count.** Count references to m[i,j] as a subproblem in every larger interval and split. Summing over interval lengths and split positions gives n³/3−n/3 references in total.
 
 **14.2-6. Parenthesis count.** A full parenthesization of n operands is a full binary expression tree with n leaves and n−1 internal multiplication nodes. Each internal node contributes one pair of parentheses, hence n−1 pairs.
 
@@ -38,13 +38,13 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14.3-3. Maximize scalar multiplications.** The problem still has optimal substructure: for a fixed split k, replacing either subchain by a parenthesization with a larger multiplication count improves the total. Use max instead of min in the recurrence.
 
-**14.3-4. Greedy split counterexample.** Choosing k to minimize only p_(i−1)p_kp_j ignores the two subchain costs. Give a dimension sequence where the locally cheapest multiplication creates expensive subchains; numerical counterexample pending final audit.
+**14.3-4. Greedy split counterexample.** Choosing k to minimize only p_(i−1)p_kp_j ignores the two subchain costs. For dimensions p=(1,1,1,1,2), all root split products p0·p_(k+1)·p4 tie at 2, so the greedy rule choosing the first split k=0 gives cost 6. The optimal parenthesization has cost 4 (for example ((A1A2)(A3A4))). Thus choosing a split before solving the subchains can be suboptimal.
 
-**14.3-5. Limited piece counts.** The original state “best revenue for length n” is insufficient: the optimal solution for a remainder depends on how many pieces of each length have already been used. A counterexample should compare two histories with the same remainder length but different remaining inventories.
+**14.3-5. Limited piece counts.** The original state “best revenue for length n” is insufficient: the optimal solution for a remainder depends on how many pieces of each length have already been used. For example, let the rod length be 6, p2=10, p1=1, p3=9, p4=1, and allow at most two pieces of length 2. The length-4 subproblem without a prior cut is optimally 2+2 (revenue 20). After a length-2 first piece has already been used, only one length-2 piece remains available, so that same length-4 subproblem solution is infeasible. The remainder state must include the remaining piece limits, not just its length.
 
 ## 14.4 Longest common subsequence
 
-**14.4-1. LCS example.** Compute the DP table for X=10010101 and Y=010110110; reconstruct one longest common subsequence. Verify length and order in the final audit.
+**14.4-1. LCS example.** One LCS is 100110 (length 6). It is a subsequence of both inputs.
 
 **14.4-2. Reconstruct without b table.** Starting at (m,n), if x_i=y_j output that element and move diagonally; otherwise move to the adjacent cell with the same c value (up or left). Reverse the collected output. O(m+n) time.
 
@@ -60,7 +60,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14.5-1. Construct optimal BST.** Recursively create key k_root[i,j] as root; build left interval [i,r−1] with dummy d_(i−1) at empty intervals and right interval [r+1,j] with dummy d_j. Output dummy leaves when j=i−1.
 
-**14.5-2. Seven-key instance.** Run OPTIMAL-BST on the given p and q arrays, report e[1,7], root table and tree. Numerical result to be computed and independently verified.
+**14.5-2. Seven-key instance.** The optimal expected search cost is 3.12. The root table (0-based indices) is [[0,1,1,1,2,2,4],[–,1,2,2,2,4,4],[–,–,2,2,3,4,4],[–,–,–,3,4,4,5],[–,–,–,–,4,5,5],[–,–,–,–,–,5,6],[–,–,–,–,–,–,6]]. The optimal tree has k5 at the root; k2 is its left child and k7 its right child; k2 has children k1 and k3, k3 has right child k4; k7 has left child k6. Attach the corresponding dummy leaves d0…d7.
 
 **14.5-3. Recompute w directly.** Summing probabilities for each interval costs Θ(j−i+1) per state. Across Θ(n²) states, this adds Θ(n³) work; asymptotic time remains Θ(n³), though the constant factor increases.
 
@@ -76,7 +76,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14-4. Printing neatly.** Precompute badness(i,j)=(M−(j−i)−Σ_{k=i}^j l_k)^3 when the words fit, ∞ otherwise; last line has zero penalty. Let cost[j]=min_{1≤i≤j}(cost[i−1]+badness(i,j)), store the minimizing i, and reconstruct lines. O(n²) time and O(n²) space (or O(n) if badness is computed on demand).
 
-**14-5. Edit distance.** DP over prefixes x[1…i], y[1…j], considering copy, replace, delete, insert, twiddle when adjacent source characters are swapped, and kill as a terminal operation. Add the operation-specific costs and store the best predecessor/action. The recurrence and initialization for kill require a full boundary audit before final sign-off.
+**14-5. Edit distance.** Let D[i,j] be the minimum cost to consume x[1…i] and produce y[1…j]. Base D[0,0]=0, D[i,0]=i·QD, D[0,j]=j·QI. Transitions: copy if x_i=y_j with D[i−1,j−1]+QC; replace with D[i−1,j−1]+QR; delete with D[i−1,j]+QD; insert with D[i,j−1]+QI; twiddle if i,j≥2 and x_i=y_(j−1), x_(i−1)=y_j with D[i−2,j−2]+QT. Store the winning operation. Kill is a final alternative min_{0≤i≤m}(D[i,n]+QK), since it consumes all remaining source characters after the target is complete. Reconstruct from the chosen terminal state and predecessor actions. O(mn) time/space.
 
 **14-6. Company party.** For each employee v, define IN[v]=rating(v)+Σ OUT[child], OUT[v]=Σ max(IN[child],OUT[child]). Reconstruct by choosing IN only when it strictly beats OUT at the parent. O(n) time and space.
 
