@@ -82,7 +82,11 @@ Equality holds at \(q=0\) or \(q=n-1\), where the product is zero.
 
 ### 7.4-4 — Expected-time lower bound
 
-The expected comparison count is at least the minimum possible comparison count of quicksort, which is \(\Omega(n\lg n)\). Combined with the expected \(O(n\lg n)\) upper bound from Theorem 7.4, the expected running time is \(\Theta(n\lg n)\).
+From the pairwise comparison analysis, the expected number of comparisons is
+\[
+E[X]=\sum_{i=1}^{n-1}\sum_{j=i+1}^{n}\frac{2}{j-i+1}.
+\]
+For each \(i\), substitute \(k=j-i+1\). The inner sum is \(\sum_{k=2}^{n-i+1}2/k=\Theta(\lg(n-i+1))\). Summing over \(i\) gives \(\Theta(n\lg n)\), since a constant fraction of the \(i\)-values have \(n-i+1\ge n/2\). Thus the expected comparisons, and hence expected running time, are \(\Omega(n\lg n)\). Theorem 7.4 gives the matching \(O(n\lg n)\) upper bound.
 
 ### 7.4-5 — Insertion sort for subarrays smaller than k
 
@@ -109,7 +113,15 @@ Uniform selection gives \(1-2\alpha\). The improvement changes constants, not th
 
 ### 7-1 — Hoare partition correctness
 
-**(a) Trace.** Input \(\langle13,19,9,5,12,8,7,4,11,2,6,21\rangle\), pivot \(x=13\). The first right scan stops at 6; the left scan stops at 19; exchange. The next right scan stops at 2; the left scan stops at 19; exchange. The next right scan stops at 11; the left scan advances to 21; exchange. The next right scan stops at 4; the left scan advances to 21; exchange. The scans then cross and Hoare partition returns the boundary. (The companion Python trace prints every exact array state and index pair; use that executable trace as the definitive iteration table.)
+**(a) Trace.** Input \(\langle13,19,9,5,12,8,7,4,11,2,6,21\rangle\), pivot \(x=13\), with 1-based indices. At the start \(i=0,j=13\).
+
+| Iteration | Scan result | Action | Array after action | \(i,j\) |
+|---|---|---|---|---|
+| 1 | Right scan stops at 6; left scan stops at 19 | Exchange 19 and 6 | \(\langle13,6,9,5,12,8,7,4,11,2,19,21\rangle\) | \(2,11\) |
+| 2 | Right scan stops at 2; left scan stops at 19 | Exchange 19 and 2 | \(\langle13,6,9,5,12,8,7,4,11,2,19,21\rangle\) | \(10,10\) |
+| 3 | The scans meet/cross after the left scan reaches index 10 | Return \(j=10\) | unchanged | \(10,10\) |
+
+The two exchanges place the misplaced 6 and 2 on the low side and 19 on the high side. The returned boundary is \(j=10\) in the textbook's indexing; every value in \(A[1:10]\) is at most 13 and every value in \(A[11:12]\) is at least 13.
 
 **(b) Equal keys.** With all keys equal, Lomuto PARTITION sends every scanned value to the low side and returns \(r\), producing a maximally unbalanced split. Hoare partition advances both scans inward and returns a middle boundary. This is advantageous for duplicate-heavy data.
 
