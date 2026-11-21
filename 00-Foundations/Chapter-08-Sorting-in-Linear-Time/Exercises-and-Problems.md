@@ -104,11 +104,12 @@ Represent each key in three base-\(n\) digits. Each digit lies in \([0,n-1]\). T
 
 ### 8.3-6 — Most-significant-digit-first card sorting
 
-At recursion depth \(j\), the cards are grouped by their first \(j\) digits. There can be at most \(\min(n,10^j)\) nonempty prefix groups, and each such group that has another digit to process requires one pass. Thus the worst-case number of passes is
-\[
-\boxed{\sum_{j=0}^{d-1}\min(n,10^j)}.
-\]
-The operator may have to set aside the nine other digit piles at each of the \(d\) recursion levels while processing one pile. Counting the active pile, this requires at most \(9d+1\) piles in the straightforward recursive procedure.
+At recursion depth \\(j\\), a pass is needed only for a prefix group containing at least two cards; a singleton is already sorted and needs no further sorting. At most \\(10^j\\) prefixes can occur, and at most \\(\\lfloor n/2\\rfloor\\) groups can each contain at least two cards. The worst-case number of passes is therefore
+\\[
+\\boxed{\\sum_{j=0}^{d-1}\\min(10^j,\\lfloor n/2\\rfloor)}.
+\\]
+This bound is attainable by distributing cards among as many distinct prefixes as possible while keeping at least two cards in each group at every level. In the straightforward depth-first procedure, the operator may need to set aside the other nine digit piles at each of the \\(d\\) levels, plus the pile currently being processed, for at most \\(\\boxed{9d+1}\\) piles.
+
 
 
 ## Exercises 8.4 — Bucket sort
@@ -224,7 +225,13 @@ d(k)=\min_{1\le i<k}\{d(i)+d(k-i)+k\}.
 
 **(c)** If two consecutive elements in the final merged order come from different lists, their relative order must be established by a direct comparison; otherwise the algorithm cannot distinguish the two possible interleavings that swap their order.
 
-**(d)** A merge output has \(2n\) elements and \(2n-1\) adjacent gaps. At most one adjacent pair can come from the same list at the boundary of the merge? More directly, the worst-case interleaving can alternate list membership, forcing all \(2n-1\) cross-list adjacent comparisons. Thus the worst-case lower bound is \(2n-1\).
+**(d)** Consider the alternating interleaving
+\\[
+A_1 < B_1 < A_2 < B_2 < \\cdots < A_n < B_n.
+\\]
+Every one of its \\(2n-1\\) adjacent pairs consists of elements from different lists. By part (c), each such pair must be compared by any correct merging algorithm. Hence some input requires at least \\(\\boxed{2n-1}\\) comparisons.
+
+
 
 ### 8-7 — The 0-1 sorting lemma and columnsort
 
@@ -248,7 +255,13 @@ r\ge 2s(2s-1).
 \]
 This supplies enough clean separation for the half-column shift and final column sort.
 
-**(h) Modify step 1 by padding each column.** Let \(r'=s\lceil r/s\rceil\), the smallest multiple of \(s\) that is at least \(r\). In step 1, append \(r'-r\) dummy keys of value \(+\infty\) to each column and sort the resulting \(r'\)-element column. Perform steps 2–8 on the resulting \(r'\times s\) array. Now \(s\mid r'\), and if the original parameters meet the required row bound, choose the padded row count so that \(r'\ge2s^2\) (otherwise the theorem's size condition is not met). The divisible-case proof therefore applies to the augmented array. All dummy keys are \(+\infty\), so they appear after all real keys in the final sorted order. Removing them leaves the original \(n=rs\) keys sorted. This is the requested change to step 1: padding is done independently within each column before its first sort, not by inserting arbitrary sentinels into the already reshaped matrix.
+**(h) Modify step 1 by padding each column.** Choose \\(r'\\) to be the smallest positive multiple of \\(\\operatorname{lcm}(s,2)\\) that is at least \\(\\max(r,2s^2)\\):
+\\[
+r'=\\operatorname{lcm}(s,2)\\left\\lceil\\frac{\\max(r,2s^2)}{\\operatorname{lcm}(s,2)}\\right\\rceil.
+\\]
+Then \\(r'\\) is even, divisible by \\(s\\), and at least \\(2s^2\\). In step 1, append \\(r'-r\\) dummy keys of value \\( +\\infty\\) to each original column and sort each augmented column. Perform steps 2–8 on this \\(r'\\times s\\) array. The divisible-case columnsort theorem now applies. Since every dummy key is \\( +\\infty\\), all real keys precede all dummy keys in the final sorted order; deleting the dummy keys leaves the original real keys sorted. This modifies only step 1 and ensures all three structural requirements (even row count, \\(s\\mid r'\\), and \\(r'\\ge2s^2\\)) hold.
+
+
 
 ---
 
