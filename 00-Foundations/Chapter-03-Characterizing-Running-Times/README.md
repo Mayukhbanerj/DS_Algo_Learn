@@ -450,6 +450,14 @@ so Fibonacci numbers grow exponentially: \(F_i=\Theta(\phi^i)\).
 
 ---
 
+### Visual guide: upper, lower, and tight bounds
+
+![Schematic comparison of O, Omega, and Theta bounds](images/asymptotic-bounds.svg)
+
+The picture is conceptual: the constants and threshold may differ between the three definitions. A valid proof must identify constants and a threshold that make the required inequalities hold for every sufficiently large input.
+
+---
+
 ## Engineering perspective
 
 When reading a performance claim, ask:
@@ -464,6 +472,10 @@ When reading a performance claim, ask:
 8. Does the mathematical bound describe the whole algorithm or only one operation?
 
 **Example:** Saying “this endpoint is \(O(n^2)\)” gives only an upper bound. It does not establish that the endpoint actually takes quadratic time. If a benchmark or proof establishes matching upper and lower bounds, use \(\Theta(n^2)\).
+
+## Chapter notes
+
+The chapter's historical notes trace the use of \(O\)-notation to number theory in the late nineteenth century and the development of \(o\)-notation by Landau in 1909. Knuth advocated the use of \(\Omega\) and \(\Theta\) to distinguish lower and tight bounds from the often-misused \(O\)-notation. The chapter also notes that definitions can vary among authors, especially for functions that are not asymptotically nonnegative. Robbins is credited for the refined factorial estimate used in the chapter. These historical notes are context; the formal definitions used in this study guide are the definitions adopted by CLRS Fourth Edition.
 
 ## Chapter 3 revision sheet
 
