@@ -247,7 +247,7 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 15 — Greedy Algorithms (audit incomplete; Exercise 15.4-4 source-model caveat recorded). Chapter 16 — Amortized Analysis (draft in progress).
+**Current:** Chapter 15 — Greedy Algorithms remains the next chapter requiring final audit; Exercise 15.4-4 has an unresolved source-model ambiguity. Chapter 16 — Amortized Analysis is complete.
 
 
 ## Chapter 12 — Complete
@@ -335,7 +335,7 @@ Files:
 - [Python tests](Implementations/Python/test_greedy_algorithms.py)
 
 
-## Chapter 16 — Draft and audit in progress
+## Chapter 16 — Complete
 
 - [x] Reopen CLRS source PDF printed pages 449–475, Sections 16.1–16.4, Exercises 16.1-1–16.4-4 and Problems 16-1–16-4
 - [x] Draft notes for aggregate, accounting and potential methods; dynamic-table expansion/contraction
@@ -344,14 +344,14 @@ Files:
 - [x] Strengthen Problem 16-3 geometric charging argument and state the limitation of the straightforward Problem 16-2(c) deletion strategy
 - [x] Correct the exact potential function for Exercise 16.3-2 using cumulative credit Φ(i)=3i−C(i)
 - [x] Correct terminating/nonterminating red-black fixup case classification in Problem 16-4(b): INSERT Case 1 and DELETE Case 2 are the only repeating cases; all others terminate after O(1) further steps
-- [ ] Complete explicit per-case w(x) potential deltas for Problem 16-4(f) and (g); current summary is not a sufficient proof
+- [x] Complete explicit w(x) potential-delta proofs for the only repeating cases: INSERT Case 1 (2→1 across parent/uncle/grandparent) and DELETE Case 2 (drop of at least 1 for either parent color)
 - [x] Correct Problem 16-2(c): state the requested O(n) worst-case and O(n) amortized upper bound for the split-based mixed-update strategy; clarify that O(lg n) amortized INSERT applies only to insertion-only sequences
 - [x] Add Python stack, binary-counter, dynamic-array, Gray-code and sorted-run implementations
 - [x] Add 7 unit-test scenarios
-- [ ] Audit every derivation and red-black-tree case analysis against the source
+- [x] Audit every derivation and red-black-tree case analysis against the source; use Figures 13.5–13.7 to verify which cases repeat and the exact affected-node colors
 - [x] Execute reconstructed fetched implementation and test contents: 8 tests passed after fixing three implementation defects (fixed-capacity Python-list model and incorrect merge import)
 - [x] Run 300 randomized dynamic-array traces (150,000 operations), 99 sorted-run datasets and Gray-code widths 1–9
-- [ ] Fetch every Chapter 16 file and reconcile source, chat and GitHub main
+- [x] Fetch every Chapter 16 file after final proof edits and reconcile source, chat and GitHub main
 
 Files:
 - [Chapter 16 notes](00-Foundations/Chapter-16-Amortized-Analysis/README.md)
