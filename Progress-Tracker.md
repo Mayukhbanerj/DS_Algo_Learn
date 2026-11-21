@@ -246,7 +246,7 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 13 complete. Chapter 14 is next.
+**Current:** Chapter 13 complete. Chapter 14 — Dynamic Programming (draft in progress).
 
 
 ## Chapter 12 — Complete
@@ -293,3 +293,20 @@ Files:
 - [Deletion fixup cases](00-Foundations/Chapter-13-Red-Black-Trees/images/deletion-fixup-cases.svg)
 - [Python red-black tree implementation](Implementations/Python/red_black_tree.py)
 - [Python red-black tree tests](Implementations/Python/test_red_black_tree.py)
+
+
+## Chapter 14 — Draft and audit in progress
+
+- [x] Reopen source PDF pages for Chapter 14; capture Sections 14.1–14.5, exercises and problems
+- [ ] Draft notes on rod cutting, matrix-chain multiplication, DP ingredients, longest common subsequence and optimal BSTs
+- [ ] Solve and audit Exercises 14.1-1 through 14.5-5 and Problems 14-1 through 14-2
+- [ ] Add Python rod-cutting, matrix-chain, LCS and optimal-BST implementations
+- [ ] Add Python tests and original DP/subproblem-graph diagrams
+- [ ] Execute exact fetched implementations and tests; fix failures
+- [ ] Fetch every Chapter 14 file and reconcile source, chat, and GitHub main
+
+Files:
+- [Chapter 14 notes](00-Foundations/Chapter-14-Dynamic-Programming/README.md)
+- [Chapter 14 exercises and problems](00-Foundations/Chapter-14-Dynamic-Programming/Exercises-and-Problems.md)
+- [Python dynamic-programming implementations](Implementations/Python/dynamic_programming.py)
+- [Python dynamic-programming tests](Implementations/Python/test_dynamic_programming.py)
