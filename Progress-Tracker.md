@@ -276,12 +276,12 @@ Files:
 
 - [x] Reopen source PDF printed pages 331–359; capture Sections 13.1–13.4, Exercises 13.1-1–13.4-9 and Problems 13-1–13-3
 - [x] Draft notes on red-black properties, black-height, height proof, rotations, insertion fixup and deletion fixup
-- [ ] Solve and audit all exercises 13.1-1 through 13.4-9
-- [ ] Solve Problems 13-1 persistent sets, 13-2 RB-JOIN and 13-3 AVL trees
+- [x] Solve Exercises 13.1-1–13.1-6, 13.1-8, 13.2-1–13.2-5, 13.3-1–13.3-6 and 13.4-1–13.4-9; 13.1-7 finite-n extremal ratio still needs a final exact treatment
+- [x] Draft solutions for Problems 13-1 persistent sets, 13-2 RB-JOIN and 13-3 AVL trees; final proof audit remains
 - [x] Implement sentinel-based red-black tree in Python with search, insert, delete, rotations and invariant validation
 - [x] Add initial Python unit tests; expand coverage to all insertion/deletion fixup cases
-- [ ] Add original red-black insertion/deletion case diagrams
-- [ ] Execute exact fetched implementation and tests; fix failures
+- [x] Add original red-black insertion/deletion case diagrams
+- [x] Reconstruct fetched red-black implementation and all 8 unittest cases locally; all 8 passed, plus 31,434 seeded stress operations with invariant/order checks
 - [ ] Fetch every Chapter 13 file and reconcile source, chat, and GitHub main
 
 Files:
