@@ -351,7 +351,13 @@ Assume \(f,g\) are asymptotically positive.
 Let \(\Omega_\infty\) denote the alternative definition requiring \(f(n)\ge cg(n)\) for infinitely many integers \(n\).
 
 - **(a)** If \(f=O(g)\), the first alternative holds. Otherwise, for every \(c>0\) and every threshold \(n_0\), some \(n\ge n_0\) violates \(f(n)\le cg(n)\), which means \(f(n)>cg(n)\) for infinitely many \(n\). Thus \(f=\Omega_\infty(g)\). Both can hold.
-- **(b)** Use oscillating functions, for example \(f(n)=n^{1+\sin n}\), \(g(n)=n\), with suitable subsequences showing neither an eventual upper nor eventual lower bound. (The exact integer subsequences require care; a fully rigorous construction can instead define alternating long blocks explicitly.)
+- **(b)** Define
+  \[
+  f(n)=\begin{cases}n,&n\text{ even},\\n^2,&n\text{ odd},\end{cases}
+  \qquad
+  g(n)=\begin{cases}n^2,&n\text{ even},\\n,&n\text{ odd}.\end{cases}
+  \]
+  Both functions are nonnegative. On even inputs, \(f(n)/g(n)=1/n\to0\), so no eventual positive lower bound \(f=\Omega(g)\) exists. On odd inputs, \(f(n)/g(n)=n\to\infty\), so no eventual upper bound \(f=O(g)\) exists.
 - **(c)** Advantage: it gives a broad “infinitely often” lower-bound comparison even for oscillating functions. Disadvantage: it does not guarantee a lower bound for all sufficiently large inputs, so it is weaker for worst-case guarantees.
 - **(d)** Replacing \(O\) with \(O'\), where absolute values are bounded, changes the forward direction of Theorem 3.1: \(\Theta(g)\Rightarrow O'(g)\) and \(\Omega(g)\) still hold for nonnegative \(f,g\), but \(O'(g)\) and \(\Omega(g)\) together need not imply \(\Theta(g)\) if \(f\) can be negative or oscillate. For asymptotically nonnegative \(f\), the original equivalence is recovered.
 - **(e)** Define \(\widetilde O(g(n))\) by allowing a logarithmic factor: \(f(n)\le c g(n)(\lg n)^k\) eventually for constants \(c,k>0\). Define \(\widetilde\Omega\) by reversing the inequality, and \(\widetilde\Theta=\widetilde O\cap\widetilde\Omega\). The analogue of Theorem 3.1 follows immediately from the intersection definition.
