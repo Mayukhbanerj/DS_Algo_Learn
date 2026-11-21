@@ -86,7 +86,16 @@ The same vectors on both sides verify that each subtree-root path retains its bl
 
 ## Problems
 
-**13-1. Persistent dynamic sets.** (a) Copy only nodes on the search path and share untouched subtrees. Insert copies the path to the insertion point; delete copies the search path and any successor-splice path. (b) Recursive path-copy insertion returns copied ancestors with one child replaced by the new subtree. (c) O(h) time and O(h) new nodes. (d) Parent pointers make shared children point to one parent only, so changing a copied ancestor's child requires updating the child's parent; that child may be shared with the old version, forcing further copying. In the worst case this propagates across Θ(n) nodes. (e) Use a persistent balanced representation with path copying and no parent pointers; red-black balancing requires carefully persistent rotations/recoloring and O(lg n) copied nodes. Details pending.
+**13-1. Persistent dynamic sets.** (a) Copy only nodes on the search path and share untouched subtrees. Insert copies the path to the insertion point; delete copies the search path and any successor-splice path. (b) A path-copy insertion is:
+
+    PERSISTENT-INSERT(x, z)
+        if x == NIL: return COPY-NODE(z)
+        y = COPY-NODE(x)
+        if z.key < x.key: y.left = PERSISTENT-INSERT(x.left, z)
+        else:             y.right = PERSISTENT-INSERT(x.right, z)
+        return y
+
+Only the search path is copied; off-path subtrees are shared. (c) O(h) time and O(h) new nodes. For deletion, copy the search path to z and, when z has two children, the successor-splice path; share all untouched subtrees. (d) Parent pointers make shared children point to one parent only, so changing a copied ancestor's child requires updating the child's parent; that child may be shared with the old version, forcing further copying. In the worst case this propagates across Θ(n) nodes. (e) Use a persistent balanced representation with path copying and no parent pointers; red-black balancing requires carefully persistent rotations/recoloring and O(lg n) copied nodes. Details pending.
 
 **13-2. RB-JOIN.** (a) Store bh(T) at the tree object. Recompute it by following one root-to-NIL path after an update, which costs O(lg n) and does not change the asymptotic update bound. During a descent, maintain the current node's black-height h; for a child c, set bh(c)=h−1 if c is BLACK and bh(c)=h if c is RED (NIL has bh 0). This is O(1) per visited node. (b) Assume bh(T1)≥bh(T2)=k. Descend the right spine of T1, maintaining bh. Find the BLACK node y on that spine with bh(y)=k and largest key; the right-spine order makes it the rightmost qualifying node. (c) Replace y at its parent by a new node x; set x.left=y, x.right=T2.root, and repair the three parent links. Since bh(y)=bh(T2)=k and x is RED, paths through either child have equal black count, and BST order follows from every T1 key≤x.key≤every T2 key. (d) Make x RED. Properties 1, 3, and 5 hold; insertion fixup restores properties 2 and 4 in O(lg n). (e) If bh(T1)<bh(T2), exchange the roles and descend the left spine of the taller T2 to find the leftmost BLACK y with bh(y)=bh(T1); join with x.left=T1 and x.right=y. (f) One spine descent and one insertion fixup each cost O(lg n), so RB-JOIN is O(lg n).
 
