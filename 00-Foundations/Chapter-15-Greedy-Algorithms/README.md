@@ -86,6 +86,11 @@ Offline optimal caching is a benchmark, not a realistic online policy: real cach
 - [Activity-selection exchange argument](images/activity-selection-exchange.svg)
 - [Huffman merge step](images/huffman-merge.svg)
 
+## Python implementation
+
+- [Greedy algorithms](../../Implementations/Python/greedy_algorithms.py)
+- [Unit tests](../../Implementations/Python/test_greedy_algorithms.py)
+
 ## Engineering checklist
 
 - State tie-breaking explicitly; many greedy optima are not unique.
