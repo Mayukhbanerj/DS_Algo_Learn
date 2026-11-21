@@ -14,9 +14,17 @@ Compare any three distinct elements and return their median. Three comparisons s
 Run five heats of five, then race the five heat winners (six races). Let the winners be A1 through E1 in order. Eliminate heats D and E; eliminate A4,A5; B3,B4,B5; and C2,C3,C4,C5. The remaining candidates for second and third are A2,A3,B1,B2,C1. Race these five once; the top two are second and third overall. Total: 7 races.
 
 ### 9.1-4 — Lower bound for simultaneous extrema
-An adversary can force the following structure. First, each comparison between two elements that have neither previously won nor lost is answered by designating the winner as a possible maximum and the loser as a possible minimum. Such a comparison is the only kind that can eliminate two extreme-candidate possibilities at once: one element acquires a loss and cannot be the maximum, while the other acquires a win and cannot be the minimum. After at most floor(n/2) such pairings, there are floor(n/2) elements that have lost (plus the unpaired element if n is odd) that remain possible minima, and the same number of elements that have won (plus the unpaired element if n is odd) that remain possible maxima.
+Track two candidate sets: elements that have never lost (still possible minima) and elements that have never won (still possible maxima). Initially there are n candidates in each set, so a correct algorithm must eliminate n−1 minimum-candidate memberships and n−1 maximum-candidate memberships: 2n−2 eliminations in total.
 
-The minimum must still be determined among the minimum candidates, and the maximum among the maximum candidates. Comparing a minimum candidate against a maximum candidate cannot make progress on either tournament: the adversary can maintain the lower candidate as a possible minimum and the higher candidate as a possible maximum. Thus the two remaining tournaments require at least (m−1)+(m−1) comparisons when n=2m, and at least m+m comparisons when n=2m+1 (there are m+1 candidates in each set). Including the initial m pairings gives 3m−2 for even n and 3m for odd n, which is exactly \(\lceil 3n/2\rceil-2\). This matches the pairwise upper bound.
+A comparison can eliminate at most two memberships. It eliminates two only when both compared elements were previously untouched—neither had won nor lost—because the winner ceases to be a minimum candidate and the loser ceases to be a maximum candidate. Each such comparison consumes two untouched elements, so there can be at most floor(n/2) two-elimination comparisons. Every other comparison eliminates at most one candidate membership. If C is the total number of comparisons and q≤floor(n/2) is the number that eliminate two memberships, then
+\[
+2n-2\le 2q+(C-q)=C+q
+\]
+and hence
+\[
+C\ge 2n-2-\lfloor n/2\rfloor=\lceil 3n/2\rceil-2.
+\]
+The pairwise algorithm from Section 9.1 attains this lower bound.
 
 ## Exercises 9.2 — Expected-linear selection
 
