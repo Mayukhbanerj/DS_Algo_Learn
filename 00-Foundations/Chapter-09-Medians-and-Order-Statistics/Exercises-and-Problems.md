@@ -85,7 +85,26 @@ Binary-search a partition i in X and j=n−i in Y so the left halves contain n v
 Pair elements and retain the smaller from each pair, then recurse among those candidates. The recurrence is U_i(n)=S(n) for i≥n/2, otherwise floor(n/2)+U_i(ceil(n/2))+S(2i). Repeated halving yields n+O(S(2i) log(n/i)); for constant i, n+O(log n).
 
 ### 9-5 — Indicator analysis of randomized selection
-The exact probability depends on the target rank i as well as the pair j<k; it cannot be inferred merely from the first pivot in [j,k], because earlier pivots outside that interval may eliminate both keys before they are compared. The source's part (b) gives a specific three-sum upper bound for E[X_i]. I am retaining this exercise as an open proof item until the piecewise cases in (a) are derived and checked against that exact expression, rather than inserting an unverified probability formula.
+For j<k, the exact comparison probability is
+\[
+E[X_{ijk}]=
+\begin{cases}
+\dfrac{2}{k-j+1},&j\le i\le k,\\[4pt]
+\dfrac{2}{k-i+1},&i<j<k,\\[4pt]
+\dfrac{2}{i-j+1},&j<k<i.
+\end{cases}
+\]
+The cases correspond to whether the pair straddles (or touches) the target rank, lies entirely above it, or lies entirely below it. If both keys are on the same side of the target, pivots outside the pair but between the pair and the target can eliminate one or both before the pair is compared; consequently the probability depends on the distance to i, not just on k−j.
+
+Let X_i be the total number of element-to-element comparisons. By linearity of expectation, sum E[X_{ijk}] over all j<k. Splitting the pairs into the three cases gives exactly the upper-bound expression in CLRS part (b):
+\[
+E[X_i]\le 2\left(
+\sum_{j=1}^{i}\sum_{k=i}^{n}\frac{1}{k-j+1}
++\sum_{k=i+1}^{n}\frac{k-i-1}{k-i+1}
++\sum_{j=1}^{i-2}\frac{i-j-1}{i-j+1}
+\right).
+\]
+The first double sum is O(n): for each fixed distance d=k−j, at most d+1 pairs straddle i, and each contributes 1/(d+1), so each distance contributes O(1), across at most n distances. Each of the other two sums has at most n terms, each bounded by 1, and is therefore O(n). CLRS further asks to establish the explicit bound E[X_i]≤4n in part (c); the linear bound above establishes the required O(n) result, while the sharper constant-bound arithmetic is retained for a final line-by-line check. Part (d) follows because each partition's work is proportional to the number of comparisons, giving O(n) expected running time.
 
 ### 9-6 — Select with groups of three
 (a) For groups of odd size 2t+1 with t≥2, the median-of-medians pivot discards a fixed fraction on both sides. The pivot recursion has size about n/(2t+1), and the selection recursion is bounded by a fraction whose sum with 1/(2t+1) is strictly below 1. The recurrence is linear.
