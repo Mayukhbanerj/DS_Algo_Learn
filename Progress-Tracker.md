@@ -152,8 +152,10 @@ Files:
 - [x] Stable counting sort, radix sort, and bucket sort Python implementations added
 - [x] Python test suite added
 - [x] Original counting-sort stability illustration added
-- [ ] Audit proof detail for 8.1-3, 8.3-4, 8.3-6, and Problems 8-1 and 8-7 against the printed source
-- [ ] Execute committed Python tests and broaden randomized edge-case validation
+- [x] Recheck Exercise 8.1-3 and the exact wording of 8.3-4 and 8.3-6 against the printed source
+- [x] Strengthen the decision-tree and merging lower-bound proofs; correct the restricted-input argument in 8.1-4
+- [ ] Complete the indexed boundary proof for Problem 8-7(f) and verify the nondivisible/padding argument in 8-7(g)–(h)
+- [ ] Execute the committed Python test file itself (the repository clone is unavailable in this environment); equivalent locally reconstructed checks have passed, but this is not a committed-suite execution
 - [ ] Fetch all Chapter 8 files and finish source/chat/GitHub three-way audit
 
 Files:
@@ -167,4 +169,4 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Next:** Begin Chapter 8 after reviewing Chapters 1–7 and completing the self-assessment prompts.
+**Next:** Finish the Chapter 8 source/chat/GitHub audit. Do not begin Chapter 9 until the remaining columnsort proof and repository verification are complete.
