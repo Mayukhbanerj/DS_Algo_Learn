@@ -1,4 +1,5 @@
 import unittest
+import random
 from red_black_tree import RedBlackTree
 
 class TestRedBlackTree(unittest.TestCase):
@@ -40,6 +41,25 @@ class TestRedBlackTree(unittest.TestCase):
                 t.delete(handles[k])
                 self.assertTrue(t.validate())
             self.assertEqual(t.inorder(),[])
+
+    def test_seeded_insert_delete_stress(self):
+        rng = random.Random(130)
+        for _ in range(200):
+            values = [rng.randrange(50) for _ in range(rng.randrange(1, 150))]
+            tree = RedBlackTree()
+            handles = []
+            expected = []
+            for value in values:
+                handles.append((value, tree.insert(value)))
+                expected.append(value)
+                self.assertTrue(tree.validate())
+                self.assertEqual(tree.inorder(), sorted(expected))
+            rng.shuffle(handles)
+            for value, node in handles:
+                tree.delete(node)
+                expected.remove(value)
+                self.assertTrue(tree.validate())
+                self.assertEqual(tree.inorder(), sorted(expected))
 
     def test_duplicates(self):
         t=RedBlackTree()
