@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260">
+<rect width="900" height="260" fill="#fff"/>
+<text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="20" fill="#172033">Activity selection: exchange the first choice</text>
+<text x="35" y="78" font-family="Arial" font-size="15" fill="#334155">An optimal schedule may begin with a:</text>
+<rect x="250" y="58" width="220" height="30" rx="5" fill="#fef3c7" stroke="#d97706"/>
+<text x="360" y="78" text-anchor="middle" font-family="Arial" font-size="14" fill="#78350f">a (finish fₐ)</text>
+<text x="35" y="150" font-family="Arial" font-size="15" fill="#334155">Replace it with the earliest-finishing g:</text>
+<rect x="250" y="130" width="160" height="30" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+<text x="330" y="150" text-anchor="middle" font-family="Arial" font-size="14" fill="#14532d">g (f_g ≤ fₐ)</text>
+<path d="M480 73 L550 73 L550 145 L430 145" stroke="#64748b" stroke-width="2" fill="none"/>
+<path d="M430 145 l10 -6 l0 12z" fill="#64748b"/>
+<text x="580" y="105" font-family="Arial" font-size="14" fill="#475569">Every activity compatible</text>
+<text x="580" y="125" font-family="Arial" font-size="14" fill="#475569">after a is also compatible</text>
+<text x="580" y="145" font-family="Arial" font-size="14" fill="#475569">after g. Count is preserved.</text>
+<text x="450" y="220" text-anchor="middle" font-family="Arial" font-size="14" fill="#64748b">Greedy choice is safe; the remaining suffix is the same subproblem.</text>
+</svg>
