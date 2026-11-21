@@ -51,7 +51,7 @@ class TestBST(unittest.TestCase):
         t,_=self.build([10,5,15,18])
         z=t.search(10); successor=t.successor(z)
         t.delete(z)
-        self.assertIs(t.search(12),successor)
+        self.assertIs(t.search(15),successor)
         self.assertEqual(t.inorder(),[5,15,18])
         self.assertTrue(t.validate())
 
