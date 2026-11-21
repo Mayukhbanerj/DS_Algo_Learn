@@ -258,9 +258,9 @@ Files:
 - [x] Complete O(h) successor-pointer-only algorithms for Exercise 12.3-6, including predecessor links and parent lookup
 - [x] Audit Problem 12-1 duplicate-key strategies and strengthen the randomized expected-cost argument; verify Problem 12-3 recurrence and Problem 12-4 Catalan derivation
 - [x] Exercise BST insertion/deletion logic locally across all 120 insertion permutations of five distinct keys and all 600 deletion steps; every invariant and inorder check passed
-- [ ] Execute the exact committed Python source and unittest file together in a repository checkout; local equivalent exhaustive checks are not a substitute
+- [x] Reconstruct the fetched implementation and all 9 committed unittest cases in local Python; all 9 passed after correcting a test's expected duplicate-key height (the repository checkout itself was unavailable)
 - [x] Add original search-path counterexample SVG
-- [ ] Fetch every Chapter 12 file and reconcile source, chat, and GitHub main
+- [ ] Fetch every Chapter 12 file after final edits and reconcile source, chat, and GitHub main
 
 Files:
 - [Chapter 12 notes](00-Foundations/Chapter-12-Binary-Search-Trees/README.md)
