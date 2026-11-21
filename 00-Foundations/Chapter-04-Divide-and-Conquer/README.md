@@ -292,4 +292,4 @@ The chapter notes place divide-and-conquer in the history of algorithm design, i
 - [x] Section 4.7: Akra–Bazzi and polynomial growth
 - [x] Exercises 4.1-1 through 4.7-6 and Problems 4-1 through 4-7 — companion file
 
-**Status:** Notes drafted. The companion solutions and final three-way audit must pass before Chapter 4 is marked complete.
+**Status:** Chapter 4 study package complete. Notes and companion solutions were checked against the source chapter, the conversation's requirements, and the committed GitHub files.
