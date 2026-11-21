@@ -107,13 +107,12 @@ E[X_i]\le 2\left(
 For the explicit constant, the first double sum is at most n: group by d=k−j; for each d there are at most d+1 crossing pairs, each contributing 1/(d+1), so each of the at most n distance classes contributes at most 1. In the second sum, (k−i−1)/(k−i+1)≤1, and there are n−i terms. In the third, (i−j−1)/(i−j+1)≤1, and there are i−2 terms. Thus the expression in (b) is at most 2[n+(n−i)+(i−2)]≤4n. This proves (c). For (d), each partition takes time linear in the active subarray and its comparisons are bounded in expectation by the indicator-variable analysis, so the expected running time is O(n).
 
 ### 9-6 — Select with groups of three
-(a) For group size 2t+1 with fixed t≥2, each group median certifies t elements on either side. The median of the group medians therefore certifies at least t·(g/2−O(1)) = tn/(2(2t+1))−O(1) elements on either side. The larger selection side is at most (1−t/(2(2t+1)))n+O(1). The pivot recursion has size at most n/(2t+1), and the two recursive fractions sum to
+(a) For group size 2t+1 with fixed t≥2, each group median and its t elements on the same side give t+1 certified elements. The median of the group medians therefore certifies at least (t+1)(g/2−O(1)) = (t+1)n/(2(2t+1))−O(1) elements on either side. The larger selection side is at most (1−(t+1)/(2(2t+1)))n+O(1). The pivot recursion has size at most n/(2t+1), and the two recursive fractions sum to
 \[
-\frac{1}{2t+1}+1-\frac{t}{2(2t+1)}
-=1-\frac{t-2}{2(2t+1)}<1
+\frac{1}{2t+1}+1-\frac{t+1}{2(2t+1)}
+=1-\frac{t-1}{2(2t+1)}<1
 \]
-for t>2. For t=2 this is the standard groups-of-five case, whose sharper count gives 9/10. Thus every odd fixed group size at least five gives a linear recurrence.
-
+for every fixed t≥2. Thus every odd fixed group size at least five gives a linear recurrence.
 (b) With groups of three, each group median certifies only one element on either side. The median of the g≈n/3 medians therefore guarantees about n/3 elements on either side, leaving a recursive side of at most 2n/3+O(1). Hence T(n)≤T(n/3)+T(2n/3+O(1))+O(n)=O(n log n).
 
 (c) The supplied SELECT3 pseudocode first removes the minimum repeatedly until the active length is divisible by 9 (returning immediately if rank 1 is wanted). It then divides the active array into triples in a strided layout and sorts each triple. Their medians occupy the middle third. It next sorts triples of those first-level medians; their medians occupy the middle ninth. It recursively selects the median of these second-level medians, partitions the original active array around that pivot, and recurses into only the side containing the requested rank.
