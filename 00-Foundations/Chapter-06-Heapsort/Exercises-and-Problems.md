@@ -123,7 +123,7 @@ Choose keys so that at every node on a root-to-leaf path, the child on that path
 Input: \(\langle5,3,17,10,84,19,6,22,9\rangle\). Start at \(i=\lfloor9/2\rfloor=4\):
 - \(i=4\): swap 10 with child 22.
 - \(i=3\): swap 17 with child 19.
-- \(i=2\): swap 3 with 84, then with 9.
+- \(i=2\): swap 3 with 84.
 - \(i=1\): swap 5 with 84, then 22, then 10.
 
 The final max-heap is
