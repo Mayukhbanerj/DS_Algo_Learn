@@ -20,6 +20,7 @@ The goal is to develop algorithmic reasoning—not memorize solutions. Notes dis
 | `00-Foundations/Chapter-02-Getting-Started/` | Chapter 2 notes, exercises, illustrations |
 | `00-Foundations/Chapter-03-Characterizing-Running-Times/` | Chapter 3 notes, exercises, asymptotic illustrations |
 | `00-Foundations/Chapter-04-Divide-and-Conquer/` | Chapter 4 notes, exercises, recurrence illustrations |
+| `00-Foundations/Chapter-05-Probabilistic-Analysis/` | Chapter 5 notes, exercises, probability derivations |
 | `Implementations/Python/` | Python implementations and tests |
 | `Progress-Tracker.md` | Study progress and next steps |
 
