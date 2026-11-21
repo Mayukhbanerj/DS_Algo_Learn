@@ -279,6 +279,45 @@ The main indexes are:
 
 When keys are equal, taking the left value first preserves stability. Each element is copied back exactly once, so merging (n) total elements takes (Theta(n)) time.
 
+
+
+### MERGE pseudocode (complete operational version)
+
+The following is a 0-based temporary-array translation of the book's MERGE procedure. The destination subarray uses the original array's indices.
+
+```text
+MERGE(A, p, q, r)
+1  nL = q - p + 1
+2  nR = r - q
+3  create L[0:nL-1] and R[0:nR-1]
+4  for i = 0 to nL - 1
+5      L[i] = A[p + i]
+6  for j = 0 to nR - 1
+7      R[j] = A[q + j + 1]
+8  i = 0
+9  j = 0
+10 k = p
+11 while i < nL and j < nR
+12     if L[i] <= R[j]
+13         A[k] = L[i]
+14         i = i + 1
+15     else
+16         A[k] = R[j]
+17         j = j + 1
+18     k = k + 1
+19 while i < nL
+20     A[k] = L[i]
+21     i = i + 1
+22     k = k + 1
+23 while j < nR
+24     A[k] = R[j]
+25     j = j + 1
+26     k = k + 1
+```
+
+The temporary arrays contain the original two sorted ranges, so writing into A cannot destroy an unmerged value. The comparison uses `<=`, taking from L first when keys are equal; this preserves the relative order of equal keys. Each item is copied to a temporary array once and back to A once, so total work is proportional to (n=r-p+1).
+
+
 ### MERGE-SORT pseudocode
 
 ```text
