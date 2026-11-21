@@ -1,6 +1,6 @@
 import unittest
 from dynamic_programming import (
-    rod_cut, reconstruct_cuts, matrix_chain_order,
+    rod_cut, rod_cut_memoized, reconstruct_cuts, matrix_chain_order, matrix_chain_memoized,
     matrix_chain_parenthesization, lcs, lcs_length_linear_space,
     optimal_bst, construct_optimal_bst,
 )
@@ -10,6 +10,7 @@ class TestDynamicProgramming(unittest.TestCase):
         prices=[1,5,8,9,10,17,17,20,24,30]
         revenue,first=rod_cut(prices,4)
         self.assertEqual(revenue,10)
+        self.assertEqual(rod_cut_memoized(prices,4)[0],10)
         self.assertEqual(sum(reconstruct_cuts(first,4)),4)
         self.assertEqual(sum(prices[x-1] for x in reconstruct_cuts(first,4)),10)
 
@@ -20,6 +21,7 @@ class TestDynamicProgramming(unittest.TestCase):
     def test_matrix_chain_clrs(self):
         cost,s=matrix_chain_order([30,35,15,5,10,20,25])
         self.assertEqual(cost,15125)
+        self.assertEqual(matrix_chain_memoized([30,35,15,5,10,20,25])[0],15125)
         self.assertEqual(matrix_chain_parenthesization(s),"((A1(A2A3))((A4A5)A6))")
 
     def test_matrix_chain_single(self):
