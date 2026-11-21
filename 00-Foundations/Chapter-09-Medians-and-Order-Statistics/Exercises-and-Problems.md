@@ -107,22 +107,22 @@ E[X_i]\le 2\left(
 For the explicit constant, the first double sum is at most n: group by d=k−j; for each d there are at most d+1 crossing pairs, each contributing 1/(d+1), so each of the at most n distance classes contributes at most 1. In the second sum, (k−i−1)/(k−i+1)≤1, and there are n−i terms. In the third, (i−j−1)/(i−j+1)≤1, and there are i−2 terms. Thus the expression in (b) is at most 2[n+(n−i)+(i−2)]≤4n. This proves (c). For (d), each partition takes time linear in the active subarray and its comparisons are bounded in expectation by the indicator-variable analysis, so the expected running time is O(n).
 
 ### 9-6 — Select with groups of three
-(a) For groups of odd size 2t+1 with t≥2, the median-of-medians pivot discards a fixed fraction on both sides. The pivot recursion has size about n/(2t+1), and the selection recursion is bounded by a fraction whose sum with 1/(2t+1) is strictly below 1. The recurrence is linear.
-
-(b) For triples, the first-level medians number n/3. Their median guarantees only about n/3 elements on either side, so the direct recurrence is
+(a) For group size 2t+1 with fixed t≥2, each group median certifies t elements on either side. The median of the group medians therefore certifies at least t·(g/2−O(1)) = tn/(2(2t+1))−O(1) elements on either side. The larger selection side is at most (1−t/(2(2t+1)))n+O(1). The pivot recursion has size at most n/(2t+1), and the two recursive fractions sum to
 \[
-T(n)\le T(n/3)+T(2n/3)+O(n),
+\frac{1}{2t+1}+1-\frac{t}{2(2t+1)}
+=1-\frac{t-2}{2(2t+1)}<1
 \]
-which yields O(n log n).
+for t>2. For t=2 this is the standard groups-of-five case, whose sharper count gives 9/10. Thus every odd fixed group size at least five gives a linear recurrence.
 
-(c) SELECT3 repeats grouping one level deeper. First, sort triples and place their medians in the middle third of the array. Next, group those first-level medians into triples, sort each second-level triple, and recursively select the median of the second-level medians. This pivot is a median of medians of medians. Partition the original array around it and recurse only into the side containing rank i.
+(b) With groups of three, each group median certifies only one element on either side. The median of the g≈n/3 medians therefore guarantees about n/3 elements on either side, leaving a recursive side of at most 2n/3+O(1). Hence T(n)≤T(n/3)+T(2n/3+O(1))+O(n)=O(n log n).
 
-(d) Let g=n/3 and g'=g/3=n/9 after the preprocessing removes at most eight elements to make the active size divisible by 9. At least about half of the g' second-level medians lie on either side of their median. Each such second-level triple contributes two first-level medians on that side; each first-level median certifies two original elements on that side. Thus at least about 4(g'/2)=2n/9 original elements are guaranteed on either side, up to constant rounding. The recursive selection side has at most 7n/9+O(1) elements, and the pivot-selection recursion has size n/9:
+(c) The supplied SELECT3 pseudocode first removes the minimum repeatedly until the active length is divisible by 9 (returning immediately if rank 1 is wanted). It then divides the active array into triples in a strided layout and sorts each triple. Their medians occupy the middle third. It next sorts triples of those first-level medians; their medians occupy the middle ninth. It recursively selects the median of these second-level medians, partitions the original active array around that pivot, and recurses into only the side containing the requested rank.
+
+(d) Let the post-preprocessing active length be N=9h, so g=N/3=3h first-level triples and g'=g/3=h second-level triples. The recursive pivot is the ceil(h/2)-th second-level median. Excluding the second-level triple containing this pivot, at least ceil(h/2)-1 second-level medians are strictly smaller, and at least floor(h/2) are strictly larger. Each second-level median that is strictly smaller than the pivot has two first-level medians in its second-level triple that are also smaller. Each such first-level median is the median of an original triple, and certifies two original elements strictly smaller than itself. Thus at least 4(ceil(h/2)-1) original active elements are strictly smaller than the pivot. Symmetrically, at least 4 floor(h/2) are strictly larger. Both bounds are at least 2h−4 = 2N/9−4. Therefore, after partitioning, whichever strict side is recursively selected contains at most N−(2N/9−4)−1 = 7N/9+3 elements. The pivot-selection call has h=N/9 elements. Preprocessing removes at most eight elements; its repeated minimum scans cost O(n) total, and changing n to N=n−O(1) affects only additive constants. The recurrence is
 \[
 T(n)\le T(n/9)+T(7n/9+O(1))+O(n).
 \]
-The recursive fractions sum to 8/9<1, so SELECT3 runs in O(n) worst-case time. The exact constant-rounding details should be checked against the line-by-line preprocessing before this proof is considered final.
-
+Since 1/9+7/9=8/9<1, substitution proves T(n)=O(n) worst case.
 ---
 
 ## Audit notes
