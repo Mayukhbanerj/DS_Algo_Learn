@@ -154,7 +154,11 @@ Files:
 - [x] Original counting-sort stability illustration added
 - [x] Recheck Exercise 8.1-3 and the exact wording of 8.3-4 and 8.3-6 against the printed source
 - [x] Strengthen the decision-tree and merging lower-bound proofs; correct the restricted-input argument in 8.1-4
-- [ ] Complete the indexed boundary proof for Problem 8-7(f) and verify the nondivisible/padding argument in 8-7(g)–(h)
+- [ ] Finish the case-by-case boundary-index audit for Problem 8-7(f); the current rewrite states the dirty-interval separation argument but is not yet accepted as a complete proof
+- [x] Recheck the 8.3-6 MSD pass-count bound and strengthen its attainability argument
+- [x] Correct the restricted-input lower-bound argument in 8.1-4
+- [x] Clarify the inverse-CDF versus forward-CDF assumption in Exercise 8.4-6
+- [ ] Independently verify the nondivisible/padding argument in 8-7(g)–(h)
 - [ ] Execute the committed Python test file itself (the repository clone is unavailable in this environment); equivalent locally reconstructed checks have passed, but this is not a committed-suite execution
 - [ ] Fetch all Chapter 8 files and finish source/chat/GitHub three-way audit
 
