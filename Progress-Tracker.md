@@ -2,57 +2,44 @@
 
 **Primary source:** CLRS, Fourth Edition (2022)  
 **Working language:** Python  
-**Target branch:** `main`
+**Target branch:** \`main\`
 
 ## Completion audit — 21 November 2026
 
-Chapters 1 and 2 have been expanded, cross-checked against the complete chapter page ranges in the uploaded PDF, and published to `main`. Chapter 2 includes original SVG teaching illustrations and Python implementations with unit tests.
+Chapters 1–3 are complete study packages. Chapter 4 has been drafted and is undergoing its three-way audit against the uploaded PDF, this conversation, and GitHub \`main\`.
 
 | Chapter | Coverage | Status |
 |---|---|---|
-| 1 — The Role of Algorithms in Computing | Sections 1.1–1.2, Exercises 1.1-1–1.2-3, Problem 1-1 complete table | **Complete** |
-| 2 — Getting Started | Sections 2.1–2.3, pseudocode conventions, all chapter exercises 2.1-1–2.3-8, Problems 2-1–2-4 | **Complete** |
-| 3 — Characterizing Running Times | Sections 3.1–3.3, Exercises 3.1-1–3.3-9, Problems 3-1–3-7, growth-rate ranking and asymptotic proofs | **Complete** |
+| 1 — The Role of Algorithms in Computing | Sections 1.1–1.2, Exercises 1.1-1–1.2-3, Problem 1-1 | **Complete** |
+| 2 — Getting Started | Sections 2.1–2.3, pseudocode conventions, Exercises 2.1-1–2.3-8, Problems 2-1–2-4 | **Complete** |
+| 3 — Characterizing Running Times | Sections 3.1–3.3, Exercises 3.1-1–3.3-9, Problems 3-1–3-7 | **Complete** |
+| 4 — Divide-and-Conquer | Sections 4.1–4.7, Exercises 4.1-1–4.7-6, Problems 4-1–4-7 | **Audit in progress** |
 
 ## Chapter 1
+
 - [x] Section 1.1: algorithms, problem specifications and instances, correctness, applications, data structures, techniques, NP-completeness, approximation, parallel and online models
-- [x] Section 1.2: efficiency, insertion-sort/merge-sort growth comparison, hardware example, algorithms as a technology, machine learning and data science
-- [x] Exercises 1.1-1 through 1.1-6
-- [x] Exercises 1.2-1 through 1.2-3
+- [x] Section 1.2: efficiency, insertion-sort/merge-sort comparison, hardware example, algorithms as technology, machine learning and data science
+- [x] Exercises 1.1-1 through 1.1-6 and 1.2-1 through 1.2-3
 - [x] Problem 1-1: all eight functions and seven time budgets
-- [x] Independent numerical checks for integer thresholds and inverse formulas
+- [x] Numerical thresholds and inverse formulas independently checked
+- [x] Mathematical notation and chapter-note summary audited
 
 Files:
 - [Chapter 1 notes](00-Foundations/Chapter-01-Role-of-Algorithms/README.md)
 - [Chapter 1 exercises and Problem 1-1](00-Foundations/Chapter-01-Role-of-Algorithms/Exercises-and-Problem-1-1.md)
 
 ## Chapter 2
+
 - [x] Section 2.1: sorting problem, keys and satellite data, insertion sort, loop invariant, correctness
-- [x] Pseudocode conventions: block structure, loops, comments, local variables, indexing, subarrays, objects/references, NIL, parameters, return, short-circuit Boolean operators, error
+- [x] Pseudocode conventions: blocks, loops, comments, local variables, indexing, subarrays, objects/references, NIL, parameters, return, short-circuit Boolean operators, error
 - [x] Section 2.2: RAM model, word-size assumptions, input-size measures, statement-count analysis, best/worst case, average-case caveat, order of growth
-- [x] Section 2.3.1: incremental method, divide/conquer/combine, MERGE, MERGE-SORT
-- [x] Section 2.3.2: recurrence setup, floors/ceilings, merge-sort recurrence and recursion-tree analysis
-- [x] Exercises 2.1-1 through 2.3-8
-- [x] Problems 2-1 through 2-4
-- [x] Original SVG visuals: playing-card insertion sort, insertion-sort array trace, merge-sort recursion
-- [x] Python implementations for insertion sort and merge sort
-- [x] Unit tests for examples, empty/singleton arrays, duplicates, negative values, sorted and reverse-sorted inputs
-- [x] Repository test suite executed with `python -m unittest -v`: 5 tests passed
+- [x] Section 2.3: incremental method, divide/conquer/combine, MERGE, MERGE-SORT, recurrence and recursion-tree analysis
+- [x] Exercises 2.1-1 through 2.3-8 and Problems 2-1 through 2-4
+- [x] Original SVG visuals: playing-card insertion sort, array trace, merge-sort recursion
+- [x] Python insertion sort and merge sort implementations
+- [x] Committed sorting test suite executed: 5 tests passed
 - [x] Additional algorithm/input checks: 14 function/input combinations passed
-
-## Chapter 3
-- [x] Section 3.1: intuitive upper, lower, and tight bounds; insertion-sort proof; precision of case-specific claims
-- [x] Section 3.2: formal definitions of O, Omega, Theta, little-oh, little-omega; algebraic properties; two-parameter notation
-- [x] Section 3.3: monotonicity, floors/ceilings, modular arithmetic, polynomials, exponentials, logarithms, factorials, iteration, log-star, Fibonacci numbers
-- [x] Exercises 3.1-1 through 3.3-9
-- [x] Problems 3-1 through 3-7, including the 30-function growth ranking
-- [x] Original SVG illustration for O, Omega, and Theta bounds
-- [x] Three-way audit: source PDF pages 71–97, conversation context, and GitHub `main`
-
-Files:
-- [Chapter 3 notes](00-Foundations/Chapter-03-Characterizing-Running-Times/README.md)
-- [Chapter 3 exercises and problems](00-Foundations/Chapter-03-Characterizing-Running-Times/Exercises-and-Problems.md)
-- [Asymptotic bounds illustration](00-Foundations/Chapter-03-Characterizing-Running-Times/images/asymptotic-bounds.svg)
+- [x] Mathematical formatting and chapter-note summary audited
 
 Files:
 - [Chapter 2 notes](00-Foundations/Chapter-02-Getting-Started/README.md)
@@ -62,9 +49,43 @@ Files:
 - [Merge-sort recursion illustration](00-Foundations/Chapter-02-Getting-Started/images/merge-sort-recursion.svg)
 - [Insertion sort Python](Implementations/Python/insertion_sort.py)
 - [Merge sort Python](Implementations/Python/merge_sort.py)
-- [Sorting unit tests](Implementations/Python/test_sorting.py)
+- [Sorting tests](Implementations/Python/test_sorting.py)
+
+## Chapter 3
+
+- [x] Section 3.1: intuitive O, Omega, Theta bounds and insertion-sort lower/upper arguments
+- [x] Section 3.2: formal O, Omega, Theta, little-oh, little-omega; algebraic properties; two-parameter notation
+- [x] Section 3.3: monotonicity, floors/ceilings, modular arithmetic, polynomials, exponentials, logarithms, factorials, iteration, log-star, Fibonacci
+- [x] Exercises 3.1-1 through 3.3-9
+- [x] Problems 3-1 through 3-7, including all 30 expressions in Problem 3-3
+- [x] Original SVG illustration for O, Omega, and Theta bounds
+- [x] Chapter notes and mathematical formatting audited
+- [x] Three-way audit against source PDF pages 71–97, this conversation, and GitHub main
+
+Files:
+- [Chapter 3 notes](00-Foundations/Chapter-03-Characterizing-Running-Times/README.md)
+- [Chapter 3 exercises and problems](00-Foundations/Chapter-03-Characterizing-Running-Times/Exercises-and-Problems.md)
+- [Asymptotic bounds illustration](00-Foundations/Chapter-03-Characterizing-Running-Times/images/asymptotic-bounds.svg)
+
+## Chapter 4 — Audit checklist
+
+- [x] Sections 4.1–4.2: standard recursive matrix multiplication and Strassen
+- [x] Sections 4.3–4.4: substitution method and recursion trees
+- [x] Sections 4.5–4.6: master method and continuous-master proof
+- [x] Section 4.7: Akra–Bazzi, polynomial-growth condition, floors and ceilings
+- [x] Exercises 4.1-1 through 4.7-6
+- [x] Problems 4-1 through 4-7
+- [x] Original SVG recursion-tree illustration
+- [ ] Final mathematical and source-coverage review
+- [ ] Fetch every Chapter 4 file again after final edits and reconcile all findings
+
+Files:
+- [Chapter 4 notes](00-Foundations/Chapter-04-Divide-and-Conquer/README.md)
+- [Chapter 4 exercises and problems](00-Foundations/Chapter-04-Divide-and-Conquer/Exercises-and-Problems.md)
+- [Recursion-tree illustration](00-Foundations/Chapter-04-Divide-and-Conquer/images/recursion-tree-level-costs.svg)
 
 ## Completion standard
-The notes are original explanations aligned to the source's organization. The SVGs are newly drawn teaching diagrams, not scans or reproductions of CLRS figures. The Python implementations are translations for study; they are not the textbook's pseudocode verbatim.
 
-**Next:** Begin Chapter 3 only after reviewing Chapters 1 and 2 and completing the self-assessment prompts.
+A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
+
+**Next:** Complete the Chapter 4 audit before marking it complete or advancing to Chapter 5.
