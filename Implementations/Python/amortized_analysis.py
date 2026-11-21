@@ -29,12 +29,20 @@ class BinaryCounter:
             raise ValueError("invalid width or initial value")
         self.width = width
         self.value = value
+        self.high = value.bit_length() - 1
     def increment(self):
         self.value = (self.value + 1) % (1 << self.width)
+        self.high = self.value.bit_length() - 1
         return self.value
     def decrement(self):
         self.value = (self.value - 1) % (1 << self.width)
+        self.high = self.value.bit_length() - 1
         return self.value
+    def reset(self):
+        examined = self.high + 1
+        self.value = 0
+        self.high = -1
+        return examined
     def bits(self):
         return [(self.value >> i) & 1 for i in range(self.width)]
 
