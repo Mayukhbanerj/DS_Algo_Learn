@@ -20,6 +20,22 @@ class TestRedBlackTree(unittest.TestCase):
             self.assertTrue(t.validate())
         self.assertEqual(t.inorder(),[8,12,19,31,38,41])
 
+    def test_clrs_deletion_sequence(self):
+        tree = RedBlackTree()
+        for key in [41, 38, 31, 12, 19, 8]:
+            tree.insert(key)
+        for key, expected in [
+            (8, [12, 19, 31, 38, 41]),
+            (12, [19, 31, 38, 41]),
+            (19, [31, 38, 41]),
+            (31, [38, 41]),
+            (38, [41]),
+            (41, []),
+        ]:
+            tree.delete(tree.search(key))
+            self.assertEqual(tree.inorder(), expected)
+            self.assertTrue(tree.validate())
+
     def test_queries(self):
         t=RedBlackTree()
         nodes={k:t.insert(k) for k in [15,6,18,3,7,17,20,2,4,13,9]}
