@@ -72,7 +72,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14-2. Longest palindromic subsequence.** Let L[i,j] be the LPS length in substring x[i…j]. Base L[i,i]=1; if x[i]=x[j], L[i,j]=2+L[i+1,j−1]; otherwise max(L[i+1,j],L[i,j−1]). Fill by increasing interval length and store choices for reconstruction. O(n²) time and space.
 
-**14-3. Bitonic Euclidean TSP.** Sort points by x. Let B[i,j] be the minimum length of two disjoint paths covering points 1…j whose endpoints are i and j (i<j). Recurrence: B[i,j]=B[i,j−1]+dist(j−1,j) for i<j−1; B[j−1,j]=min_{i<j−1}(B[i,j−1]+dist(i,j)). Answer B[n−1,n]+dist(n−1,n). O(n²) time, O(n) or O(n²) storage depending on reconstruction.
+**14-3. Bitonic Euclidean TSP.** Sort points by x. Let B[i,j] be the minimum length of two disjoint paths covering points 1…j whose endpoints are i and j (i<j). Base B[1,2]=dist(1,2). Recurrence: B[i,j]=B[i,j−1]+dist(j−1,j) for i<j−1; B[j−1,j]=min_{1≤i<j−1}(B[i,j−1]+dist(i,j)). Answer B[n−1,n]+dist(n−1,n). O(n²) time, O(n) or O(n²) storage depending on reconstruction.
 
 **14-4. Printing neatly.** Precompute badness(i,j)=(M−(j−i)−Σ_{k=i}^j l_k)^3 when the words fit, ∞ otherwise; last line has zero penalty. Let cost[j]=min_{1≤i≤j}(cost[i−1]+badness(i,j)), store the minimizing i, and reconstruct lines. O(n²) time and O(n²) space (or O(n) if badness is computed on demand).
 
@@ -86,7 +86,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14-9. Breaking a string.** Add endpoints 0 and n to sorted break positions. Let c[i,j] be minimum cost to perform all breaks between endpoints i and j; c[i,i+1]=0 and c[i,j]=length(j−i)+min_{i<k<j}(c[i,k]+c[k,j]). Store the minimizing k and reconstruct. O(m³) time and O(m²) space.
 
-**14-10. Investment strategy.** By linearity of returns and a single fixed switch fee, an optimal strategy can place all capital in one investment each year. Let V[j,i] be maximum wealth at the end of year j when invested in i. Transition: V[j,i]=max_h(V[j−1,h]·r_(i,j)−(f1 if h=i else f2)). The fee is subtracted at the end of the year, after applying the return. O(Tn²) time and O(Tn) space.
+**14-10. Investment strategy.** By linearity of returns and a single fixed switch fee, an optimal strategy can place all capital in one investment each year. Let V[j,i] be maximum wealth at the end of year j when invested in i. Transition: V[j,i]=max_h(V[j−1,h]·r_(i,j)−(f1 if h=i else f2)). The fee is subtracted at the end of the year, after applying the return. O(Tn²) time and O(Tn) space. (d) With a $15,000 cap per investment, total wealth alone is no longer a sufficient state. For example, $30,000 must be split as $15,000 in each of two investments. If next-year returns are 2 and 1, the resulting wealth is $45,000; a state that records only $30,000 and a single chosen investment cannot represent this feasible split or its future return. The allocation vector is part of the state, so the original one-investment optimal-substructure recurrence no longer applies.
 
 **14-11. Inventory planning.** DP over months and ending inventory: F[i,j]=minimum cost through month i with j machines in inventory. Transition from prior inventory k only when d_i+j−k≥0; production is d_i+j−k, overtime cost is c·max(0,production−m), and holding cost is h(j). Restrict feasible states 0…D. O(nD²) time and O(nD) space.
 
