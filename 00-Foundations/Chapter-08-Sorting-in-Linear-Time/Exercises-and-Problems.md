@@ -22,7 +22,8 @@ Since \(\int\lg x\,dx=x\lg x-x/\ln2\), both bounds are \(\Theta(n\lg n)\). Thus 
 
 ### 8.1-3 — Fraction of inputs sorted in linear time
 
-A decision tree with at least \(f n!\) leaves at depth at most \(cn\) would need at least \(f n!\) shallow leaves. A binary tree of height \(cn\) can have at most \(2^{cn}\) leaves, but a comparison sort needs \(n!\) leaves overall. The standard decision-tree average-depth argument is stronger: the average leaf depth is \(\Omega(\lg(n!))=\Omega(n\lg n)\). If at least half the inputs had depth \(O(n)\), the remaining half would need depth \(\Omega(n\lg n)\) to keep this average bound; apply the same counting argument to show a constant fraction cannot all have linear depth. For a fraction \(1/n\), the allowed shallow leaves are \(n!/n\); for \(1/2^n\), they are \(n!/2^n\). The same tree-capacity bound rules out linear depth for the first two fractions for sufficiently large \(n\), while the \(1/2^n\) fraction is small enough that a linear-depth subset is not ruled out by the information-theoretic count alone. (This exercise is about the distinction between a constant fraction, inverse-polynomial fraction, and exponentially small fraction.)
+If a comparison sort used at most \(cn\) comparisons on at least a fraction \(f(n)\) of its inputs, its decision tree would need at least \(f(n)n!\) leaves at depth at most \(cn\). A binary tree has at most \(2^{cn}\) leaves at depth at most \(cn\). For \(f(n)=1/2\), \(1/n\), or \(1/2^n\), we still have \(f(n)n!>2^{cn}\) for every fixed \(c\) and sufficiently large \(n\), because \(\lg(n!)=\Theta(n\lg n)\), whereas \(\lg f(n)\) is only \(0\), \(-\lg n\), or \(-n\). Therefore none of these fractions can have linear running time for all sufficiently large n.
+
 
 ### 8.1-4 — Partly sorted positions
 
@@ -51,7 +52,8 @@ Consider two equal-key records \(x_i,x_j\) with \(i<j\). The output loop scans f
 
 ### 8.2-3 — Forward placement
 
-A forward loop can still produce sorted keys because each equal key is placed into a distinct position. But it reverses the relative order of equal records: the first equal record receives the earliest cumulative position, while later equal records are placed after it only if the counts are updated differently. In the textbook's direct cumulative-position scheme, a forward traversal without adjusting counts first would overwrite positions; a correct forward variant uses starting offsets computed from prefix sums and increments them after each placement. That variant is stable if it traverses left-to-right and increments each key's next position. To obtain increasing original indices among equal keys, use this starting-offset formulation.
+If only the loop direction is changed to \(j=1\) through \(n\), while keeping \(B[C[A[j]]]=A[j]\) and decrementing \(C[A[j]]\), the keys are still sorted, but equal-key records are placed in reverse input order, so the algorithm is not stable. For a stable forward version, convert cumulative counts to starting offsets: set \(S[0]=1\) and \(S[i]=S[i-1]+freq[i-1]\). Scan \(A\) from left to right, write each record to \(B[S[key]]\), then increment \(S[key]\).
+
 
 ### 8.2-4 — Loop invariant
 
@@ -93,7 +95,8 @@ Base case: after sorting by the least significant digit, the array is sorted by 
 
 ### 8.3-4 — Reduce data passes to d+1
 
-Fuse the counting and placement work into one traversal per digit pass, using a preallocated output array. Counting-sort's frequency/prefix pass still scans the input to build counts, but the digit placement pass is the only additional traversal. Across \(d\) digits, this gives one count scan and one placement scan per digit unless counts are maintained differently; the textbook's optimization is to preallocate output and alternate input/output buffers so no separate copy-back pass is required. Total data passes are \(d+1\) when the input digit counts are accumulated during the preceding pass or by the stated in-place buffer strategy.
+Preallocate an output array and alternate the roles of input and output on successive digit passes. While scanning the input to distribute records for digit \(i\), also count the values of digit \(i+1\). Those counts are ready when the next pass begins, so the next pass does not need a separate frequency scan. The first digit requires its own count scan; each of the \(d\) digit passes then performs one stable distribution scan. Thus there is one initial scan plus \(d\) distribution scans: \(d+1\) passes over the records. Prefix-sum work is over the digit-count array, not another pass over the records.
+
 
 ### 8.3-5 — Sort integers in \([0,n^3-1]\) in O(n)
 
@@ -169,7 +172,7 @@ d(k)=\min_{1\le i<k}\{d(i)+d(k-i)+k\}.
 
 **(b) Linear and in-place.** Use two pointers from the ends; advance the left pointer over zeros and the right pointer over ones, swapping misplaced records. This is \(O(n)\) time and \(O(1)\) extra space, but not stable.
 
-**(c) Stable and in-place.** Stable in-place partition can be done with rotations, but a simple guaranteed linear-time method is not obtained by the usual two-pointer swap. A recursive stable partition using rotations achieves \(O(n\lg n)\) time and \(O(\lg n)\) stack, so it satisfies stability and in-place storage but not the linear-time criterion; this part asks for criteria 2 and 3 only.
+**(c) Stable and in-place.** Use stable insertion sort on the binary keys: scan left to right and shift a record left only across records with key 1 when the current key is 0. Equal-key records are never swapped past one another. It uses \(O(1)\) extra space and is stable, though its running time is \(O(n^2)\); part (c) does not require linear time.
 
 **(d)** A stable method can be used for radix sort only if its time is linear per digit. The stable linear method in (a) uses auxiliary output storage, so it is suitable. The unstable in-place method in (b) is not suitable because LSD radix sort requires stability. The recursive rotation method in (c) is not linear and would increase the radix-sort bound.
 
