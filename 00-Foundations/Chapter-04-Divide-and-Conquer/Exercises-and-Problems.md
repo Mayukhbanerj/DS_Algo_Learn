@@ -82,7 +82,7 @@ Thus \(AB=\begin{bmatrix}18&14\\62&66\end{bmatrix}\).
         C21 += P3+P4
         C22 += P5+P1-P3-P7
 
-There are seven recursive products and \(\Theta(n^2)\) nonrecursive work, so \(T(n)=7T(n/2)+\Theta(n^2)=\Theta(n^{\lg7})\).
+Initialize the top-level output matrix \(C\) to zero before the call; the recursive calls add their products into the corresponding output blocks. There are seven recursive products and \(\Theta(n^2)\) nonrecursive work, so \(T(n)=7T(n/2)+\Theta(n^2)=\Theta(n^{\lg7})\).
 
 ### 4.2-3 — Largest number of \(3\times3\) multiplications
 
