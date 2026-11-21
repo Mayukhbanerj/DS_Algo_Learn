@@ -279,6 +279,18 @@ and corresponding floor identity
 \left\lfloor\frac{\lfloor x/a\rfloor}{b}\right\rfloor
 =\left\lfloor\frac{x}{ab}\right\rfloor.
 \]
+For positive integers \(a,b\) and real \(x\ge0\), the nested rounding identities are
+\[
+\left\lceil\frac{\lceil x/a\rceil}{b}\right\rceil=\left\lceil\frac{x}{ab}\right\rceil,
+\qquad
+\left\lfloor\frac{\lfloor x/a\rfloor}{b}\right\rfloor=\left\lfloor\frac{x}{ab}\right\rfloor.
+\]
+For integers \(a\) and positive integer \(b\),
+\[
+\left\lceil\frac ab\right\rceil\le\frac{a+b-1}{b},
+\qquad
+\left\lfloor\frac ab\right\rfloor\ge\frac{a-b+1}{b}.
+\]
 Also, for integer \(n\), \(\lfloor n+x\rfloor=n+\lfloor x\rfloor\) and \(\lceil n+x\rceil=n+\lceil x\rceil\).
 
 Floors and ceilings often change a quantity by less than one. For asymptotic bounds on growing positive functions, such rounding usually does not change the order.
@@ -316,6 +328,8 @@ The leading term determines its asymptotic order. A function is polynomially bou
 ### Exponentials
 
 For \(a>0\), exponent rules include:
+\[
+a=b^{\log_b a}\quad(b>0,\ b\ne1),\qquad
 \[
 a^0=1,\quad a^1=a,\quad a^{-1}=1/a,\quad
 (a^m)^n=a^{mn},\quad a^ma^n=a^{m+n}.
@@ -397,6 +411,11 @@ A simple upper bound is \(n!\le n^n\). Stirling's approximation gives a much tig
 \[
 n!=\sqrt{2\pi n}\left(\frac ne\right)^n
 \left(1+\Theta(1/n)\right).
+\]
+A refined version used in the chapter is
+\[
+n!=\sqrt{2\pi n}\left(\frac ne\right)^n e^{\alpha_n},
+\qquad \frac{1}{12n+1}<\alpha_n<\frac{1}{12n}.
 \]
 Consequences:
 \[
