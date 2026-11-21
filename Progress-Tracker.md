@@ -180,7 +180,8 @@ Files:
 - [x] Python minimum/maximum, randomized selection, and deterministic selection added
 - [x] Python tests added; equivalent local checks passed for min/max and randomized/deterministic selection (the committed test file itself was not executed)
 - [x] Selection partition diagram added
-- [ ] Audit exercise and problem proofs against exact source wording; resolve flagged gaps in 9.3-5, Problem 9-2(b), Problem 9-5, and Problem 9-6
+- [x] Resolve the flagged proof gaps: six-comparison median-of-five; simplified randomized-select expected-time recurrence; indicator probabilities and the 4n comparison bound; SELECT3 grouping invariant and linear recurrence
+- [ ] Audit every remaining exercise/problem solution and reconcile the chapter notes against the source
 - [ ] Fetch all Chapter 9 files and finish source/chat/GitHub audit
 
 Files:
