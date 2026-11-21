@@ -343,7 +343,7 @@ Files:
 - [x] Add the highest-set-bit pointer and potential proof for the INCREMENT/RESET counter exercise
 - [x] Strengthen Problem 16-3 geometric charging argument and state the limitation of the straightforward Problem 16-2(c) deletion strategy
 - [x] Correct the exact potential function for Exercise 16.3-2 using cumulative credit Φ(i)=3i−C(i)
-- [x] Correct terminating/nonterminating red-black fixup case classification in Problem 16-4(b)
+- [x] Correct terminating/nonterminating red-black fixup case classification in Problem 16-4(b): INSERT Case 1 and DELETE Case 2 are the only repeating cases; all others terminate after O(1) further steps
 - [ ] Complete explicit per-case w(x) potential deltas for Problem 16-4(f) and (g); current summary is not a sufficient proof
 - [x] Correct Problem 16-2(c): state the requested O(n) worst-case and O(n) amortized upper bound for the split-based mixed-update strategy; clarify that O(lg n) amortized INSERT applies only to insertion-only sequences
 - [x] Add Python stack, binary-counter, dynamic-array, Gray-code and sorted-run implementations
