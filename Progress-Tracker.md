@@ -17,6 +17,7 @@ Chapters 1–7 are complete study packages. Each chapter has been checked agains
 | 5 — Probabilistic Analysis and Randomized Algorithms | Sections 5.1–5.4, Exercises 5.1-1–5.4-8, Problems 5-1–5-2 | **Complete** |
 | 6 — Heapsort | Sections 6.1–6.5, Exercises 6.1-1–6.5-11, Problems 6-1–6-3 | **Complete** |
 | 7 — Quicksort | Sections 7.1–7.4, Exercises 7.1-1–7.4-6, Problems 7-1–7-7 | **Complete** |
+| 8 — Sorting in Linear Time | Sections 8.1–8.4, Exercises 8.1-1–8.4-6, Problems 8-1–8-7 | **Draft / audit in progress** |
 
 ## Chapter 1
 
@@ -142,6 +143,25 @@ Files:
 - [Partition invariant illustration](00-Foundations/Chapter-07-Quicksort/images/partition-invariant.svg)
 - [Python quicksort implementations](Implementations/Python/quicksort.py)
 - [Python quicksort tests](Implementations/Python/test_quicksort.py)
+
+## Chapter 8 — Draft and audit in progress
+
+- [x] Sections 8.1–8.4 drafted: decision-tree lower bound, counting sort, radix sort, bucket sort
+- [x] Exercises 8.1-1 through 8.4-6 drafted
+- [x] Problems 8-1 through 8-7 drafted
+- [x] Stable counting sort, radix sort, and bucket sort Python implementations added
+- [x] Python test suite added
+- [x] Original counting-sort stability illustration added
+- [ ] Audit proof detail for 8.1-3, 8.3-4, 8.3-6, and Problems 8-1 and 8-7 against the printed source
+- [ ] Execute committed Python tests and broaden randomized edge-case validation
+- [ ] Fetch all Chapter 8 files and finish source/chat/GitHub three-way audit
+
+Files:
+- [Chapter 8 notes](00-Foundations/Chapter-08-Sorting-in-Linear-Time/README.md)
+- [Chapter 8 exercises and problems](00-Foundations/Chapter-08-Sorting-in-Linear-Time/Exercises-and-Problems.md)
+- [Counting sort illustration](00-Foundations/Chapter-08-Sorting-in-Linear-Time/images/counting-sort-stability.svg)
+- [Python implementations](Implementations/Python/linear_sorting.py)
+- [Python tests](Implementations/Python/test_linear_sorting.py)
 
 ## Completion standard
 
