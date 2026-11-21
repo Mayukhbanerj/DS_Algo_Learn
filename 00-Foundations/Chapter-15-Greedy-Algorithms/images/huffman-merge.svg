@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="330" viewBox="0 0 820 330">
+<rect width="820" height="330" fill="#fff"/>
+<text x="410" y="28" text-anchor="middle" font-family="Arial" font-size="20" fill="#172033">Huffman coding: repeatedly merge the two lightest trees</text>
+<g font-family="Arial" font-size="14" text-anchor="middle" fill="#172033">
+<rect x="90" y="65" width="100" height="42" rx="7" fill="#dbeafe" stroke="#2563eb"/><text x="140" y="91">x: fₓ</text>
+<rect x="230" y="65" width="100" height="42" rx="7" fill="#dbeafe" stroke="#2563eb"/><text x="280" y="91">y: fᵧ</text>
+<rect x="370" y="65" width="130" height="42" rx="7" fill="#dcfce7" stroke="#16a34a"/><text x="435" y="91">z: fₓ+fᵧ</text>
+</g>
+<path d="M140 107 L140 145 L435 145 L435 107 M280 107 L280 145" stroke="#64748b" stroke-width="2" fill="none"/>
+<path d="M435 107 l-6 -10 h12z" fill="#16a34a"/>
+<text x="435" y="175" text-anchor="middle" font-family="Arial" font-size="14" fill="#475569">Replace x,y by their parent z</text>
+<g stroke="#64748b" stroke-width="2" fill="none"><path d="M435 190 L335 245 M435 190 L535 245"/></g>
+<circle cx="335" cy="245" r="24" fill="#dbeafe" stroke="#2563eb"/><circle cx="535" cy="245" r="24" fill="#dbeafe" stroke="#2563eb"/>
+<text x="335" y="250" text-anchor="middle" font-family="Arial" font-size="14" fill="#172033">x</text><text x="535" y="250" text-anchor="middle" font-family="Arial" font-size="14" fill="#172033">y</text>
+<text x="435" y="310" text-anchor="middle" font-family="Arial" font-size="13" fill="#64748b">The two least frequencies become deepest siblings in some optimal prefix code.</text>
+</svg>
