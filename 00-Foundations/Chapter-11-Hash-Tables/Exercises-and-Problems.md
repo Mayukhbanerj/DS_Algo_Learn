@@ -16,7 +16,7 @@ Original study solutions based on CLRS Fourth Edition. Indices are zero-based un
 
 **11.2-1. Expected colliding pairs.** For each unordered key pair define an indicator equal to 1 if it collides. Its expectation is 1/m. By linearity, E[C]=binom(n,2)/m=n(n−1)/(2m).
 
-**11.2-2. Chaining trace.** With m=9 and h(k)=k mod 9, insert 5,28,19,15,20,33,12,17,10. Remainders are 5,1,1,6,2,6,3,8,1. With head insertion the final chains are: slot 1: 10→17→19→28; slot 2: 20; slot 3: 12; slot 5: 5; slot 6: 33→15; slot 8: 17? (Correction: key 17 mod 9 = 8, so slot 8: 17); all other slots empty. Ensure 17 appears only in slot 8.
+**11.2-2. Chaining trace.** With m=9 and h(k)=k mod 9, insert 5,28,19,15,20,33,12,17,10. Remainders are 5,1,1,6,2,6,3,8,1. With head insertion the final chains are: slot 1: 10→19→28; slot 2: 20; slot 3: 12; slot 5: 5; slot 6: 33→15; slot 8: 17; all other slots empty.
 
 **11.2-3. Sorted chains.** Search can stop once a key exceeds the target. Successful and unsuccessful expected search remain Θ(1+α) asymptotically under uniform hashing, though comparisons may improve. INSERT must find the sorted position, costing Θ(chain length); DELETE by node pointer remains Θ(1) in a doubly linked chain.
 
