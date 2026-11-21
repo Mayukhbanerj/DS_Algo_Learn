@@ -60,7 +60,7 @@ Original study solutions based on CLRS Fourth Edition. Indices are zero-based un
 
 **11.5-2. Random oracle.** A random oracle assigns independent uniform outputs to distinct inputs. For any five distinct inputs and any specified output 5-tuple, probability is m^−5; it is 5-independent.
 
-**11.5-3. Bit propagation.** One round has the stated dependency from input bit k_i to ga output bits b_j only for j≥i. Swapping halves moves dependencies across the word; a second round can propagate a change into lower output positions. Therefore the least r that may allow a single input-bit flip to affect any output bit is 2. This bit-index argument should be checked against the exact figure/convention before final sign-off.
+**11.5-3. Bit propagation.** One round has the stated dependency from input bit k_i to ga output bits b_j only for j≥i. Swapping halves maps output position j to j−w/2 (for upper-half j) or j+w/2 (for lower-half j). A flip in the most significant input bit k_(w−1) can therefore affect only output bit w/2−1 after round 1. In round 2, that changed bit can affect all b_j with j≥w/2−1; after swapping, output bits 0,…,w/2−1 and w−1 may change. In particular bit 0 may now change. In round 3, a change in input bit 0 may affect every b_j, and hence every output bit after swapping. Thus the least r that permits a flip in any chosen input bit to affect any output bit is r=3.
 
 ## Problems
 
