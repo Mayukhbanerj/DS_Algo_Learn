@@ -19,7 +19,7 @@ Chapters 1–7 are complete study packages. Each chapter has been checked agains
 | 7 — Quicksort | Sections 7.1–7.4, Exercises 7.1-1–7.4-6, Problems 7-1–7-7 | **Complete** |
 | 8 — Sorting in Linear Time | Sections 8.1–8.4, Exercises 8.1-1–8.4-6, Problems 8-1–8-7 | **Complete** |
 | 9 — Medians and Order Statistics | Sections 9.1–9.3, Exercises 9.1-1–9.3-10, Problems 9-1–9-6 | **Complete** |
-| 10 — Elementary Data Structures | Sections 10.1–10.3, Exercises 10.1-1–10.3-6, Problems 10-1–10-3 | **Draft / audit in progress** |
+| 10 — Elementary Data Structures | Sections 10.1–10.3, Exercises 10.1-1–10.3-6, Problems 10-1–10-3 | **Complete** |
 
 ## Chapter 1
 
@@ -229,11 +229,12 @@ Files:
 - [x] Draft exercise and problem solutions
 - [x] Add Python direct-address, chained-hash and open-address implementations
 - [x] Add initial Python unit tests
-- [ ] Audit remaining proof details in 11.3-5 and Problems 11-3/11-4; 11.5-3 bit-dependency rounds and 11.4-1 probe tables have been rechecked
+- [x] Audit Exercises 11.3-5, 11.5-3 and Problems 11-3/11-4; correct the epsilon lower-bound proof and bit-dependency derivation
+- [x] Solve Exercise 11.2-4 with circular singly linked chains and successor-copy deletion; document the stable-handle caveat
 - [x] Add linear-probing backward-shift deletion; randomized local checks across table sizes 2–19 passed
-- [ ] Execute the exact fetched Python implementation and test contents; fix failures
+- [x] Execute exact fetched Python implementation and test contents in a temporary package; all 11 unittest cases passed
 - [x] Add an original chaining diagram
-- [ ] Fetch every Chapter 11 file and complete source/chat/GitHub reconciliation
+- [ ] Fetch every Chapter 11 file after final edits and complete source/chat/GitHub reconciliation
 
 Files:
 - [Chapter 11 notes](00-Foundations/Chapter-11-Hash-Tables/README.md)
@@ -241,4 +242,4 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 11 — Hash Tables (draft in progress).
+**Current:** Chapter 11 — Hash Tables (final reconciliation in progress).
