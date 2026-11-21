@@ -45,7 +45,10 @@ Use SELECT to find the median, partition around it, then recursively sort both s
 Retain the comparison/partition history from selection. The partition already establishes which elements are below and above the selected key. Traverse the partitioned array to list them; no further key comparisons are needed.
 
 ### 9.3-5 — Median of five
-The exercise asks for a six-comparison method. A detailed decision-tree trace is still required; do not treat a generic sort of five (which may use more comparisons) as a solution.
+Use six comparisons as follows. Compare a with b and c with d, renaming so a≤b and c≤d (2 comparisons). Compare b with d; if needed, swap the two pairs so b≤d (3). Compare b with c (4).
+- If b≤c, then a≤b≤c≤d, so the median of the five is the median of b,c,e. Find the median of these three with two comparisons.
+- If c<b, then a<b and c<b, while d>b. Thus a and c are both below b and d is above b; the median of all five is the median of b,d,e. Find that median with two comparisons.
+Total: 4+2=6 comparisons.
 
 ### 9.3-6 — Selection with a median black box
 Find the median in linear time, partition around it, and recurse only into the side containing rank i, adjusting the rank on the upper side. Each level discards at least half, so total partition work is n+n/2+n/4+…=O(n).
