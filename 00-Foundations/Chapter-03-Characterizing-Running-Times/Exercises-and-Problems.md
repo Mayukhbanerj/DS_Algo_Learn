@@ -338,7 +338,13 @@ Assume \(f,g\) are asymptotically positive.
 - **(d)** If \(u=\Theta(f)\), \(v=\Theta(g)\), multiply the positive lower bounds and upper bounds to obtain \(uv=\Theta(fg)\).
 - **(e)** Since \(a_1,a_2>0\) are constants and \(k_1,k_2\) are fixed, \((a_1n)^{k_1}=\Theta(n^{k_1})\) and \(\lg^{k_2}(b_1n)=\Theta(\lg^{k_2}n)\) for the stated domain. Multiplying gives \(\Theta(n^{k_1}\lg^{k_2}n)\).
 - **(f)** For a finite or convergent sum of nonnegative terms, if each summand is bounded above and below by constant multiples of \(f(k)\), summing preserves those same constant-factor inequalities. Therefore the sum is \(\Theta(\sum_{k\in S}f(k))\), provided the common constants and convergence/domain assumptions are valid.
-- **(g)** The product identity need not hold: the hidden constant factors can accumulate with the number of factors. For example, take \(S=\{1,\ldots,n\}\) and each factor equal to \(2f(k)\). The product gains a factor \(2^n\), which is not a constant independent of \(n\). Thus the claimed product bound is not generally valid.
+- **(g)** Let \(S_n=\{1,\ldots,n\}\) and \(f(k)=1/k\). For every \(k\), \(2f(k)=\Theta(f(k))\). But the finite products are
+  \[
+  \prod_{k=1}^{n}2f(k)=\frac{2^n}{n!},
+  \qquad
+  \prod_{k=1}^{n}f(k)=\frac1{n!}.
+  \]
+  Both products converge to zero as \(n\to\infty\), but their ratio is \(2^n\), which is unbounded. Hence the proposed product identity does not necessarily hold.
 
 ### 3-6 — Variations on \(O\) and \(\Omega\)
 
