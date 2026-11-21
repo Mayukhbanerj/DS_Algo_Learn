@@ -47,6 +47,8 @@ The lower bound does not apply to algorithms that inspect key values and use the
 
 ---
 
+![Counting sort frequency, cumulative counts, and stable placement](images/counting-sort-stability.svg)
+
 ## 8.2 Counting sort
 
 Counting sort assumes each input key is an integer in \([0,k]\). It counts occurrences, converts counts to cumulative positions, and places records directly into output positions. Its running time is \(\Theta(n+k)\), and it is stable.
