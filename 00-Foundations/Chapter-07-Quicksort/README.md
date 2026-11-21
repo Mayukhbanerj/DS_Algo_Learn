@@ -209,4 +209,4 @@ The chapter credits quicksort to C. A. R. Hoare. The textbook's PARTITION proced
 - [x] Problems 7-1 through 7-7 — companion file
 - [x] Python implementations and tests — companion files
 
-**Status:** Chapter 7 notes drafted. Companion solutions, tests, and final source/chat/GitHub audit remain.
+**Status:** Chapter 7 study package complete. The notes and companion solutions were cross-checked against CLRS printed pages 183–204, this conversation's study requirements, and the committed GitHub files. Local validation passed across 510 arrays for five sorting variants, plus 1,000 fuzzy-sort cases and the Hoare partition boundary test.
