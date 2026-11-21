@@ -69,7 +69,7 @@ Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are
 - Delete 41: empty tree.
 Each intermediate tree satisfies all red-black properties; fixup is needed when a removed black node creates an extra black.
 
-**13.4-5. Sentinel accesses.** Lines that inspect sibling/child colors may read T.nil.color; RB-TRANSPLANT writes T.nil.p; the special assignment x.p=y may write the sentinel parent. In fixup, color assignments to a sibling or sibling child are safe only under the case invariants that rule out recoloring the sentinel RED.
+**13.4-5. Sentinel accesses.** RB-TRANSPLANT line 6 writes v.p even when v=T.nil. RB-DELETE line 16 writes x.p=y when x may be T.nil. RB-DELETE-FIXUP reads sentinel colors when w.left or w.right is T.nil (left-branch lines 9,13; mirror lines 30,34); it can write BLACK to such a child (left lines 14,20; mirror lines 35,41) and writes x.color at line 44 when x may be T.nil. The sibling w itself cannot be T.nil while x is doubly black, so assignments that color w RED do not recolor the sentinel.
 
 **13.4-6. Black counts in deletion cases.** Write q= count(c), where count(RED)=0 and count(BLACK)=1; similarly q′=count(c′). Count the extra black on the path containing x. The vector below lists counts from the local root to (α,β; γ,δ; ε,ζ), before and after each transformation:
 - Case 1: before and after are (3; 2; 2). The extra black at x contributes the second extra unit on paths through A.
