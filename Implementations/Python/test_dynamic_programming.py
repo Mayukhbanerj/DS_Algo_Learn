@@ -2,7 +2,7 @@ import unittest
 from dynamic_programming import (
     rod_cut, rod_cut_memoized, reconstruct_cuts, matrix_chain_order, matrix_chain_memoized,
     matrix_chain_parenthesization, lcs, lcs_length_linear_space,
-    optimal_bst, construct_optimal_bst,
+    optimal_bst, construct_optimal_bst, lcs_memoized, lis_quadratic, lis_nlogn,
 )
 
 class TestDynamicProgramming(unittest.TestCase):
@@ -35,6 +35,13 @@ class TestDynamicProgramming(unittest.TestCase):
         self.assertTrue(is_subsequence(result,"ABCBDAB"))
         self.assertTrue(is_subsequence(result,"BDCABA"))
         self.assertEqual(lcs_length_linear_space("ABCBDAB","BDCABA"),4)
+
+    def test_memoized_lcs_and_lis(self):
+        self.assertEqual(lcs_memoized("ABCBDAB", "BDCABA"), 4)
+        values = [10, 9, 2, 5, 3, 7, 101, 18]
+        for result in (lis_quadratic(values), lis_nlogn(values)):
+            self.assertEqual(len(result), 4)
+            self.assertTrue(is_subsequence(result, values))
 
     def test_lcs_empty_and_space(self):
         self.assertEqual(lcs("","ABC")[0],[])
