@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+<rect width="1280" height="640" rx="24" fill="#f8fafc"/>
+<text x="56" y="62" font-family="Arial,sans-serif" font-size="38" font-weight="700" fill="#0f172a">Counting sort: frequency → prefix sum → stable placement</text>
+<g font-family="Arial,sans-serif" font-size="22" fill="#334155">
+<text x="56" y="120" font-weight="700">Input A</text><text x="56" y="158">2  5  3  0  2  3  0  3</text>
+<text x="56" y="228" font-weight="700">1. Frequency counts</text><text x="56" y="266">Key:      0  1  2  3  4  5</text><text x="56" y="302">Count:    2  0  2  3  0  1</text>
+<text x="56" y="372" font-weight="700">2. Cumulative counts (number ≤ key)</text><text x="56" y="410">Key:      0  1  2  3  4  5</text><text x="56" y="446">C:        2  2  4  7  7  8</text>
+<text x="56" y="520" font-weight="700">3. Scan A from right to left, place at B[C[key]], decrement C[key]</text>
+<text x="56" y="562">Stable output: 0  0  2  2  3  3  3  5</text>
+</g>
+<g stroke="#cbd5e1" stroke-width="2" fill="none"><path d="M710 145 H1200 M710 335 H1200 M710 490 H1200"/></g>
+<g font-family="Arial,sans-serif" font-size="21" fill="#0f172a">
+<text x="730" y="115" font-weight="700">Why the reverse scan matters</text>
+<text x="730" y="165">For equal keys, the later input record is placed</text>
+<text x="730" y="197">at the later output position first.</text>
+<text x="730" y="250">Decrementing the cumulative count reserves the</text>
+<text x="730" y="282">previous position for the earlier equal record.</text>
+<text x="730" y="390" font-weight="700">Complexity</text>
+<text x="730" y="430">Time: Θ(n + k)</text>
+<text x="730" y="466">Auxiliary space: Θ(n + k)</text>
+<text x="730" y="545">Stable: yes · In-place: no</text>
+</g>
+</svg>
