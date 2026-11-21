@@ -339,11 +339,14 @@ Files:
 
 - [x] Reopen CLRS source PDF printed pages 449–475, Sections 16.1–16.4, Exercises 16.1-1–16.4-4 and Problems 16-1–16-4
 - [x] Draft notes for aggregate, accounting and potential methods; dynamic-table expansion/contraction
-- [x] Draft exercise/problem solutions; Problem 16-2(c) deletion strategy remains to be made precise
+- [x] Draft exercise/problem solutions; correct the source exercise numbering for 16.2-1–16.2-3
+- [x] Add the highest-set-bit pointer and potential proof for the INCREMENT/RESET counter exercise
+- [x] Strengthen Problem 16-3 geometric charging argument and state the precise limitation of the straightforward Problem 16-2(c) deletion strategy
 - [x] Add Python stack, binary-counter, dynamic-array, Gray-code and sorted-run implementations
 - [x] Add 7 unit-test scenarios
 - [ ] Audit every derivation and red-black-tree case analysis against the source
-- [ ] Execute reconstructed implementation/tests and randomized checks; fix failures
+- [x] Execute reconstructed fetched implementation and test contents: 8 tests passed after fixing three implementation defects (fixed-capacity Python-list model and incorrect merge import)
+- [x] Run 300 randomized dynamic-array traces (150,000 operations), 99 sorted-run datasets and Gray-code widths 1–9
 - [ ] Fetch every Chapter 16 file and reconcile source, chat and GitHub main
 
 Files:
