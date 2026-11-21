@@ -337,7 +337,7 @@ Assume \(f,g\) are asymptotically positive.
 - **(b) False.** Take \(f(n)=n\) and \(g(n)=n^2\). Then the sum is \(\Theta(n^2)\), while the minimum is \(n\), so the sum is not \(\Theta(\min(f,g))\).
 - **(c) True under the stated positivity conditions.** If \(f=O(g)\), then eventually \(f\le cg\). Taking logs gives \(\lg f\le\lg c+\lg g\). Since \(\lg g\ge1\), the additive constant is absorbed, so \(\lg f=O(\lg g)\).
 - **(d) False.** Let \(f(n)=2n\), \(g(n)=n\). Then \(f=O(g)\), but \(2^{f(n)}=4^n\notin O(2^n)\).
-- **(e) False.** Asymptotically positive does not mean eventually at least 1. Let \(f(n)=1/n\). Then \(f(n)^2=1/n^2\), and \(f(n)/f(n)^2=n\to\infty\), so \(f\notin O(f^2)\`.
+- **(e) False.** Asymptotically positive does not mean eventually at least 1. Let \(f(n)=1/n\). Then \(f(n)^2=1/n^2\), and \(f(n)/f(n)^2=n\to\infty\), so \(f\notin O(f^2)\).
 - **(f) True.** If \(f=O(g)\), transpose symmetry gives \(g=\Omega(f)\).
 - **(g) False.** Let \(f(n)=2^n\). Then \(f(n)/f(n/2)=2^{n/2}\), which is unbounded, so \(f(n)\ne\Theta(f(n/2))\).
 - **(h) True.** If \(h=o(f)\), then \(h/f\to0\), so \((f+h)/f=1+h/f\to1\). Therefore \(f+h=\Theta(f)\).
