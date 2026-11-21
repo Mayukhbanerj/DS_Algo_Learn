@@ -21,6 +21,7 @@ Chapters 1–7 are complete study packages. Each chapter has been checked agains
 | 9 — Medians and Order Statistics | Sections 9.1–9.3, Exercises 9.1-1–9.3-10, Problems 9-1–9-6 | **Complete** |
 | 10 — Elementary Data Structures | Sections 10.1–10.3, Exercises 10.1-1–10.3-6, Problems 10-1–10-3 | **Complete** |
 | 11 — Hash Tables | Sections 11.1–11.5, Exercises 11.1-1–11.5-3, Problems 11-1–11-4 | **Complete** |
+| 12 — Binary Search Trees | Sections 12.1–12.3, Exercises 12.1-1–12.3-7, Problems 12-1–12-4 | **Complete** |
 
 ## Chapter 1
 
@@ -244,10 +245,10 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 11 complete. Chapter 12 — Binary Search Trees (draft in progress).
+**Current:** Chapter 12 complete. Chapter 13 is next.
 
 
-## Chapter 12 — Draft and audit in progress
+## Chapter 12 — Complete
 
 - [x] Reopen source PDF printed pages 313–330; capture Sections 12.1–12.3, Exercises 12.1-1–12.3-7 and Problems 12-1–12-4
 - [x] Draft core notes on BST invariants, traversals, queries, successor/predecessor, insertion, transplant and deletion
@@ -260,7 +261,8 @@ Files:
 - [x] Exercise BST insertion/deletion logic locally across all 120 insertion permutations of five distinct keys and all 600 deletion steps; every invariant and inorder check passed
 - [x] Reconstruct the fetched implementation and all 9 committed unittest cases in local Python; all 9 passed after correcting a test's expected duplicate-key height (the repository checkout itself was unavailable)
 - [x] Add original search-path counterexample SVG
-- [ ] Fetch every Chapter 12 file after final edits and reconcile source, chat, and GitHub main
+- [x] Fetch every Chapter 12 file after final edits; verify notes, exercise solutions, SVG, Python implementation/tests, repository map and tracker on GitHub main
+- [x] Complete three-way reconciliation against source PDF printed pages 313–330, conversation instructions and GitHub main
 
 Files:
 - [Chapter 12 notes](00-Foundations/Chapter-12-Binary-Search-Trees/README.md)
