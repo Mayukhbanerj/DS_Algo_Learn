@@ -244,4 +244,25 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 11 complete. Chapter 12 is next.
+**Current:** Chapter 11 complete. Chapter 12 — Binary Search Trees (draft in progress).
+
+
+## Chapter 12 — Draft and audit in progress
+
+- [x] Reopen source PDF printed pages 313–330; capture Sections 12.1–12.3, Exercises 12.1-1–12.3-7 and Problems 12-1–12-4
+- [x] Draft core notes on BST invariants, traversals, queries, successor/predecessor, insertion, transplant and deletion
+- [x] Draft exercise/problem solutions
+- [x] Add Python BST implementation and initial unit tests
+- [ ] Audit Exercise 12.1-1 exact height examples and Exercise 12.2-1 invalid search traces
+- [ ] Correct and verify Exercise 12.2-4 smallest counterexample and Exercise 12.3-5 deletion noncommutativity
+- [ ] Complete exact pseudocode for Exercise 12.3-6 successor-pointer representation
+- [ ] Audit Problem 12-1 duplicate-key strategies and Problem 12-3 recurrence/proof details
+- [ ] Execute exact fetched Python source and tests; fix edge cases
+- [ ] Add original BST/transplant/deletion diagram
+- [ ] Fetch every Chapter 12 file and reconcile source, chat, and GitHub main
+
+Files:
+- [Chapter 12 notes](00-Foundations/Chapter-12-Binary-Search-Trees/README.md)
+- [Chapter 12 exercises and problems](00-Foundations/Chapter-12-Binary-Search-Trees/Exercises-and-Problems.md)
+- [Python BST implementation](Implementations/Python/binary_search_tree.py)
+- [Python BST tests](Implementations/Python/test_binary_search_tree.py)
