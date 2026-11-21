@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430">
+<rect width="1000" height="430" rx="18" fill="#f8fafc"/>
+<text x="40" y="48" font-family="Arial,sans-serif" font-size="25" font-weight="bold" fill="#0f172a">Hashing with chaining</text>
+<text x="40" y="82" font-family="Arial,sans-serif" font-size="15" fill="#475569">Different keys can map to one bucket; each bucket stores a linked chain.</text>
+<g font-family="Arial,sans-serif" font-size="17" fill="#0f172a">
+<g transform="translate(55,125)">
+<rect width="130" height="56" rx="8" fill="#dbeafe" stroke="#2563eb"/><text x="65" y="35" text-anchor="middle">T[0]</text>
+<rect y="66" width="130" height="56" rx="8" fill="#dbeafe" stroke="#2563eb"/><text x="65" y="101" text-anchor="middle">T[1]</text>
+<rect y="132" width="130" height="56" rx="8" fill="#dbeafe" stroke="#2563eb"/><text x="65" y="167" text-anchor="middle">T[2]</text>
+<rect y="198" width="130" height="56" rx="8" fill="#dbeafe" stroke="#2563eb"/><text x="65" y="233" text-anchor="middle">T[3]</text>
+</g>
+<g stroke="#64748b" stroke-width="2" fill="none">
+<path d="M185 153 H245 V150 H300"/><path d="M185 219 H245 V265 H300"/>
+<path d="M185 285 H245 V330 H300"/>
+</g>
+<g transform="translate(300,125)">
+<rect width="120" height="56" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="60" y="35" text-anchor="middle">NIL</text>
+<rect y="66" width="120" height="56" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="60" y="101" text-anchor="middle">key 17</text>
+<rect x="155" y="66" width="120" height="56" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="215" y="101" text-anchor="middle">key 10</text>
+<rect x="310" y="66" width="120" height="56" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="370" y="101" text-anchor="middle">key 28</text>
+<rect y="132" width="120" height="56" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="60" y="167" text-anchor="middle">key 5</text>
+<rect x="155" y="132" width="120" height="56" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="215" y="167" text-anchor="middle">key 9</text>
+<rect x="310" y="132" width="120" height="56" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="370" y="167" text-anchor="middle">NIL</text>
+<rect y="198" width="120" height="56" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="60" y="233" text-anchor="middle">NIL</text>
+</g>
+<g stroke="#16a34a" stroke-width="2.5" fill="none"><path d="M420 219 H455 V219 H455"/><path d="M575 219 H610"/><path d="M730 219 H765"/></g>
+<g font-family="Arial,sans-serif" font-size="14" fill="#475569"><text x="300" y="390">Bucket 1 chain (illustrative): head → 17 → 10 → 28 → NIL</text><text x="55" y="390">Hash function maps keys to bucket indices.</text></g>
+</g></svg>
