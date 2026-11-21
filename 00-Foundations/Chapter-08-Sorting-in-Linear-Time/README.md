@@ -169,6 +169,12 @@ If all elements fall into one bucket, insertion sort takes \(\Theta(n^2)\), so t
 
 ---
 
+## Python implementations
+
+- [Counting sort, including stable record sorting](../../Implementations/Python/linear_sorting.py)
+- [Radix sort and bucket sort](../../Implementations/Python/linear_sorting.py)
+- [Unit tests](../../Implementations/Python/test_linear_sorting.py)
+
 ## Engineering guide: choosing a linear-time sort
 
 | Input structure | Suitable algorithm | Main condition |
