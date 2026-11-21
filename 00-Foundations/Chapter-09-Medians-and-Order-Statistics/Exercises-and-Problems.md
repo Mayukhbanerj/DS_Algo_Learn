@@ -111,12 +111,13 @@ For j<k, the exact comparison probability is
 \[
 E[X_{ijk}]=
 \begin{cases}
-\dfrac{2}{k-j+1},&j\le i\le k,\\[4pt]
+\dfrac{2}{k-j+1},&j<i<k,\\[4pt]
+\dfrac{1}{k-j+1},&i=j<k\text{ or }j<k=i,\\[4pt]
 \dfrac{2}{k-i+1},&i<j<k,\\[4pt]
 \dfrac{2}{i-j+1},&j<k<i.
 \end{cases}
 \]
-The pair is compared exactly when the first pivot chosen from the interval that can separate the pair is one of its two endpoints. If j≤i≤k, that interval is z_j,…,z_k; if i<j<k, it is z_i,…,z_k; if j<k<i, it is z_j,…,z_i. A pivot strictly inside the relevant interval separates the two keys or terminates at the target before they meet. Since each rank in the interval is equally likely to be its first pivot, the probability is 2 divided by the interval's size, giving the three cases above. This also explains why same-side pairs depend on their distance from i, not just on k−j.
+The pair is compared exactly when the first pivot chosen from the interval that can separate the pair is one of its two endpoints. If j<i<k, that interval is z_j,…,z_k, and either endpoint causes the pair to be compared. If i=j<k or j<k=i, choosing the target itself terminates selection before a comparison with the other endpoint, so only the other endpoint is successful. If i<j<k, the relevant interval is z_i,…,z_k; if j<k<i, it is z_j,…,z_i. A pivot strictly inside the relevant interval separates the pair or terminates at the target before they meet. Uniformity of the first pivot in each interval gives the four cases above.
 
 Let X_i be the total number of element-to-element comparisons. By linearity of expectation, sum E[X_{ijk}] over all j<k. Splitting the pairs into the three cases gives exactly the upper-bound expression in CLRS part (b):
 \[
