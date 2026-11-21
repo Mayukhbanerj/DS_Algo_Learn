@@ -15,6 +15,14 @@ class TestAmortizedAnalysis(unittest.TestCase):
         c=BinaryCounter(3)
         self.assertEqual([c.increment() for _ in range(9)],[1,2,3,4,5,6,7,0,1])
         self.assertEqual(c.decrement(),0)
+    def test_counter_reset_pointer(self):
+        c=BinaryCounter(8)
+        for _ in range(31): c.increment()
+        self.assertEqual(c.high,4)
+        self.assertEqual(c.reset(),5)
+        self.assertEqual(c.value,0)
+        self.assertEqual(c.high,-1)
+        self.assertEqual(c.reset(),0)
     def test_dynamic_array_expand_contract(self):
         a=DynamicArray()
         costs=[a.insert(i) for i in range(9)]
