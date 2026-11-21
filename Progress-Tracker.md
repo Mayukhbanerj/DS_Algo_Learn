@@ -319,15 +319,17 @@ Files:
 ## Chapter 15 — Draft and audit in progress
 
 - [x] Reopen source PDF pages for Chapter 15; capture Sections 15.1–15.4, Exercises 15.1-1–15.4-5 and Problems 15-1–15-2
-- [ ] Draft notes on greedy-choice property, activity selection, fractional knapsack, Huffman coding and online caching
-- [ ] Solve and audit all exercises and problems against the source
-- [ ] Add Python activity-selection, fractional-knapsack, Huffman and caching implementations
-- [ ] Add Python tests and original greedy-choice/Huffman diagrams
-- [ ] Execute reconstructed fetched implementation/tests and randomized checks; fix failures
+- [x] Draft notes on greedy-choice property, activity selection, fractional knapsack, Huffman coding and online caching
+- [ ] Final-audit all exercises/problems; Exercise 15.4-4 has a source-model ambiguity flagged with a counterexample
+- [x] Add Python activity-selection, interval partitioning, weighted activity selection, fractional/0-1 knapsack, Huffman, caching, coin-change and scheduling implementations
+- [x] Add 9 Python unit-test scenarios and original activity-selection/Huffman diagrams
+- [x] Reconstruct and pass all 9 test scenarios; 300 activity-selection, 300 weighted-activity and 500 exhaustive-cache comparisons passed
 - [ ] Fetch every Chapter 15 file and reconcile source, chat and GitHub main
 
 Files:
 - [Chapter 15 notes](00-Foundations/Chapter-15-Greedy-Algorithms/README.md)
 - [Chapter 15 exercises and problems](00-Foundations/Chapter-15-Greedy-Algorithms/Exercises-and-Problems.md)
+- [Activity-selection exchange diagram](00-Foundations/Chapter-15-Greedy-Algorithms/images/activity-selection-exchange.svg)
+- [Huffman merge diagram](00-Foundations/Chapter-15-Greedy-Algorithms/images/huffman-merge.svg)
 - [Python greedy algorithms](Implementations/Python/greedy_algorithms.py)
 - [Python tests](Implementations/Python/test_greedy_algorithms.py)
