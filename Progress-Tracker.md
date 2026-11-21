@@ -178,7 +178,7 @@ Files:
 - [x] Sections 9.1–9.3 drafted
 - [x] Exercises and Problems companion drafted
 - [x] Python minimum/maximum, randomized selection, and deterministic selection added
-- [x] Python tests added; all 8 tests passed from the exact fetched committed file contents
+- [x] Python tests added; equivalent local checks passed for min/max and randomized/deterministic selection (the committed test file itself was not executed)
 - [x] Selection partition diagram added
 - [ ] Audit exercise and problem proofs against exact source wording; resolve flagged gaps in 9.3-5, Problem 9-2(b), Problem 9-5, and Problem 9-6
 - [ ] Fetch all Chapter 9 files and finish source/chat/GitHub audit
