@@ -81,6 +81,11 @@ A simple implementation scans the cache on each miss and computes each block's n
 
 Offline optimal caching is a benchmark, not a realistic online policy: real caches do not know future requests. LRU is a practical online heuristic but is not always optimal.
 
+## Visual aids
+
+- [Activity-selection exchange argument](images/activity-selection-exchange.svg)
+- [Huffman merge step](images/huffman-merge.svg)
+
 ## Engineering checklist
 
 - State tie-breaking explicitly; many greedy optima are not unique.
