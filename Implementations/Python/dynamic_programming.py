@@ -203,6 +203,88 @@ def lcs_length_linear_space(x: Sequence, y: Sequence) -> int:
         previous = current
     return previous[-1]
 
+def edit_distance(x: Sequence, y: Sequence, costs: dict[str, float]):
+    """Return minimum cost and an optimal sequence of copy/replace/delete/insert/twiddle/kill operations."""
+    required = {"copy", "replace", "delete", "insert", "twiddle", "kill"}
+    if not required.issubset(costs):
+        raise ValueError("costs must define copy, replace, delete, insert, twiddle, and kill")
+    m, n = len(x), len(y)
+    dp = [[float("inf")] * (n + 1) for _ in range(m + 1)]
+    parent = [[None] * (n + 1) for _ in range(m + 1)]
+    dp[0][0] = 0
+    for i in range(1, m + 1):
+        dp[i][0] = dp[i - 1][0] + costs["delete"]
+        parent[i][0] = (i - 1, 0, "delete")
+    for j in range(1, n + 1):
+        dp[0][j] = dp[0][j - 1] + costs["insert"]
+        parent[0][j] = (0, j - 1, "insert")
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            candidates = []
+            if x[i - 1] == y[j - 1]:
+                candidates.append((dp[i - 1][j - 1] + costs["copy"], i - 1, j - 1, "copy"))
+            else:
+                candidates.append((dp[i - 1][j - 1] + costs["replace"], i - 1, j - 1, "replace"))
+            candidates.append((dp[i - 1][j] + costs["delete"], i - 1, j, "delete"))
+            candidates.append((dp[i][j - 1] + costs["insert"], i, j - 1, "insert"))
+            if i >= 2 and j >= 2 and x[i - 2] == y[j - 1] and x[i - 1] == y[j - 2]:
+                candidates.append((dp[i - 2][j - 2] + costs["twiddle"], i - 2, j - 2, "twiddle"))
+            value, pi, pj, operation = min(candidates, key=lambda item: item[0])
+            dp[i][j] = value
+            parent[i][j] = (pi, pj, operation)
+    # Kill is allowed only as the final operation, after all target characters exist.
+    end_i = m
+    best = dp[m][n]
+    if dp[m][n] > min(dp[i][n] + costs["kill"] for i in range(m + 1)):
+        best = min(dp[i][n] + costs["kill"] for i in range(m + 1))
+        end_i = min(i for i in range(m + 1) if dp[i][n] + costs["kill"] == best)
+    operations = []
+    i, j = end_i, n
+    while i or j:
+        pi, pj, operation = parent[i][j]
+        operations.append(operation)
+        i, j = pi, pj
+    operations.reverse()
+    if end_i < m:
+        operations.append("kill")
+    return best, operations
+
+def longest_palindromic_subsequence(text: Sequence):
+    """Return one longest palindromic subsequence in O(n^2) time and space."""
+    n = len(text)
+    if n == 0:
+        return []
+    length = [[0] * n for _ in range(n)]
+    choice = [[None] * n for _ in range(n)]
+    for i in range(n):
+        length[i][i] = 1
+    for span in range(2, n + 1):
+        for i in range(n - span + 1):
+            j = i + span - 1
+            if text[i] == text[j]:
+                length[i][j] = 2 + (length[i + 1][j - 1] if span > 2 else 0)
+                choice[i][j] = "both"
+            elif length[i + 1][j] >= length[i][j - 1]:
+                length[i][j] = length[i + 1][j]
+                choice[i][j] = "left"
+            else:
+                length[i][j] = length[i][j - 1]
+                choice[i][j] = "right"
+    left, right = [], []
+    i, j = 0, n - 1
+    while i <= j:
+        if i == j:
+            left.append(text[i])
+            break
+        if choice[i][j] == "both":
+            left.append(text[i]); right.append(text[j])
+            i += 1; j -= 1
+        elif choice[i][j] == "left":
+            i += 1
+        else:
+            j -= 1
+    return left + right[::-1]
+
 def optimal_bst(p: Sequence[float], q: Sequence[float]):
     """Return expected cost and root table; p has n entries, q has n+1."""
     n = len(p)
