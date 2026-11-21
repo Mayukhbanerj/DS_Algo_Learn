@@ -384,7 +384,7 @@ Key identities:
 \quad
 \log_b(1/a)=-\log_b a,
 \quad
-\log_b a=\frac1{\log_a b}.
+\log_b a=\frac1{\log_a b},\qquad a^{\log_b c}=c^{\log_b a}.
 \]
 Changing between constant bases changes a logarithm by only a constant factor. Thus \(\log_b n=\Theta(\lg n)\) for fixed bases \(b>1\).
 
