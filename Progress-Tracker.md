@@ -302,7 +302,7 @@ Files:
 - [ ] Solve and audit Exercises 14.1-1 through 14.5-5 and Problems 14-1 through 14-2
 - [x] Add Python rod-cutting, matrix-chain, LCS and optimal-BST implementations
 - [x] Add initial Python tests and original matrix-chain/LCS diagrams
-- [x] Reconstruct fetched Python implementations and 7 committed test scenarios locally; all passed; 350 randomized LCS/matrix-chain checks also passed
+- [x] Reconstruct fetched Python implementations and all 8 committed unittest scenarios locally; all passed. Also passed 350 randomized LCS/matrix-chain checks and 500 randomized LIS checks
 - [ ] Fetch every Chapter 14 file and reconcile source, chat, and GitHub main
 
 Files:
