@@ -299,7 +299,7 @@ Files:
 
 - [x] Reopen source PDF pages for Chapter 14; capture Sections 14.1–14.5, exercises and problems
 - [x] Draft notes on rod cutting, matrix-chain multiplication, DP ingredients, longest common subsequence and optimal BSTs
-- [ ] Solve and audit Exercises 14.1-1 through 14.5-5 and Problems 14-1 through 14-2
+- [x] Solve and audit Exercises 14.1-1 through 14.5-4 and Problems 14-1 through 14-12
 - [x] Add Python rod-cutting, matrix-chain, LCS and optimal-BST implementations
 - [x] Add initial Python tests and original matrix-chain/LCS diagrams
 - [x] Reconstruct fetched Python implementations and all 10 committed unittest scenarios locally; all passed after adjusting the edit-distance test's operation costs. Also passed 350 randomized LCS/matrix-chain checks and 500 randomized LIS checks
