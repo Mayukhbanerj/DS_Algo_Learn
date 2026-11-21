@@ -360,47 +360,8 @@ Assume \(f,g\) are asymptotically positive.
   \]
   Both products converge to zero as \(n\to\infty\), but their ratio is \(2^n\), which is unbounded. Hence the proposed product identity does not necessarily hold.
 
+
 ### 3-6 — Variations on \(O\) and \(\Omega\)
-
-Let \(\Omega_\infty\) denote the alternative definition requiring \(f(n)\ge cg(n)\) for infinitely many integers \(n\).
-
-- **(a)** If \(f=O(g)\), the first alternative holds. Otherwise, for every \(c>0\) and every threshold \(n_0\), some \(n\ge n_0\) violates \(f(n)\le cg(n)\), which means \(f(n)>cg(n)\) for infinitely many \(n\). Thus \(f=\Omega_\infty(g)\). Both can hold.
-- **(b)** Define
-  \[
-  f(n)=\begin{cases}n,&n\text{ even},\\n^2,&n\text{ odd},\end{cases}
-  \qquad
-  g(n)=\begin{cases}n^2,&n\text{ even},\\n,&n\text{ odd}.\end{cases}
-  \]
-  Both functions are nonnegative. On even inputs, \(f(n)/g(n)=1/n\to0\), so no eventual positive lower bound \(f=\Omega(g)\) exists. On odd inputs, \(f(n)/g(n)=n\to\infty\), so no eventual upper bound \(f=O(g)\) exists.
-- **(c)** Advantage: it gives a broad “infinitely often” lower-bound comparison even for oscillating functions. Disadvantage: it does not guarantee a lower bound for all sufficiently large inputs, so it is weaker for worst-case guarantees.
-- **(d)** Replacing \(O\) with \(O'\), where absolute values are bounded, changes the forward direction of Theorem 3.1: \(\Theta(g)\Rightarrow O'(g)\) and \(\Omega(g)\) still hold for nonnegative \(f,g\), but \(O'(g)\) and \(\Omega(g)\) together need not imply \(\Theta(g)\) if \(f\) can be negative or oscillate. For asymptotically nonnegative \(f\), the original equivalence is recovered.
-- **(e)** Define \(\widetilde O(g(n))\) by allowing a logarithmic factor: \(f(n)\le c g(n)(\lg n)^k\) eventually for constants \(c,k>0\). Define \(\widetilde\Omega\) by reversing the inequality, and \(\widetilde\Theta=\widetilde O\cap\widetilde\Omega\). The analogue of Theorem 3.1 follows immediately from the intersection definition.
-
-### 3-7 — Iterated functions
-
-For a monotone increasing function \(f\), \(f_c^*(n)\) counts the number of repeated applications needed to reach at most \(c\).
-
-| Part | Function and threshold | Tight result | Reason |
-|---|---|---|---|
-| (a) | \(f(n)=n-1,\ c=0\) | \(\Theta(n)\) | One decrement per iteration |
-| (b) | \(f(n)=\lg n,\ c=1\) | \(\lg^*n\) | This is the definition of log-star |
-| (c) | \(f(n)=n/2,\ c=1\) | \(\Theta(\lg n)\) | After \(i\) steps, \(n/2^i\le1\) |
-| (d) | \(f(n)=n/2,\ c=2\) | \(\Theta(\lg n)\) | Stop when \(n/2^i\le2\) |
-| (e) | \(f(n)=\sqrt n,\ c=2\) | \(\Theta(\lg\lg n)\) | After \(i\) steps, exponent is \(1/2^i\); solve \(n^{1/2^i}\le2\) |
-| (f) | \(f(n)=\sqrt n,\ c=1\) | Undefined for \(n>1\) | Repeated square roots approach 1 from above but never reach \(\le1\) in a finite number of steps |
-| (g) | \(f(n)=n^{1/3},\ c=2\) | \(\Theta(\lg\lg n)\) | After \(i\) steps, exponent is \(1/3^i\); solve \(n^{1/3^i}\le2\) |
-
----
-
-## Final chapter checklist
-
-- [ ] State all five asymptotic definitions with the correct quantifiers.
-- [ ] Distinguish a bound on the worst case from a bound on every input.
-- [ ] Prove a \(\Theta\)-bound using both an upper and lower bound.
-- [ ] Explain why some functions are asymptotically incomparable.
-- [ ] Derive the polynomial, exponential, logarithmic, factorial, and Fibonacci growth facts.
-- [ ] Complete the exact 30-function ranking in Problem 3-3 using the source's printed list.
-- [ ] Recheck every proof and every table entry before marking the chapter complete.### 3-6 — Variations on \(O\) and \(\Omega\)
 
 Let \(\Omega_\infty\) denote the alternative definition requiring \(f(n)\ge cg(n)\) for infinitely many integers \(n\).
 
