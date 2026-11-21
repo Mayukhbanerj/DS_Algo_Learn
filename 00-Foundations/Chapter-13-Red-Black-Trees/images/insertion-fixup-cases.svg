@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="310" viewBox="0 0 900 310">
+<rect width="900" height="310" fill="#fff"/>
+<text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="20" fill="#172033">Red-black insertion fixup (parent is a left child)</text>
+<g font-family="Arial" font-size="15" fill="#172033" text-anchor="middle">
+<text x="150" y="60">Case 1: RED uncle</text><text x="450" y="60">Case 2: BLACK uncle, z right</text><text x="750" y="60">Case 3: BLACK uncle, z left</text>
+</g>
+<g stroke="#64748b" stroke-width="2" fill="none">
+<path d="M150 110 L95 185 M150 110 L205 185 M450 110 L395 185 M450 110 L505 185 M750 110 L695 185 M750 110 L805 185"/>
+</g>
+<g stroke="#1e293b" stroke-width="2">
+<circle cx="150" cy="110" r="22" fill="#111827"/><circle cx="95" cy="185" r="22" fill="#dc2626"/><circle cx="205" cy="185" r="22" fill="#dc2626"/>
+<circle cx="450" cy="110" r="22" fill="#111827"/><circle cx="395" cy="185" r="22" fill="#dc2626"/><circle cx="505" cy="185" r="22" fill="#dc2626"/>
+<circle cx="750" cy="110" r="22" fill="#111827"/><circle cx="695" cy="185" r="22" fill="#dc2626"/><circle cx="805" cy="185" r="22" fill="#111827"/>
+</g>
+<g font-family="Arial" font-size="14" text-anchor="middle" fill="#fff">
+<text x="150" y="115">g</text><text x="95" y="190">p</text><text x="205" y="190">u</text>
+<text x="450" y="115">g</text><text x="395" y="190">p</text><text x="505" y="190">u</text>
+<text x="750" y="115">g</text><text x="695" y="190">p</text><text x="805" y="190">u</text>
+</g>
+<g font-family="Arial" font-size="13" fill="#334155" text-anchor="middle">
+<text x="150" y="235">Recolor p,u black; g red;</text><text x="150" y="253">move z to g (no rotation)</text>
+<text x="450" y="235">Left-rotate at p;</text><text x="450" y="253">then apply case 3</text>
+<text x="750" y="235">Recolor p black, g red;</text><text x="750" y="253">right-rotate at g</text>
+</g>
+<text x="450" y="290" font-family="Arial" font-size="13" text-anchor="middle" fill="#64748b">The right-parent branch is the mirror image; case 2 falls through to case 3.</text>
+</svg>
