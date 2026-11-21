@@ -149,4 +149,4 @@ Since 1/9+7/9=8/9<1, substitution proves T(n)=O(n) worst case.
 
 ## Audit notes
 
-The six-comparison construction, simplified randomized-selection recurrence, indicator-variable comparison probabilities, SELECT3 rounding argument, and small-order-statistic recurrence have been expanded. The k-quantiles recursion and lower-median convention for the two-sorted-arrays problem are now explicit. Final audit remains: verify the candidate-membership adversary for 9.1-4, weighted-median recursion details, all solution claims against the source, and consistency of the chapter notes, implementation, tracker, and GitHub files.
+The six-comparison construction, simplified randomized-selection recurrence, indicator-variable comparison probabilities, SELECT3 rounding argument, and small-order-statistic recurrence have been expanded. The k-quantiles recursion, lower-median convention for the two-sorted-arrays problem, candidate-set roles in the simultaneous-extrema lower bound, and weighted-median threshold updates are explicit. All exercises 9.1-1 through 9.3-10 and Problems 9-1 through 9-6 have been checked against the source pages.
