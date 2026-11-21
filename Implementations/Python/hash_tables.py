@@ -219,3 +219,24 @@ def universal_hash(key: int, a: int, b: int, prime: int, capacity: int) -> int:
     if capacity <= 0:
         raise ValueError("capacity must be positive")
     return ((a * key + b) % prime) % capacity
+
+
+def linear_probing_delete(table: list[Optional[K]], q: int, hash1: Callable[[K], int]) -> None:
+    """Delete slot q from a linear-probing table by backward-shifting keys.
+
+    The table stores keys directly and uses None for an empty slot. This
+    operation is not valid for arbitrary double-hashing probe sequences.
+    """
+    m = len(table)
+    if not 0 <= q < m or table[q] is None:
+        raise KeyError(q)
+    table[q] = None
+    hole = q
+    scan = (q + 1) % m
+    while table[scan] is not None:
+        key = table[scan]
+        if (q - hash1(key)) % m < (scan - hash1(key)) % m:
+            table[hole] = key
+            table[scan] = None
+            hole = scan
+        scan = (scan + 1) % m
