@@ -13,7 +13,7 @@ Chapters 1–3 are complete study packages. Chapter 4 has been drafted and is un
 | 1 — The Role of Algorithms in Computing | Sections 1.1–1.2, Exercises 1.1-1–1.2-3, Problem 1-1 | **Complete** |
 | 2 — Getting Started | Sections 2.1–2.3, pseudocode conventions, Exercises 2.1-1–2.3-8, Problems 2-1–2-4 | **Complete** |
 | 3 — Characterizing Running Times | Sections 3.1–3.3, Exercises 3.1-1–3.3-9, Problems 3-1–3-7 | **Complete** |
-| 4 — Divide-and-Conquer | Sections 4.1–4.7, Exercises 4.1-1–4.7-6, Problems 4-1–4-7 | **Audit in progress** |
+| 4 — Divide-and-Conquer | Sections 4.1–4.7, Exercises 4.1-1–4.7-6, Problems 4-1–4-7 | **Complete** |
 
 ## Chapter 1
 
@@ -76,8 +76,9 @@ Files:
 - [x] Exercises 4.1-1 through 4.7-6
 - [x] Problems 4-1 through 4-7
 - [x] Original SVG recursion-tree illustration
-- [ ] Final mathematical and source-coverage review
-- [ ] Fetch every Chapter 4 file again after final edits and reconcile all findings
+- [x] Final mathematical and source-coverage review
+- [x] Three-way audit: source PDF pages 98–147, this conversation, and GitHub `main`
+- [x] Fetch every Chapter 4 file again after final edits and reconcile all findings
 
 Files:
 - [Chapter 4 notes](00-Foundations/Chapter-04-Divide-and-Conquer/README.md)
@@ -88,4 +89,4 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Next:** Complete the Chapter 4 audit before marking it complete or advancing to Chapter 5.
+**Next:** Begin Chapter 5 after reviewing Chapters 1–4 and completing the self-assessment prompts.
