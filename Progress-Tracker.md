@@ -229,10 +229,10 @@ Files:
 - [x] Draft exercise and problem solutions
 - [x] Add Python direct-address, chained-hash and open-address implementations
 - [x] Add initial Python unit tests
-- [ ] Audit every proof and numerical trace against exact exercise wording (especially 11.3-5, 11.5-3, Problem 11-3 and 11-4)
-- [ ] Add deterministic probe-trace output and linear-probing backward-shift deletion implementation
+- [ ] Audit remaining proof details in 11.3-5 and Problems 11-3/11-4; 11.5-3 bit-dependency rounds and 11.4-1 probe tables have been rechecked
+- [x] Add linear-probing backward-shift deletion; randomized local checks across table sizes 2–19 passed
 - [ ] Execute the exact fetched Python implementation and test contents; fix failures
-- [ ] Add a teaching diagram if it improves the notes
+- [x] Add an original chaining diagram
 - [ ] Fetch every Chapter 11 file and complete source/chat/GitHub reconciliation
 
 Files:
