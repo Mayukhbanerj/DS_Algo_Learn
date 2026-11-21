@@ -44,7 +44,7 @@ Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are
 - 19: root 38(B); left 19(B) with children 12(R),31(R); right 41(B) (case 2 then case 3, rotations).
 - 8: root 38(B); left 19(R) with children 12(B),31(B), where 12 has left 8(R); right 41(B) (case 1 recoloring).
 
-**13.3-3. Black-height labels.** For Figures 13.5 and 13.6, assign each subtree root black-height k; count the black contribution of each displayed node on paths to α, β, γ, δ, ε and verify the transformations preserve each total. Detailed labels pending.
+**13.3-3. Black-height labels.** In Figure 13.5, each of α,β,γ,δ,ε has black-height k. Before case 1, every path from C to one of these subtree roots crosses exactly one BLACK node (C); after recoloring, every such path crosses exactly one BLACK node (A for α,β,γ or D for δ,ε). Thus each complete path has k+1 black nodes. In Figure 13.6, each of α,β,γ,δ has black-height k. Case 2 moves the extra black from x to B while recoloring D RED; the count from the local root to each subtree root remains count(c)+2. Case 3 exchanges the colors of C and D and rotates right at D; the counts to α,β remain count(c)+2, while those to γ,δ remain count(c)+1. The subtree black-heights are unchanged, so property 5 is preserved.
 
 **13.3-4. Sentinel never becomes RED.** The fixup code recolors the parent, uncle, and grandparent of z. The uncle may be the sentinel only in the BLACK-uncle branches, where it is not recolored RED; in case 1 the uncle is RED and therefore cannot be the sentinel. Thus T.nil.color remains BLACK.
 
