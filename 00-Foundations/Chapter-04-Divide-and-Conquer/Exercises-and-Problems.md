@@ -189,7 +189,7 @@ No constant \(c<1\) bounds this ratio eventually. Also \(\lg n\notin\Omega(n^\ep
 
 ### 4.5-5 — Step-function driving term
 
-Let \(f(n)=2^{\lceil\lg n\rceil}\). Choose \(a=1,b=3/2\), so \(p=\log_{3/2}1=0\). Since \(n\le f(n)<2n\), \(f(n)=\Omega(n)\), satisfying case 3's growth condition with \(\epsilon=1\). For infinitely many intervals \(2^k<n<(3/2)2^{k+1}\), both \(n\) and \(n/b\) lie in the same dyadic interval, so \(f(n/b)=f(n)\). Since \(a=1\), the ratio \(af(n/b)/f(n)=1\) along those inputs; no constant \(c<1\) can satisfy regularity.
+Let \(f(n)=2^{\lceil\lg n\rceil}\). Choose \(a=1,b=3/2\), so \(p=\log_{3/2}1=0\). Since \(n\le f(n)<2n\), \(f(n)=\Omega(n)\), satisfying case 3's growth condition with \(\epsilon=1\). For infinitely many intervals \((3/2)2^k<n<2^{k+1}\), both \(n\) and \(n/b\) lie in the same dyadic interval, so \(f(n/b)=f(n)\). Since \(a=1\), the ratio \(af(n/b)/f(n)=1\) along those inputs; no constant \(c<1\) can satisfy regularity.
 
 ## Exercises 4.6 — Continuous master theorem
 
