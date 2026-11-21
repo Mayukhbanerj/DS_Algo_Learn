@@ -533,4 +533,4 @@ The chapter's historical notes trace the use of \(O\)-notation to number theory 
 - [x] Exercises 3.1-1 through 3.3-9 — worked solutions in the companion file
 - [x] Problems 3-1 through 3-7 — worked solutions in the companion file
 
-**Status:** Chapter 3 notes drafted and cross-checked against the Chapter 3 source pages. Complete the exercise/problem companion review and final repository audit before marking the chapter complete.
+**Status:** Chapter 3 study package complete. The notes and companion solutions have been checked against the Chapter 3 source pages; the learner self-assessment remains for independent practice.
