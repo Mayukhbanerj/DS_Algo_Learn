@@ -213,15 +213,29 @@ The Fibonacci recurrence gives \(F_i=F_{i-1}+F_{i-2}=G_i\). Hence the formula ho
 
 ### 3.3-9 — Invert \(k\lg k=\Theta(n)\)
 
-Suppose \(k\lg k=\Theta(n)\). Then for constants \(c_1,c_2>0\),
+Suppose \(k\lg k=\Theta(n)\). There are constants \(c_1,c_2>0\) such that
 \[
 c_1n\le k\lg k\le c_2n
 \]
-for sufficiently large inputs. Since \(k\lg k\ge k\) once \(k\ge2\), the upper inequality implies \(k=O(n)\). This alone is too weak. To obtain the sharper relation, use the lower inequality together with \(k=O(n)\), which gives \(\lg k=O(\lg n)\), and therefore
+for all sufficiently large \(n\).
+
+**First, show \(k=O(n/\lg n)\).** For sufficiently large \(n\), \(k\) must be at least \(\sqrt n\). Otherwise, along inputs with \(k<\sqrt n\),
 \[
-k\ge\frac{c_1n}{O(\lg n)}=\Omega(n/\lg n).
+k\lg k<\sqrt n\lg n=o(n),
 \]
-For the reverse bound, if \(k\ge c n/\lg n\), then \(\lg k=\Theta(\lg n)\) for such \(k\), and the product has the required order. More directly, the two-sided relation forces \(\lg k=\Theta(\lg n)\), hence
+contradicting the lower bound \(k\lg k\ge c_1n\). Hence \(\lg k\ge\frac12\lg n\) eventually. The upper inequality then gives
+\[
+k\cdot\frac12\lg n\le c_2n
+\quad\Longrightarrow\quad
+k=O(n/\lg n).
+\]
+
+**Next, show \(k=\Omega(n/\lg n)\).** Since \(k\ge2\) eventually, \(\lg k\ge1\). The upper inequality implies \(k\le c_2n\), so \(\lg k=O(\lg n)\). Using the lower inequality,
+\[
+k\ge\frac{c_1n}{O(\lg n)}
+=\Omega(n/\lg n).
+\]
+Combining the bounds,
 \[
 \boxed{k=\Theta(n/\lg n)}.
 \]
