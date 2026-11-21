@@ -143,12 +143,11 @@ E[X]=1,\quad E[X^2]=0+1/2+1=3/2,\quad E[X]^2=1.
 
 ### 8.4-4 — Stratified bucket design
 
-Let \(c_i=\lfloor10A[i]\rfloor\). Since \(n>10\), \(0\le y_i/n<1/n<1/10\), so \(c_i=\lfloor10x_i\rfloor\). Within coarse group \(c\), the residual \(A[i]-c/10=y_i/n\) is uniform on \([0,1/n)\). There are \(n/10\) expected items in each coarse group. Divide that interval into \(n/10\) equal fine buckets, each of width \(10/n^2\). The fine-bucket index is
-\[
-c\cdot(n/10)+\left\lfloor (A[i]-c/10)\frac{n^2}{10}\right\rfloor.
-\]
-There are \(n\) buckets in total, and each has expected constant occupancy. Insertion-sorting within buckets and concatenating in index order therefore takes \(O(n)\) expected time. (For nonmultiples of 10, use groups and bucket counts rounded proportionally.)
-
+Let \\(c_i=\\lfloor10A[i]\\rfloor\\). Since \\(n>10\\), the residual term \\(y_i/n<1/10\\), so \\(c_i=\\lfloor10x_i\\rfloor\\). Within coarse group \\(c\\), the residual is \\(y_i/n\\), with \\(y_i\\) uniform on \\([0,1)\\). Set \\(m=\\lceil n/10\\rceil\\), and divide each coarse group's residual interval \\([0,1/n)\\) into \\(m\\) equal subintervals. Use bucket index
+\\[
+\\boxed{c_i m+\\lfloor m y_i\\rfloor}
+\\]
+where \\(y_i=n(A[i]-c_i/10)\\). There are \\(10m=O(n)\\) buckets. Each input element independently lands in any particular bucket with probability \\(1/(10m)\\), so expected occupancy is \\(n/(10m)\\le1\\). The sum of expected squared bucket sizes is therefore \\(O(n)\\), and insertion sort within buckets plus concatenation takes \\(O(n)\\) expected time. The ceiling handles values of \\(n\\) not divisible by 10.
 
 ### 8.4-5 — Points uniformly distributed in the unit disk
 
