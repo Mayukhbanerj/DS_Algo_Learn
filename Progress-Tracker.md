@@ -2,11 +2,11 @@
 
 **Primary source:** CLRS, Fourth Edition (2022)  
 **Working language:** Python  
-**Target branch:** \`main\`
+**Target branch:** `main`
 
 ## Completion audit — 21 November 2026
 
-Chapters 1–3 are complete study packages. Chapter 4 has been drafted and is undergoing its three-way audit against the uploaded PDF, this conversation, and GitHub \`main\`.
+Chapters 1–3 are complete study packages. Chapter 4 has been drafted and is undergoing its three-way audit against the uploaded PDF, this conversation, and GitHub `main`.
 
 | Chapter | Coverage | Status |
 |---|---|---|
