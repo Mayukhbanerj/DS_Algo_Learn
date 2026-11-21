@@ -18,7 +18,7 @@ A hash function h:U→{0,…,m−1} maps keys to slots. Different keys can map t
 The ideal model chooses each key's slot independently and uniformly from m slots, then returns the same slot for repeated evaluations of that key. It is a theoretical abstraction, not directly implementable.
 
 ### Chaining
-Each slot points to a linked list of all records hashing to that slot. INSERT prepends in Θ(1) worst case (assuming no duplicate key). SEARCH takes time proportional to the chain length. DELETE by node pointer is Θ(1) with doubly linked chains; singly linked deletion may need to find the predecessor.
+Each slot points to a linked list of all records hashing to that slot. INSERT prepends in Θ(1) worst case (assuming no duplicate key). SEARCH takes time proportional to the chain length. DELETE by node pointer is Θ(1) with doubly linked chains; singly linked deletion may need to find the predecessor. Exercise 11.2-4 shows a special circular-singly-linked representation that deletes in Θ(1) by copying the successor record into the supplied node and unlinking the successor; this changes physical record placement.
 
 The load factor is α=n/m, the average chain length; α may exceed 1. Worst-case search is Θ(n), when all keys collide.
 
@@ -29,6 +29,8 @@ Under independent uniform hashing:
 For successful search, let x_i be the i-th inserted element. A later-inserted x_i appears before x_j in their chain when i>j and they collide. Indicator variables for the searched element and each later insertion yield expected preceding elements (n−1)/(2m); linearity of expectation suffices.
 
 If n=O(m), α=O(1), so searches are expected O(1). This is not a worst-case guarantee.
+
+For Exercise 11.2-4, bucket chains can instead be circular singly linked lists. A bucket points to any node in the cycle. To delete node x, copy its successor's record into x and unlink that successor; handle a singleton by clearing the bucket. This preserves O(1) deletion with one element and one link per occupied slot, provided clients do not rely on stable physical node addresses.
 
 ## 11.3 Hash functions
 
