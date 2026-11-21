@@ -66,7 +66,7 @@ class TestBST(unittest.TestCase):
     def test_duplicates_right_on_insert(self):
         t,_=self.build([4,4,4,3,5])
         self.assertEqual(t.inorder(),[3,4,4,4,5])
-        self.assertEqual(t.height(),2)
+        self.assertEqual(t.height(),3)
         self.assertTrue(t.validate())
 
     def test_all_small_insertion_orders_and_deletion_orders(self):
