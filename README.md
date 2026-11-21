@@ -22,6 +22,7 @@ The goal is to develop algorithmic reasoning—not memorize solutions. Notes dis
 | `00-Foundations/Chapter-04-Divide-and-Conquer/` | Chapter 4 notes, exercises, recurrence illustrations |
 | `00-Foundations/Chapter-05-Probabilistic-Analysis/` | Chapter 5 notes, exercises, probability derivations |
 | `00-Foundations/Chapter-06-Heapsort/` | Chapter 6 notes, exercises, heap illustration |
+| `00-Foundations/Chapter-07-Quicksort/` | Chapter 7 notes, exercises, partition illustration |
 | `Implementations/Python/` | Python implementations and tests |
 | `Progress-Tracker.md` | Study progress and next steps |
 
