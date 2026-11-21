@@ -195,4 +195,4 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Next:** Chapter 9 — Medians and Order Statistics.
+**Current:** Chapter 9 — Medians and Order Statistics (audit in progress).
