@@ -1,4 +1,5 @@
 import unittest
+from itertools import permutations
 from binary_search_tree import BinarySearchTree
 
 class TestBST(unittest.TestCase):
@@ -67,6 +68,19 @@ class TestBST(unittest.TestCase):
         self.assertEqual(t.inorder(),[3,4,4,4,5])
         self.assertEqual(t.height(),2)
         self.assertTrue(t.validate())
+
+    def test_all_small_insertion_orders_and_deletion_orders(self):
+        keys = [0, 1, 2, 3, 4]
+        for order in permutations(keys):
+            t = BinarySearchTree()
+            handles = {key: t.insert(key) for key in order}
+            self.assertTrue(t.validate())
+            self.assertEqual(t.inorder(), keys)
+            for key in reversed(order):
+                t.delete(handles[key])
+                self.assertTrue(t.validate())
+                remaining = sorted(k for k in keys if k not in order[order.index(key):])
+                self.assertEqual(t.inorder(), remaining)
 
     def test_successor_predecessor_all_nodes(self):
         t,_=self.build([8,4,12,2,6,10,14,5,7,9,11])
