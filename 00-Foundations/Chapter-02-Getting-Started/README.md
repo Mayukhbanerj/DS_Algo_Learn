@@ -506,6 +506,10 @@ An inversion is a pair of positions ((i,j)) with (i<j) and (A[i]>A[j]).
 
 ---
 
+## Chapter notes
+
+The chapter notes place the modern study of algorithms in the history of systematic running-time analysis, highlighting Knuth's *The Art of Computer Programming* and the later popularization of asymptotic analysis and recurrences. They also point to the history of sorting, including merge sort's early mechanical-card origins and von Neumann's early computer implementation, and to foundational work on program correctness and loop invariants. These are historical context; the chapter's technical learning objectives remain sorting, pseudocode, analysis, and divide and conquer.
+
 ## Chapter 2 revision sheet
 
 1. Insertion sort maintains a sorted prefix and inserts one new key at a time.
