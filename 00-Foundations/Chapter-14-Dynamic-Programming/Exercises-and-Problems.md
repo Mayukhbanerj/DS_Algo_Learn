@@ -38,7 +38,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14.3-3. Maximize scalar multiplications.** The problem still has optimal substructure: for a fixed split k, replacing either subchain by a parenthesization with a larger multiplication count improves the total. Use max instead of min in the recurrence.
 
-**14.3-4. Greedy split counterexample.** Choosing k to minimize only p_(i−1)p_kp_j ignores the two subchain costs. For dimensions p=(1,1,1,1,2), all root split products p0·p_(k+1)·p4 tie at 2, so the greedy rule choosing the first split k=0 gives cost 6. The optimal parenthesization has cost 4 (for example ((A1A2)(A3A4))). Thus choosing a split before solving the subchains can be suboptimal.
+**14.3-4. Greedy split counterexample.** Choosing k to minimize only p_(i−1)p_kp_j ignores the two subchain costs. For dimensions p=(1,1,1,1,2), all root split products p0·p_(k+1)·p4 tie at 2, so the greedy rule choosing the first split k=0 gives cost 6. The optimal parenthesization is ((A1(A2A3))A4), with cost 4; the greedy result is 6. Thus choosing a split before solving the subchains can be suboptimal.
 
 **14.3-5. Limited piece counts.** The original state “best revenue for length n” is insufficient: the optimal solution for a remainder depends on how many pieces of each length have already been used. For example, let the rod length be 6, p2=10, p1=1, p3=9, p4=1, and allow at most two pieces of length 2. The length-4 subproblem without a prior cut is optimally 2+2 (revenue 20). After a length-2 first piece has already been used, only one length-2 piece remains available, so that same length-4 subproblem solution is infeasible. The remainder state must include the remaining piece limits, not just its length.
 
@@ -76,7 +76,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14-4. Printing neatly.** Precompute badness(i,j)=(M−(j−i)−Σ_{k=i}^j l_k)^3 when the words fit, ∞ otherwise; last line has zero penalty. Let cost[j]=min_{1≤i≤j}(cost[i−1]+badness(i,j)), store the minimizing i, and reconstruct lines. O(n²) time and O(n²) space (or O(n) if badness is computed on demand).
 
-**14-5. Edit distance.** Let D[i,j] be the minimum cost to consume x[1…i] and produce y[1…j]. Base D[0,0]=0, D[i,0]=i·QD, D[0,j]=j·QI. Transitions: copy if x_i=y_j with D[i−1,j−1]+QC; replace with D[i−1,j−1]+QR; delete with D[i−1,j]+QD; insert with D[i,j−1]+QI; twiddle if i,j≥2 and x_i=y_(j−1), x_(i−1)=y_j with D[i−2,j−2]+QT. Store the winning operation. Kill is a final alternative min_{0≤i≤m}(D[i,n]+QK), since it consumes all remaining source characters after the target is complete. Reconstruct from the chosen terminal state and predecessor actions. O(mn) time/space.
+**14-5. Edit distance.** Let D[i,j] be the minimum cost to consume x[1…i] and produce y[1…j]. Base D[0,0]=0, D[i,0]=i·QD, D[0,j]=j·QI. Transitions: copy when x_i=y_j with D[i−1,j−1]+QC; replace when x_i≠y_j with D[i−1,j−1]+QR; delete with D[i−1,j]+QD; insert with D[i,j−1]+QI; twiddle if i,j≥2 and x_i=y_(j−1), x_(i−1)=y_j with D[i−2,j−2]+QT. Store the winning operation. Kill is a final alternative min_{0≤i≤m}(D[i,n]+QK), since it consumes all remaining source characters after the target is complete. Reconstruct from the chosen terminal state and predecessor actions. O(mn) time/space. For alignment in part (b), use copy cost −1, replace cost +1, and insert/delete cost +2; omit twiddle and kill.
 
 **14-6. Company party.** For each employee v, define IN[v]=rating(v)+Σ OUT[child], OUT[v]=Σ max(IN[child],OUT[child]). Reconstruct by choosing IN only when it strictly beats OUT at the parent. O(n) time and space.
 
@@ -86,7 +86,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14-9. Breaking a string.** Add endpoints 0 and n to sorted break positions. Let c[i,j] be minimum cost to perform all breaks between endpoints i and j; c[i,i+1]=0 and c[i,j]=length(j−i)+min_{i<k<j}(c[i,k]+c[k,j]). Store the minimizing k and reconstruct. O(m³) time and O(m²) space.
 
-**14-10. Investment strategy.** By linearity of returns and a single fixed switch fee, an optimal strategy can place all capital in one investment each year. DP state V[j,i]=maximum wealth after year j when invested in i; transition considers staying (fee f1) or switching from any h≠i (fee f2), then multiply by r_ij. O(Tn²) time, O(Tn) space. Need carefully model fees relative to investment amount and the exact year boundary.
+**14-10. Investment strategy.** By linearity of returns and a single fixed switch fee, an optimal strategy can place all capital in one investment each year. Let V[j,i] be maximum wealth at the end of year j when invested in i. Transition: V[j,i]=max_h(V[j−1,h]·r_(i,j)−(f1 if h=i else f2)). The fee is subtracted at the end of the year, after applying the return. O(Tn²) time and O(Tn) space.
 
 **14-11. Inventory planning.** DP over months and ending inventory: F[i,j]=minimum cost through month i with j machines in inventory. Transition from prior inventory k with production max(0,d_i+j−k), overtime cost c·max(0,production−m), and holding cost h(j). Restrict feasible states 0…D. O(nD²) time and O(nD) space.
 
