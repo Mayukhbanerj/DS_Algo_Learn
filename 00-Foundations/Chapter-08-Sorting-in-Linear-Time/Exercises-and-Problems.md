@@ -263,11 +263,20 @@ If \(D\) lies within one column, step 5 sorts that column and therefore removes 
 
 Otherwise, \(D\) crosses from column \(j\) into column \(j+1\). Because \(|D|\le r/2\), its part in column \(j\) is contained in the bottom half of that column, and its part in column \(j+1\) is contained in the top half of that column. Step 5 sorts the columns. The left column has all its 1s confined to its bottom half (its top half is therefore all 0s), and the right column has all its 0s confined to its top half (its bottom half is therefore all 1s). Step 6 moves the bottom half of column \(j\) into the top half of column \(j+1\), and moves the top half of column \(j+1\) into its bottom half. It therefore brings the entire possible disorder into this one column. Step 7 sorts that column, placing all 0s above all 1s. Step 8 reverses step 6. The top half of the sorted joined column returns to the bottom half of column \(j\), and its bottom half returns to the top half of column \(j+1\). Because the joined column is sorted, every value in its top half is no greater than every value in its bottom half. The original top half of column \(j\) is all 0, and the original bottom half of column \(j+1\) is all 1, so the restored boundary is globally ordered. Every other column was already clean and remains in order. The full column-major sequence is therefore sorted. By the 0-1 sorting lemma, columnsort sorts arbitrary distinct keys as well.
 
-**(g) When \(s\nmid r\).** Unequal block heights in step 2 allow the dirty band to expand: the bound becomes at most \(2s-1\) dirty rows. Its inverse image after step 4 can therefore contain at most \(s(2s-1)\) dirty entries. The sufficient row condition given by the problem's analysis is
+**(g) When \(s\nmid r\).** After step 1, each original column is sorted and therefore has at most one \(0\to1\) transition. After the reshape in step 2, reading the array in row-major order, there are at most \(s\) such \(0\to1\) transitions—at most one contributed by each original column—and at most \(s-1\) transitions of type \(1\to0\), since these can occur only at boundaries between consecutive original columns. Thus there are at most \(2s-1\) horizontal transitions in total.
+
+Let \(z_j\) be the number of zeros in column \(j\) after step 2. Step 3 sorts each column without changing \(z_j\), so after step 3 a row is dirty exactly when its index lies strictly between the smallest and largest of the values \(z_j\). For adjacent columns, \(|z_{j+1}-z_j|\) is at most the number of horizontal transitions between those columns. Therefore
 \[
-r\ge 2s(2s-1).
+\max_j z_j-\min_j z_j
+\le \sum_{j=1}^{s-1}|z_{j+1}-z_j|
+\le 2s-1.
 \]
-This supplies enough clean separation for the half-column shift and final column sort.
+Hence there are at most \(2s-1\) dirty rows after step 3, with clean 0-rows above and clean 1-rows below. After step 4, the dirty interval has at most \(s(2s-1)\) elements. The half-column argument in (f) applies when
+\[
+s(2s-1)\le r/2,
+\qquad\text{or equivalently}\qquad
+\boxed{r\ge 2s(2s-1)=4s^2-2s}.
+\]
 
 **(h) Modify step 1 by padding each column.** Choose \\(r'\\) to be the smallest positive multiple of \\(\\operatorname{lcm}(s,2)\\) that is at least \\(\\max(r,2s^2)\\):
 \\[
