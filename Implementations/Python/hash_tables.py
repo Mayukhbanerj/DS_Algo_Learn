@@ -233,10 +233,12 @@ def linear_probing_delete(table: list[Optional[K]], q: int, hash1: Callable[[K],
     table[q] = None
     hole = q
     scan = (q + 1) % m
-    while table[scan] is not None:
+    scanned = 0
+    while table[scan] is not None and scanned < m - 1:
         key = table[scan]
         if (hole - hash1(key)) % m < (scan - hash1(key)) % m:
             table[hole] = key
             table[scan] = None
             hole = scan
         scan = (scan + 1) % m
+        scanned += 1
