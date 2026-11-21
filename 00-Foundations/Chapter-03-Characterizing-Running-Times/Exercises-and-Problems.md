@@ -323,7 +323,7 @@ Assume \(f,g\) are asymptotically positive.
 - **(b) False.** Take \(f(n)=n\) and \(g(n)=n^2\). Then the sum is \(\Theta(n^2)\), while the minimum is \(n\), so the sum is not \(\Theta(\min(f,g))\).
 - **(c) True under the stated positivity conditions.** If \(f=O(g)\), then eventually \(f\le cg\). Taking logs gives \(\lg f\le\lg c+\lg g\). Since \(\lg g\ge1\), the additive constant is absorbed, so \(\lg f=O(\lg g)\).
 - **(d) False.** Let \(f(n)=2n\), \(g(n)=n\). Then \(f=O(g)\), but \(2^{f(n)}=4^n\notin O(2^n)\).
-- **(e) True.** Since \(f=O(f^2)\) for asymptotically positive \(f\ge1\), the claim holds.
+- **(e) False.** Asymptotically positive does not mean eventually at least 1. Let \(f(n)=1/n\). Then \(f(n)^2=1/n^2\), and \(f(n)/f(n)^2=n\to\infty\), so \(f\notin O(f^2)\`.
 - **(f) True.** If \(f=O(g)\), transpose symmetry gives \(g=\Omega(f)\).
 - **(g) False.** Let \(f(n)=2^n\). Then \(f(n)/f(n/2)=2^{n/2}\), which is unbounded, so \(f(n)\ne\Theta(f(n/2))\).
 - **(h) True.** If \(h=o(f)\), then \(h/f\to0\), so \((f+h)/f=1+h/f\to1\). Therefore \(f+h=\Theta(f)\).
@@ -336,7 +336,7 @@ Assume \(f,g\) are asymptotically positive.
 - **(b)** A \(\Theta(f)\) term is already bounded above and below by constants times \(f\). Adding an \(O(f)\) term preserves both bounds, so the result is \(\Theta(f)\).
 - **(c)** If \(u=\Theta(f)\) and \(v=\Theta(g)\), then \(u+v=\Theta(f+g)\) by adding the respective upper and lower inequalities.
 - **(d)** If \(u=\Theta(f)\), \(v=\Theta(g)\), multiply the positive lower bounds and upper bounds to obtain \(uv=\Theta(fg)\).
-- **(e)** Since \(a_1,a_2>0\) are constants and \(k_1,k_2\) are fixed, \((a_1n)^{k_1}=\Theta(n^{k_1})\) and \(\lg^{k_2}(a_2n)=\Theta(\lg^{k_2}n)\) for the stated domain. Multiplying gives \(\Theta(n^{k_1}\lg^{k_2}n)\).
+- **(e)** Since \(a_1,a_2>0\) are constants and \(k_1,k_2\) are fixed, \((a_1n)^{k_1}=\Theta(n^{k_1})\) and \(\lg^{k_2}(b_1n)=\Theta(\lg^{k_2}n)\) for the stated domain. Multiplying gives \(\Theta(n^{k_1}\lg^{k_2}n)\).
 - **(f)** For a finite or convergent sum of nonnegative terms, if each summand is bounded above and below by constant multiples of \(f(k)\), summing preserves those same constant-factor inequalities. Therefore the sum is \(\Theta(\sum_{k\in S}f(k))\), provided the common constants and convergence/domain assumptions are valid.
 - **(g)** The product identity need not hold: the hidden constant factors can accumulate with the number of factors. For example, take \(S=\{1,\ldots,n\}\) and each factor equal to \(2f(k)\). The product gains a factor \(2^n\), which is not a constant independent of \(n\). Thus the claimed product bound is not generally valid.
 
