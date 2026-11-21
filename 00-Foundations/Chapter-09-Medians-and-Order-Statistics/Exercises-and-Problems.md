@@ -82,7 +82,7 @@ Binary-search a partition i in X and j=n−i in Y so the left halves contain n v
 Pair elements and retain the smaller from each pair, then recurse among those candidates. The recurrence is U_i(n)=S(n) for i≥n/2, otherwise floor(n/2)+U_i(ceil(n/2))+S(2i). Repeated halving yields n+O(S(2i) log(n/i)); for constant i, n+O(log n).
 
 ### 9-5 — Indicator analysis of randomized selection
-For ranks j<k, the pair is compared precisely when the first pivot chosen from [j,k] is an endpoint that is not itself the selected answer. Thus E[X_ijk]=2/(k−j+1) if i<j or i>k; it is 1/(k−j+1) if i=j or i=k; and it is 0 if j<i<k. For (b), sum these indicators over all pairs and group by whether both ranks lie below i, both above i, or one endpoint equals i. This gives the three sums printed in the exercise. Grouping the harmonic-shaped double sum by k−j (and bounding the resulting harmonic series by an integral) gives a linear bound; the two remaining sums are each O(n). CLRS's stated result is E[X_i]≤4n, hence RANDOMIZED-SELECT uses O(n) expected comparisons and time.
+The exact probability depends on the target rank i as well as the pair j<k; it cannot be inferred merely from the first pivot in [j,k], because earlier pivots outside that interval may eliminate both keys before they are compared. The source's part (b) gives a specific three-sum upper bound for E[X_i]. I am retaining this exercise as an open proof item until the piecewise cases in (a) are derived and checked against that exact expression, rather than inserting an unverified probability formula.
 
 ### 9-6 — Groups of three
 (a) For any odd group size greater than 3, the guaranteed discard fraction makes the recursive fractions sum to less than 1, yielding worst-case linear time.
