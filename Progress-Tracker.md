@@ -247,7 +247,7 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 14 complete. Chapter 15 — Greedy Algorithms (draft in progress).
+**Current:** Chapter 15 — Greedy Algorithms (audit incomplete; Exercise 15.4-4 source-model caveat recorded). Chapter 16 — Amortized Analysis (draft in progress).
 
 
 ## Chapter 12 — Complete
@@ -333,3 +333,21 @@ Files:
 - [Huffman merge diagram](00-Foundations/Chapter-15-Greedy-Algorithms/images/huffman-merge.svg)
 - [Python greedy algorithms](Implementations/Python/greedy_algorithms.py)
 - [Python tests](Implementations/Python/test_greedy_algorithms.py)
+
+
+## Chapter 16 — Draft and audit in progress
+
+- [x] Reopen CLRS source PDF printed pages 449–475, Sections 16.1–16.4, Exercises 16.1-1–16.4-4 and Problems 16-1–16-4
+- [x] Draft notes for aggregate, accounting and potential methods; dynamic-table expansion/contraction
+- [x] Draft exercise/problem solutions; Problem 16-2(c) deletion strategy remains to be made precise
+- [x] Add Python stack, binary-counter, dynamic-array, Gray-code and sorted-run implementations
+- [x] Add 7 unit-test scenarios
+- [ ] Audit every derivation and red-black-tree case analysis against the source
+- [ ] Execute reconstructed implementation/tests and randomized checks; fix failures
+- [ ] Fetch every Chapter 16 file and reconcile source, chat and GitHub main
+
+Files:
+- [Chapter 16 notes](00-Foundations/Chapter-16-Amortized-Analysis/README.md)
+- [Chapter 16 exercises and problems](00-Foundations/Chapter-16-Amortized-Analysis/Exercises-and-Problems.md)
+- [Python amortized-analysis examples](Implementations/Python/amortized_analysis.py)
+- [Python tests](Implementations/Python/test_amortized_analysis.py)
