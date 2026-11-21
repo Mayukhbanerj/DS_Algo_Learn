@@ -84,10 +84,22 @@ Pair elements and retain the smaller from each pair, then recurse among those ca
 ### 9-5 — Indicator analysis of randomized selection
 The exact probability depends on the target rank i as well as the pair j<k; it cannot be inferred merely from the first pivot in [j,k], because earlier pivots outside that interval may eliminate both keys before they are compared. The source's part (b) gives a specific three-sum upper bound for E[X_i]. I am retaining this exercise as an open proof item until the piecewise cases in (a) are derived and checked against that exact expression, rather than inserting an unverified probability formula.
 
-### 9-6 — Groups of three
-(a) For any odd group size greater than 3, the guaranteed discard fraction makes the recursive fractions sum to less than 1, yielding worst-case linear time.
-(b) Groups of three give the direct recurrence with recursive fractions summing to 1, hence O(n log n).
-(c)–(d) CLRS supplies SELECT3: form triples, then triples of their medians, and recursively select among second-level medians. Its detailed invariant, diagram, and linear recurrence remain to be completed.
+### 9-6 — Select with groups of three
+(a) For groups of odd size 2t+1 with t≥2, the median-of-medians pivot discards a fixed fraction on both sides. The pivot recursion has size about n/(2t+1), and the selection recursion is bounded by a fraction whose sum with 1/(2t+1) is strictly below 1. The recurrence is linear.
+
+(b) For triples, the first-level medians number n/3. Their median guarantees only about n/3 elements on either side, so the direct recurrence is
+\[
+T(n)\le T(n/3)+T(2n/3)+O(n),
+\]
+which yields O(n log n).
+
+(c) SELECT3 repeats grouping one level deeper. First, sort triples and place their medians in the middle third of the array. Next, group those first-level medians into triples, sort each second-level triple, and recursively select the median of the second-level medians. This pivot is a median of medians of medians. Partition the original array around it and recurse only into the side containing rank i.
+
+(d) Let g=n/3 and g'=g/3=n/9 after the preprocessing removes at most eight elements to make the active size divisible by 9. At least about half of the g' second-level medians lie on either side of their median. Each such second-level triple contributes two first-level medians on that side; each first-level median certifies two original elements on that side. Thus at least about 4(g'/2)=2n/9 original elements are guaranteed on either side, up to constant rounding. The recursive selection side has at most 7n/9+O(1) elements, and the pivot-selection recursion has size n/9:
+\[
+T(n)\le T(n/9)+T(7n/9+O(1))+O(n).
+\]
+The recursive fractions sum to 8/9<1, so SELECT3 runs in O(n) worst-case time. The exact constant-rounding details should be checked against the line-by-line preprocessing before this proof is considered final.
 
 ---
 
