@@ -10,8 +10,8 @@ Chapters 1 and 2 have been expanded, cross-checked against the complete chapter 
 
 | Chapter | Coverage | Status |
 |---|---|---|
-| 1 — The Role of Algorithms in Computing | Sections 1.1–1.2, Exercises 1.1-1–1.2-3, Problem 1-1 complete table | <badge>Study package complete</badge> |
-| 2 — Getting Started | Sections 2.1–2.3, pseudocode conventions, all chapter exercises 2.1-1–2.3-8, Problems 2-1–2-4 | <badge>Study package complete</badge> |
+| 1 — The Role of Algorithms in Computing | Sections 1.1–1.2, Exercises 1.1-1–1.2-3, Problem 1-1 complete table | **Complete** |
+| 2 — Getting Started | Sections 2.1–2.3, pseudocode conventions, all chapter exercises 2.1-1–2.3-8, Problems 2-1–2-4 | **Complete** |
 
 ## Chapter 1
 - [x] Section 1.1: algorithms, problem specifications and instances, correctness, applications, data structures, techniques, NP-completeness, approximation, parallel and online models
