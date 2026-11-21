@@ -209,4 +209,4 @@ The chapter credits Ford and Johnson with the decision-tree model; Seward with c
 - [x] Problems 8-1 through 8-7 — companion file
 - [x] Python implementations and tests — companion files
 
-**Status:** Chapter 8 notes drafted. Companion solutions, tests, and final source/chat/GitHub audit remain.
+**Status:** Chapter 8 complete. The companion solutions, mathematical audit, Python implementations, and the 10-test committed suite have been checked. Exercise 8.4-6 retains an explicit source-wording caveat: the printed inverse-CDF assumption alone does not establish the forward-CDF evaluation needed by the standard probability-integral-transform algorithm.
