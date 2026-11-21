@@ -59,7 +59,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 15.1–15.4.
 
 **15.4-3. Why y may change.** In the exchange proof, after the first differing eviction, a later request can cause the original solution to evict some common block w rather than the original x. The two caches then differ by y versus w, not necessarily y versus x. Requiring the same x throughout breaks the induction in property 1 at precisely this step.
 
-**15.4-4. Multiple prefetches.** Defer every block brought in early to its first actual request. Until that request, it is not needed to satisfy a hit; when it arrives, load it then. An offline policy can choose the same victim decisions at those actual requests, and no request needs more than its demanded block to enter. Thus there is a lazy policy that loads at most one block per request and has no more misses.
+**15.4-4. Multiple prefetches — source-model caveat.** Under the literal miss definition in §15.4 (a miss occurs only when the requested block is absent), free prefetching makes the claim false: with cache capacity 2 and requests A,B, a policy can load both A and B on the miss for A, then hit on B, for 1 miss. Any policy that loads at most one block per request, starting empty, must miss on both A and B, for 2 misses. The exercise's claim becomes true if every prefetched block transfer is charged as a miss/transfer; then deferring a prefetch until its first request does not increase transfer count. The section's stated demand-miss objective does not explicitly charge prefetches, so I am flagging this wording/assumption discrepancy rather than asserting an unsupported proof.
 
 ## Problems
 
