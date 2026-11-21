@@ -2,7 +2,7 @@ import unittest
 from dynamic_programming import (
     rod_cut, rod_cut_memoized, reconstruct_cuts, matrix_chain_order, matrix_chain_memoized,
     matrix_chain_parenthesization, lcs, lcs_length_linear_space,
-    optimal_bst, construct_optimal_bst, lcs_memoized, lis_quadratic, lis_nlogn,
+    optimal_bst, construct_optimal_bst, lcs_memoized, lis_quadratic, lis_nlogn, edit_distance, longest_palindromic_subsequence,
 )
 
 class TestDynamicProgramming(unittest.TestCase):
@@ -46,6 +46,23 @@ class TestDynamicProgramming(unittest.TestCase):
     def test_lcs_empty_and_space(self):
         self.assertEqual(lcs("","ABC")[0],[])
         self.assertEqual(lcs_length_linear_space("","ABC"),0)
+
+    def test_edit_distance_operations(self):
+        costs = {"copy": 1, "replace": 5, "delete": 1, "insert": 1, "twiddle": 1, "kill": 1}
+        cost, ops = edit_distance("abc", "ac", costs)
+        self.assertEqual(cost, 3)
+        self.assertEqual(ops, ["copy", "delete", "copy"])
+        cost, ops = edit_distance("ab", "ba", costs)
+        self.assertEqual(cost, 1)
+        self.assertEqual(ops, ["twiddle"])
+        cost, ops = edit_distance("abc", "a", costs)
+        self.assertEqual(cost, 2)
+        self.assertEqual(ops, ["copy", "kill"])
+
+    def test_longest_palindromic_subsequence(self):
+        result = longest_palindromic_subsequence("character")
+        self.assertEqual("".join(result), "carac")
+        self.assertEqual(longest_palindromic_subsequence(""), [])
 
     def test_optimal_bst_clrs(self):
         p=[.15,.10,.05,.10,.20]
