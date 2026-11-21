@@ -12,6 +12,7 @@ Chapters 1 and 2 have been expanded, cross-checked against the complete chapter 
 |---|---|---|
 | 1 — The Role of Algorithms in Computing | Sections 1.1–1.2, Exercises 1.1-1–1.2-3, Problem 1-1 complete table | **Complete** |
 | 2 — Getting Started | Sections 2.1–2.3, pseudocode conventions, all chapter exercises 2.1-1–2.3-8, Problems 2-1–2-4 | **Complete** |
+| 3 — Characterizing Running Times | Sections 3.1–3.3, Exercises 3.1-1–3.3-9, Problems 3-1–3-7, growth-rate ranking and asymptotic proofs | **Complete** |
 
 ## Chapter 1
 - [x] Section 1.1: algorithms, problem specifications and instances, correctness, applications, data structures, techniques, NP-completeness, approximation, parallel and online models
@@ -38,6 +39,20 @@ Files:
 - [x] Unit tests for examples, empty/singleton arrays, duplicates, negative values, sorted and reverse-sorted inputs
 - [x] Repository test suite executed with `python -m unittest -v`: 5 tests passed
 - [x] Additional algorithm/input checks: 14 function/input combinations passed
+
+## Chapter 3
+- [x] Section 3.1: intuitive upper, lower, and tight bounds; insertion-sort proof; precision of case-specific claims
+- [x] Section 3.2: formal definitions of O, Omega, Theta, little-oh, little-omega; algebraic properties; two-parameter notation
+- [x] Section 3.3: monotonicity, floors/ceilings, modular arithmetic, polynomials, exponentials, logarithms, factorials, iteration, log-star, Fibonacci numbers
+- [x] Exercises 3.1-1 through 3.3-9
+- [x] Problems 3-1 through 3-7, including the 30-function growth ranking
+- [x] Original SVG illustration for O, Omega, and Theta bounds
+- [x] Three-way audit: source PDF pages 71–97, conversation context, and GitHub `main`
+
+Files:
+- [Chapter 3 notes](00-Foundations/Chapter-03-Characterizing-Running-Times/README.md)
+- [Chapter 3 exercises and problems](00-Foundations/Chapter-03-Characterizing-Running-Times/Exercises-and-Problems.md)
+- [Asymptotic bounds illustration](00-Foundations/Chapter-03-Characterizing-Running-Times/images/asymptotic-bounds.svg)
 
 Files:
 - [Chapter 2 notes](00-Foundations/Chapter-02-Getting-Started/README.md)
