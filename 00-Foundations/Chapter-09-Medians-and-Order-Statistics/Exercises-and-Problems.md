@@ -67,13 +67,13 @@ Find the median in linear time, partition around it, and recurse only into the s
 The objective is Σ|y_i−y|. A median y-coordinate minimizes the sum of absolute deviations. Select that median in linear time; x-coordinates do not affect north-south spur lengths.
 
 ### 9.3-8 — k-quantiles
-Recursively select the middle quantile boundary, partition, and recurse on both portions with their assigned quantile counts. At each recursion depth the total partitioning work is O(n), and there are O(log k) levels, giving O(n log k).
+The required boundary ranks are r_j=floor(jn/k), for j=1,…,k−1; these produce k blocks whose sizes differ by at most one. Recursively choose the middle required boundary, select that global rank with SELECT, and partition around it. Recurse on the left and right subarrays, assigning each the corresponding consecutive range of boundary ranks (subtract the left subarray's offset when using local ranks). At any recursion depth the subarrays are disjoint and have total size at most n, so all selection/partition work at that depth is O(n). The recursion depth is O(log k), giving O(n log k) worst-case time.
 
 ### 9.3-9 — k values closest to the median
-Find median m, compute |x−m| for each element, and use SELECT to find the kth smallest distance. Partition by that threshold and return k values. O(n), with a tie policy needed if distances tie.
+Find the median m, compute each distance d_x=|x−m|, and use SELECT to find the kth-smallest distance τ. Return the k elements with smallest distances. To return exactly k when distances tie at τ, break ties consistently (for example, by original array index) and select by the composite key (d_x,index). This takes O(n) worst-case time: one median selection, one linear distance pass, one selection on the distance keys, and one output pass.
 
 ### 9.3-10 — Median of two sorted arrays
-Binary-search a partition i in X and j=n−i in Y so the left halves contain n values and every left value is smaller than every right value. Compare the two boundary pairs to move i. The overall median is the average of the largest left and smallest right values. O(log n).
+Use the chapter's lower-median convention: find the nth smallest of the combined 2n values. Binary-search i in X and set j=n−i in Y, so the two left portions contain exactly n values. Find a partition satisfying X[i−1]<Y[j] and Y[j−1]<X[i], treating a missing boundary at i=0 or j=0 as −∞ and a missing right boundary at i=n or j=n as +∞. If X[i−1]>Y[j], decrease i; if Y[j−1]>X[i], increase i. At a valid partition, the lower median is max(X[i−1],Y[j−1]). The binary search takes O(log n) time. (Averaging the largest-left and smallest-right values would give the midpoint of the two central values, not CLRS's lower median.)
 
 ## Problems for Chapter 9
 
@@ -149,4 +149,4 @@ Since 1/9+7/9=8/9<1, substitution proves T(n)=O(n) worst case.
 
 ## Audit notes
 
-The six-comparison construction, simplified randomized-selection recurrence, indicator-variable comparison probabilities, and SELECT3 outline have been expanded. Remaining work is a source-by-source audit of every exercise and problem, including the exact preprocessing/rounding argument in SELECT3 and fuller derivations for the lower-bound and small-order-statistic exercises. This companion is not yet marked complete.
+The six-comparison construction, simplified randomized-selection recurrence, indicator-variable comparison probabilities, SELECT3 rounding argument, and small-order-statistic recurrence have been expanded. The k-quantiles recursion and lower-median convention for the two-sorted-arrays problem are now explicit. Final audit remains: verify the candidate-membership adversary for 9.1-4, weighted-median recursion details, all solution claims against the source, and consistency of the chapter notes, implementation, tracker, and GitHub files.
