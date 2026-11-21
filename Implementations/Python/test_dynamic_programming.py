@@ -48,7 +48,7 @@ class TestDynamicProgramming(unittest.TestCase):
         self.assertEqual(lcs_length_linear_space("","ABC"),0)
 
     def test_edit_distance_operations(self):
-        costs = {"copy": 1, "replace": 5, "delete": 1, "insert": 1, "twiddle": 1, "kill": 1}
+        costs = {"copy": 1, "replace": 5, "delete": 1, "insert": 5, "twiddle": 1, "kill": 1}
         cost, ops = edit_distance("abc", "ac", costs)
         self.assertEqual(cost, 3)
         self.assertEqual(ops, ["copy", "delete", "copy"])
