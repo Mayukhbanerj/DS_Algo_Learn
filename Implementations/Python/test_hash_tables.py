@@ -97,6 +97,35 @@ class TestOpenAddressing(unittest.TestCase):
             self.assertTrue(found, key)
         self.assertNotIn(43, table)
 
+    def test_backward_shift_delete_from_full_table(self):
+        for capacity in range(2, 10):
+            for home in range(capacity):
+                keys = [home + capacity * i for i in range(capacity)]
+                table = [None] * capacity
+                for key in keys:
+                    for offset in range(capacity):
+                        q = (home + offset) % capacity
+                        if table[q] is None:
+                            table[q] = key
+                            break
+                for q in range(capacity):
+                    trial = table.copy()
+                    removed = trial[q]
+                    linear_probing_delete(trial, q, lambda _key, h=home: h)
+                    self.assertNotIn(removed, trial)
+                    for key in keys:
+                        if key != removed:
+                            start = home
+                            found = False
+                            for offset in range(capacity):
+                                value = trial[(start + offset) % capacity]
+                                if value is None:
+                                    break
+                                if value == key:
+                                    found = True
+                                    break
+                            self.assertTrue(found, (capacity, home, q, key))
+
 
 class TestHashFunctions(unittest.TestCase):
     def test_examples(self):
