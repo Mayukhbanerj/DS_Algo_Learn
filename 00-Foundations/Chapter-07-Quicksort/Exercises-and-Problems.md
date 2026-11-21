@@ -113,15 +113,15 @@ Uniform selection gives \(1-2\alpha\). The improvement changes constants, not th
 
 ### 7-1 — Hoare partition correctness
 
-**(a) Trace.** Input \(\langle13,19,9,5,12,8,7,4,11,2,6,21\rangle\), pivot \(x=13\), with 1-based indices. At the start \(i=0,j=13\).
+**(a) Trace.** Input \(\langle13,19,9,5,12,8,7,4,11,2,6,21\rangle\), pivot \(x=13\), with 1-based indices. Initially \(i=0,j=13\).
 
-| Iteration | Scan result | Action | Array after action | \(i,j\) |
+| Iteration | Right scan | Left scan | Action and resulting array | \(i,j\) |
 |---|---|---|---|---|
-| 1 | Right scan stops at 6; left scan stops at 19 | Exchange 19 and 6 | \(\langle13,6,9,5,12,8,7,4,11,2,19,21\rangle\) | \(2,11\) |
-| 2 | Right scan stops at 2; left scan stops at 19 | Exchange 19 and 2 | \(\langle13,6,9,5,12,8,7,4,11,2,19,21\rangle\) | \(10,10\) |
-| 3 | The scans meet/cross after the left scan reaches index 10 | Return \(j=10\) | unchanged | \(10,10\) |
+| 1 | Stops at 6, position 11 | Stops at pivot 13, position 1 | Exchange positions 1 and 11: \(\langle6,19,9,5,12,8,7,4,11,2,13,21\rangle\) | \(1,11\) |
+| 2 | Stops at 2, position 10 | Stops at 19, position 2 | Exchange positions 2 and 10: \(\langle6,2,9,5,12,8,7,4,11,19,13,21\rangle\) | \(2,10\) |
+| 3 | Stops at 11, position 9 | Stops at 19, position 10 | Scans cross; return \(j=9\), no exchange | \(10,9\) |
 
-The two exchanges place the misplaced 6 and 2 on the low side and 19 on the high side. The returned boundary is \(j=10\) in the textbook's indexing; every value in \(A[1:10]\) is at most 13 and every value in \(A[11:12]\) is at least 13.
+The returned boundary is \(j=9\). Every value in \(A[1:9]\) is at most 13 and every value in \(A[10:12]\) is at least 13.
 
 **(b) Equal keys.** With all keys equal, Lomuto PARTITION sends every scanned value to the low side and returns \(r\), producing a maximally unbalanced split. Hoare partition advances both scans inward and returns a middle boundary. This is advantageous for duplicate-heavy data.
 
