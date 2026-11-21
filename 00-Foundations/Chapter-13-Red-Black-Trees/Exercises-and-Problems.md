@@ -16,7 +16,7 @@ Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are
 
 **13.1-6. Internal-node bounds.** For black-height k, the minimum number of internal nodes is 2^k−1, achieved when every internal node is BLACK and the tree is perfect. The maximum is 4^k−1: alternate a BLACK level with a RED level, filling both children at every level, until the final RED internal level; this gives a perfect binary tree of height 2k−1.
 
-**13.1-7. Red/black ratio.** Every RED internal node has a BLACK parent, and each BLACK node has at most two RED children, so the ratio is at most 2. The full alternating-color tree (BLACK and RED levels alternating, ending at a RED level) attains ratio 2 when n=4^k−1. The minimum is 0, achieved by an all-BLACK tree. For arbitrary fixed n, the exact finite-n maximizing shape must respect the available node count; the universal upper bound and its extremal family are established here.
+**13.1-7. Red/black ratio.** Every RED internal node has a BLACK parent, and each BLACK node has at most two RED children, so the ratio is at most 2. A perfect tree with alternating BLACK and RED levels, ending at a RED internal level, attains ratio 2 (for n=4^k−1). The minimum ratio is 0, achieved by a perfect all-BLACK tree (n=2^h−1). These extremal families show the sharp global bounds; for a prescribed n not of these forms, the exact finite-size extremum depends on how the last level is completed.
 
 **13.1-8. Red node with one non-NIL child.** A red node's children must be black. If exactly one child were non-NIL, a path through that child would contain at least one more black node than the path through the NIL child, contradicting equal black-height.
 
