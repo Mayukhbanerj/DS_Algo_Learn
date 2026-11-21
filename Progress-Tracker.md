@@ -204,12 +204,19 @@ A chapter is complete only after its source pages, the relevant conversation ins
 
 - [x] Source pages 251–271 reopened; sections 10.1–10.3 and all exercise/problem statements captured
 - [x] Core notes drafted: arrays, matrices, stacks, circular queues, deques, linked lists, sentinels, binary trees, and left-child/right-sibling trees
-- [ ] Complete all Exercises 10.1-1 through 10.3-6 and Problems 10-1 through 10-3
-- [ ] Add original diagrams and Python implementations/tests
-- [ ] Audit edge cases, complexity analyses, and source alignment
+- [x] Draft solutions for Exercises 10.1-1 through 10.3-5 and Problems 10-1 through 10-3
+- [x] Add Python implementations for stacks, queues, deques, linked lists, reversal, and tree traversals
+- [x] Add unittest coverage for core implementations and a circular-queue illustration
+- [ ] Resolve and verify the two-pointer/one-boolean representation in Exercise 10.3-6
+- [ ] Finish proof audit of Problem 10-3 tail-sum and duplicate-key discussion
+- [ ] Execute the committed Python test file and fix any failures
 - [ ] Fetch all Chapter 10 files and finish source/chat/GitHub audit
 
 Files:
 - [Chapter 10 notes](00-Foundations/Chapter-10-Elementary-Data-Structures/README.md)
+- [Chapter 10 exercises and problems](00-Foundations/Chapter-10-Elementary-Data-Structures/Exercises-and-Problems.md)
+- [Circular queue illustration](00-Foundations/Chapter-10-Elementary-Data-Structures/images/circular-queue.svg)
+- [Python implementations](Implementations/Python/elementary_structures.py)
+- [Python tests](Implementations/Python/test_elementary_structures.py)
 
 **Current:** Chapter 10 — Elementary Data Structures (draft in progress).
