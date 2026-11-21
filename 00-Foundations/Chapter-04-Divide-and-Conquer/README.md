@@ -244,6 +244,12 @@ for all sufficiently large \(n\). This condition ensures that floors, ceilings, 
 
 ---
 
+## Visual guide: recursion-tree level costs
+
+![Recursion-tree nodes and level costs](images/recursion-tree-level-costs.svg)
+
+At depth \(j\), there are \(a^j\) subproblems, each of size \(n/b^j\). Summing these level costs is the bridge between the recursive algorithm and its asymptotic solution.
+
 ## Choosing a recurrence-solving method
 
 | Situation | Useful method |
