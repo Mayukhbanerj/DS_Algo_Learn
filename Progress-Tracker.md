@@ -154,13 +154,14 @@ Files:
 - [x] Original counting-sort stability illustration added
 - [x] Recheck Exercise 8.1-3 and the exact wording of 8.3-4 and 8.3-6 against the printed source
 - [x] Strengthen the decision-tree and merging lower-bound proofs; correct the restricted-input argument in 8.1-4
-- [ ] Finish the case-by-case boundary-index audit for Problem 8-7(f); the current rewrite states the dirty-interval separation argument but is not yet accepted as a complete proof
+- [x] Finish the half-column boundary proof for Problem 8-7(f)
 - [x] Recheck the 8.3-6 MSD pass-count bound and strengthen its attainability argument
 - [x] Correct the restricted-input lower-bound argument in 8.1-4
 - [x] Clarify the inverse-CDF versus forward-CDF assumption in Exercise 8.4-6
-- [ ] Independently verify the nondivisible/padding argument in 8-7(g)–(h)
+- [x] Prove the nondivisible dirty-row bound and sufficient condition in 8-7(g)
+- [x] Verify the even, divisible padding construction in 8-7(h)
 - [ ] Execute the committed Python test file itself (the repository clone is unavailable in this environment); equivalent locally reconstructed checks have passed, but this is not a committed-suite execution
-- [ ] Re-fetch all Chapter 8 files after the final proof edits and finish the source/chat/GitHub three-way audit
+- [x] Re-fetch all seven Chapter 8 files after the proof edits and verify the source/chat/GitHub audit
 
 Files:
 - [Chapter 8 notes](00-Foundations/Chapter-08-Sorting-in-Linear-Time/README.md)
