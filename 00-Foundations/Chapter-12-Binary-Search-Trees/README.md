@@ -85,6 +85,10 @@ The successor's original right child, if any, moves into the successor's old pos
 
 With the basic insertion rule, equal keys descend right. Repeated identical keys therefore form a chain and take Θ(n²) total insertion time. Alternatives in Problem 12-1 include alternating sides, storing equal keys in a list at one node, or randomizing the direction. The list-at-node strategy avoids height growth due solely to duplicates.
 
+## Visual aid
+
+[Search-path counterexample for Exercise 12.2-4](images/search-path-counterexample.svg)
+
 ## Engineering perspectives
 
 - A plain BST is not a balanced tree. If worst-case logarithmic operations are required, use a self-balancing tree (Chapter 13).
