@@ -151,7 +151,7 @@ Using \(1-x\le e^{-x}\),
 \[
 \Pr(B_k)\le e^{-k(k-1)/(2n)}.
 \]
-A match becomes likely when \(k=\Theta(\sqrt n)\), not \(\Theta(n)\).
+A match becomes likely when \(k=\Theta(\sqrt n)\), not \(\Theta(n)\). For (n=365), the exact product gives a 50% collision probability at 23 people.
 
 An indicator-variable approximation counts matching pairs. For each pair \(i<j\), let \(X_{ij}=1\) if their birthdays match. Then \(E[X_{ij}]=1/n\), and the number of matching pairs is
 \[
