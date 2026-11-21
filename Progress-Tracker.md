@@ -275,11 +275,11 @@ Files:
 ## Chapter 13 — Draft and audit in progress
 
 - [x] Reopen source PDF printed pages 331–359; capture Sections 13.1–13.4, Exercises 13.1-1–13.4-9 and Problems 13-1–13-3
-- [ ] Draft full notes on red-black properties, black-height, height proof, rotations, insertion fixup and deletion fixup
+- [x] Draft notes on red-black properties, black-height, height proof, rotations, insertion fixup and deletion fixup
 - [ ] Solve and audit all exercises 13.1-1 through 13.4-9
 - [ ] Solve Problems 13-1 persistent sets, 13-2 RB-JOIN and 13-3 AVL trees
-- [ ] Implement sentinel-based red-black tree in Python with search, insert, delete, rotations and invariant validation
-- [ ] Add Python unit tests including all insertion/deletion fixup cases
+- [x] Implement sentinel-based red-black tree in Python with search, insert, delete, rotations and invariant validation
+- [x] Add initial Python unit tests; expand coverage to all insertion/deletion fixup cases
 - [ ] Add original red-black insertion/deletion case diagrams
 - [ ] Execute exact fetched implementation and tests; fix failures
 - [ ] Fetch every Chapter 13 file and reconcile source, chat, and GitHub main
