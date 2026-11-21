@@ -220,3 +220,25 @@ Files:
 - [Python tests](Implementations/Python/test_elementary_structures.py)
 
 **Current:** Chapter 10 complete. Chapter 11 is next.
+
+
+## Chapter 11 — Draft and audit in progress
+
+- [x] Reopen source PDF printed pages 273–311; capture Sections 11.1–11.5, all exercises 11.1-1–11.5-3, and Problems 11-1–11-4
+- [x] Draft notes on direct addressing, chaining, load-factor analysis, hash-function families, open addressing, linear probing, deletion and memory hierarchy
+- [x] Draft exercise and problem solutions
+- [x] Add Python direct-address, chained-hash and open-address implementations
+- [x] Add initial Python unit tests
+- [ ] Audit every proof and numerical trace against exact exercise wording (especially 11.3-5, 11.5-3, Problem 11-3 and 11-4)
+- [ ] Add deterministic probe-trace output and linear-probing backward-shift deletion implementation
+- [ ] Execute the exact fetched Python implementation and test contents; fix failures
+- [ ] Add a teaching diagram if it improves the notes
+- [ ] Fetch every Chapter 11 file and complete source/chat/GitHub reconciliation
+
+Files:
+- [Chapter 11 notes](00-Foundations/Chapter-11-Hash-Tables/README.md)
+- [Chapter 11 exercises and problems](00-Foundations/Chapter-11-Hash-Tables/Exercises-and-Problems.md)
+- [Python hash-table implementations](Implementations/Python/hash_tables.py)
+- [Python tests](Implementations/Python/test_hash_tables.py)
+
+**Current:** Chapter 11 — Hash Tables (draft in progress).
