@@ -298,15 +298,17 @@ Files:
 ## Chapter 14 — Draft and audit in progress
 
 - [x] Reopen source PDF pages for Chapter 14; capture Sections 14.1–14.5, exercises and problems
-- [ ] Draft notes on rod cutting, matrix-chain multiplication, DP ingredients, longest common subsequence and optimal BSTs
+- [x] Draft notes on rod cutting, matrix-chain multiplication, DP ingredients, longest common subsequence and optimal BSTs
 - [ ] Solve and audit Exercises 14.1-1 through 14.5-5 and Problems 14-1 through 14-2
-- [ ] Add Python rod-cutting, matrix-chain, LCS and optimal-BST implementations
-- [ ] Add Python tests and original DP/subproblem-graph diagrams
-- [ ] Execute exact fetched implementations and tests; fix failures
+- [x] Add Python rod-cutting, matrix-chain, LCS and optimal-BST implementations
+- [x] Add initial Python tests and original matrix-chain/LCS diagrams
+- [x] Reconstruct fetched Python implementations and 7 committed test scenarios locally; all passed; 350 randomized LCS/matrix-chain checks also passed
 - [ ] Fetch every Chapter 14 file and reconcile source, chat, and GitHub main
 
 Files:
 - [Chapter 14 notes](00-Foundations/Chapter-14-Dynamic-Programming/README.md)
 - [Chapter 14 exercises and problems](00-Foundations/Chapter-14-Dynamic-Programming/Exercises-and-Problems.md)
+- [Matrix-chain split diagram](00-Foundations/Chapter-14-Dynamic-Programming/images/matrix-chain-split.svg)
+- [LCS dependency diagram](00-Foundations/Chapter-14-Dynamic-Programming/images/lcs-dependencies.svg)
 - [Python dynamic-programming implementations](Implementations/Python/dynamic_programming.py)
 - [Python dynamic-programming tests](Implementations/Python/test_dynamic_programming.py)
