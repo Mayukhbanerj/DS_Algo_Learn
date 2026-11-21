@@ -4,7 +4,12 @@ Original solutions based on CLRS Fourth Edition, Sections 12.1–12.3. Keys foll
 
 ## 12.1 What is a binary search tree?
 
-**12.1-1. Heights 2–6.** Build a balanced BST on {1,4,5,10,16,17,21} with root 10, left subtree rooted at 4 (children 1 and 5), and right subtree rooted at 17 (children 16 and 21). This has height 2 (edge-count convention). For height 3, make a chain of length 4 on one side and attach the remaining keys while preserving order; similarly extend one spine by one level for each target height 4, 5, and 6. A fully explicit set of diagrams will be added in the final audit.
+**12.1-1. Heights 2–6.** Heights count edges. The following trees use exactly the seven given keys:
+- Height 2: root 10; children 4 and 17; grandchildren 1,5,16,21.
+- Height 3: root 10; left chain 1→right 4→right 5; right subtree 17 with children 16 and 21.
+- Height 4: root 5; left child 4 with left child 1; right chain 10→right 16→right 17→right 21.
+- Height 5: root 4; left child 1; right chain 5→10→16→17→21.
+- Height 6: the right-going chain 1→4→5→10→16→17→21.
 
 **12.1-2. BST versus min-heap.** A min-heap guarantees parent.key≤child.key but gives no ordering between left and right subtrees. A BST globally partitions keys at each node. Heap extraction of the minimum takes O(lg n) per removal, so printing all keys by repeated extract-min takes O(n lg n), not O(n); a heap does not support sorted output by a simple O(n) traversal.
 
@@ -16,13 +21,16 @@ Original solutions based on CLRS Fourth Edition, Sections 12.1–12.3. Keys foll
 
 ## 12.2 Querying a binary search tree
 
-**12.2-1. Impossible search traces.** Maintain the open interval of possible keys. After visiting x, if the target is smaller, every later node must lie in x's left subtree and hence be smaller than x; if larger, every later node must be larger. Check each sequence against all bounds accumulated so far. (Detailed per-option interval traces remain to be added.)
+**12.2-1. Impossible search traces.** Maintain an interval [low,high] of possible keys, initially [1,1000]. After examining x, if x>363, tighten high to x−1; if x<363, tighten low to x+1. The next examined key must lie in the resulting interval. Sequences **(c)** and **(e)** are impossible:
+- (c): after 925,202,911,240, the target lies in [241,910], but the next key is 912.
+- (e): after 935,278,347,621, the target lies in [348,620], but the next key is 299.
+The other three sequences respect the interval constraints.
 
 **12.2-2. Recursive minimum/maximum.** MINIMUM(x): if x.left=NIL return x; otherwise return MINIMUM(x.left). MAXIMUM is symmetric.
 
 **12.2-3. Predecessor.** If x.left≠NIL return TREE-MAXIMUM(x.left). Otherwise set y=x.p; while y≠NIL and x=y.left, set x=y and y=y.p; return y.
 
-**12.2-4. Counterexample to A≤B≤C.** Smallest counterexample has three nodes: root 2, left child 1, right child 3, and search for a leaf key that terminates at 1? The search path's left/right sets must be defined relative to the search path; construct and validate the minimal counterexample in the audit before sign-off.
+**12.2-4. Counterexample.** A smallest counterexample has six nodes. Use root 2, its right child 4, 4's left child 3 and right child 6, and give 3 the children 2.5 and 3.5 (or use order-isomorphic integer keys 2,4,6,8,10,12 with the same shape). Search for k=3.5 follows 2→4→3→3.5 and ends at a leaf. The off-path node a=2.5 lies to the left of the search path, b=2 lies on it, and c=6 lies to its right, yet a>b. Thus A≤B≤C is false. (The integer relabeling 2,4,6,8,10,12 maps 2.5,3,3.5,4,5,6 respectively.)
 
 **12.2-5. Successor/predecessor child.** If x has two children, its successor is the minimum of x.right, so it has no left child. Symmetrically, predecessor is maximum of x.left and has no right child.
 
@@ -44,9 +52,13 @@ Original solutions based on CLRS Fourth Edition, Sections 12.1–12.3. Keys foll
 
 **12.3-4. NIL transplant argument.** v can be NIL whenever the replacement subtree is empty: deleting a leaf, deleting a node whose only child is absent, or splicing out a successor y that has no right child. TRANSPLANT updates v.parent only when v is non-NIL.
 
-**12.3-5. Commutativity.** Deletion is not commutative as a structural operation. Example: root 2 with left 1 and right 3. Delete 2 first: successor 3 becomes root with left 1; then delete 1 leaves root 3. Delete 1 first: root 2 with right 3; then delete 2 promotes 3. These happen to agree. Find a counterexample with a deeper successor/shape and verify both resulting shapes in final audit.
+**12.3-5. Commutativity.** Deletion is not commutative as a structural operation. Insert keys in order 1,0,3,2, giving root 1 with left child 0 and right subtree rooted at 3 with left child 2. Delete 0 then 1: the result is root 3 with left child 2. Delete 1 then 0: deleting 1 promotes successor 2 to the root with right child 3; deleting 0 then leaves root 2 with right child 3. The resulting shapes differ.
 
-**12.3-6. Successor pointers instead of parent pointers.** To find parent(v), search from root using BST comparisons until a child pointer equals v; O(h). SEARCH remains standard. INSERT tracks the predecessor/successor boundary and updates successor links for the new node and its predecessor. DELETE uses successor links to locate the inorder successor, but still finds parents by root searches before each transplant; O(h) because only a constant number of parent lookups occur. Exact pointer-update pseudocode remains to be completed.
+**12.3-6. Successor pointers instead of parent pointers.** Store left, right, and succ; do not store parent.
+- `PARENT(v)`: search from the root by key, retaining the previous node, until the search reaches v; return the previous node (NIL for root). O(h).
+- SEARCH is the ordinary root-to-leaf search.
+- INSERT descends as in TREE-INSERT while maintaining predecessor pred and successor succ candidates: when z.key<x.key, set succ=x and go left; otherwise set pred=x and go right. Attach z at the NIL link, set z.succ=succ, and if pred≠NIL set pred.succ=z. O(h).
+- DELETE first find pred (the maximum node below z.key, via a search retaining the last left-turn candidate) and set pred.succ=z.succ if pred exists. If z has at most one child, use PARENT(z) to replace z by its only child or NIL. If z has two children, y=z.succ is the minimum of z.right and has no left child. Find PARENT(y), replace y by y.right there, set y.right=z.right, then find PARENT(z), replace z by y, and set y.left=z.left. A constant number of root searches each costs O(h), so all operations remain O(h). The successor link of y already points to z's former successor, so it remains correct after y is moved.
 
 **12.3-7. Predecessor-based deletion.** Replace successor with TREE-MAXIMUM(z.left); splice predecessor y from its old position using y.left (since y has no right child); if y≠z.left, set y.left=z.left and repair parent; transplant z with y; set y.right=z.right and repair parent. For fairness, alternate predecessor/successor choices with one deterministic bit per deletion or choose randomly.
 
