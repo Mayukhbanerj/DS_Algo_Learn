@@ -266,4 +266,4 @@ The chapter attributes heapsort to Williams and the bottom-up heap construction 
 - [x] Exercises 6.1-1 through 6.5-11 — companion file
 - [x] Problems 6-1 through 6-3 — companion file
 
-**Status:** Chapter 6 notes drafted; companion solutions and three-way audit remain before completion.
+**Status:** Chapter 6 study package complete. Notes and companion solutions were checked against the source chapter, this conversation's requirements, and the committed GitHub files. The nine-test heap suite passed.
