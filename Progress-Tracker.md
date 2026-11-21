@@ -36,7 +36,8 @@ Files:
 - [x] Original SVG visuals: playing-card insertion sort, insertion-sort array trace, merge-sort recursion
 - [x] Python implementations for insertion sort and merge sort
 - [x] Unit tests for examples, empty/singleton arrays, duplicates, negative values, sorted and reverse-sorted inputs
-- [x] Local algorithm checks: 14 function/input combinations passed
+- [x] Repository test suite executed with `python -m unittest -v`: 5 tests passed
+- [x] Additional algorithm/input checks: 14 function/input combinations passed
 
 Files:
 - [Chapter 2 notes](00-Foundations/Chapter-02-Getting-Started/README.md)
