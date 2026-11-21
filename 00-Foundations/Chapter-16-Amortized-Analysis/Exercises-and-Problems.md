@@ -22,7 +22,7 @@ Original solutions aligned to CLRS Fourth Edition, Sections 16.1–16.4.
 
 **16.3-1. Shifted potential.** Define Φ'(D)=Φ(D)−Φ(D_0). Then Φ'(D_0)=0, Φ'(D)≥0, and every potential difference is unchanged, so amortized costs are identical.
 
-**16.3-2. Exercise 16.1-3.** Let Φ(i)=2(i−2^floor(lg i)) for i≥1, and Φ(0)=0. Between powers of two the potential rises by 2 per operation; at a power of two it drops by Θ(i), paying for the expensive operation. Actual cost plus potential change is O(1) amortized, so total cost O(n).
+**16.3-2. Exercise 16.1-3.** Let C(i) be the actual cost of the first i operations and define Φ(i)=3i−C(i), with Φ(0)=0. Since C(i)=i+Σ_(2^j≤i) (2^j−1) <3i, Φ(i)≥0. The amortized cost of operation i is c_i+Φ(i)−Φ(i−1)=3 exactly. Thus every prefix has nonnegative credit and total actual cost is at most 3n.
 
 **16.3-3. Min-heap.** Choose Φ(H)=c n lg n for n≥1 and Φ(empty)=0, with c sufficiently large. INSERT increases potential by O(lg n), matching its O(lg n) actual cost. EXTRACT-MIN reduces potential by Θ(lg n), paying for the O(lg n) heap repair; choose c to dominate the implementation constant. Φ is nonnegative and requires no bound on maximum heap size.
 
@@ -62,9 +62,9 @@ Original solutions aligned to CLRS Fourth Edition, Sections 16.1–16.4.
 
 **16-4. Red-black restructuring.**
 (a) A black-height-Θ(lg n) tree can be arranged so insertion fixup Case 1 propagates recoloring up the tree; similarly a deletion-fixup Case 2 chain can propagate upward. Each yields Θ(lg n) color changes.
-(b) INSERT-FIXUP Case 1 is nonterminating; Cases 2 and 3 terminate. DELETE-FIXUP Case 1 transforms to another case; Case 2 moves x upward and is nonterminating; Cases 3 and 4 terminate.
+(b) INSERT-FIXUP Case 1 is nonterminating; Cases 2 and 3 terminate. DELETE-FIXUP Cases 1 and 3 are nonterminating transformations (Case 1 converts to one of Cases 2–4; Case 3 converts to Case 4); Case 2 is nonterminating because it moves x upward; Case 4 terminates. INSERT-FIXUP Case 2 also transforms to Case 3 and is nonterminating; Case 1 can repeat; Case 3 terminates.
 (c) INSERT-FIXUP Case 1 recolors red parent and uncle black and grandparent red; the number of red nodes decreases by 1.
-(d) Ordinary insertion adds a red node (+1 potential). Nonterminating Case 1 decreases potential by 1 and uses O(1) structural modifications; terminating cases use O(1) structural modifications and change potential by O(1).
+(d) Lines 13–16 of RB-INSERT add one red node (+1 potential) and perform no rotations. Each nonterminating Case 1 decreases the red-node potential by 1 and makes no rotation. The terminating Case 2/3 sequence performs at most two rotations and changes potential by O(1). Thus the total amortized structural modifications are O(1).
 (e) Each nonterminating iteration spends one unit of red-node potential, and the initial increase is one, so structural modifications per insertion are O(1) amortized.
 (f) Under w(x), each nonterminating insertion-fixup case reduces total potential by at least 1; amortized structural modifications are O(1).
 (g) The corresponding local analysis for deletion-fixup shows every nonterminating case decreases Φ by at least 1; amortized structural modifications are O(1).
