@@ -341,7 +341,11 @@ Files:
 - [x] Draft notes for aggregate, accounting and potential methods; dynamic-table expansion/contraction
 - [x] Draft exercise/problem solutions; correct the source exercise numbering for 16.2-1–16.2-3
 - [x] Add the highest-set-bit pointer and potential proof for the INCREMENT/RESET counter exercise
-- [x] Strengthen Problem 16-3 geometric charging argument and state the precise limitation of the straightforward Problem 16-2(c) deletion strategy
+- [x] Strengthen Problem 16-3 geometric charging argument and state the limitation of the straightforward Problem 16-2(c) deletion strategy
+- [x] Correct the exact potential function for Exercise 16.3-2 using cumulative credit Φ(i)=3i−C(i)
+- [x] Correct terminating/nonterminating red-black fixup case classification in Problem 16-4(b)
+- [ ] Complete explicit per-case w(x) potential deltas for Problem 16-4(f) and (g); current summary is not a sufficient proof
+- [ ] Complete an amortized deletion strategy for Problem 16-2(c), or explicitly bound and state the best supported strategy
 - [x] Add Python stack, binary-counter, dynamic-array, Gray-code and sorted-run implementations
 - [x] Add 7 unit-test scenarios
 - [ ] Audit every derivation and red-black-tree case analysis against the source
