@@ -12,11 +12,11 @@ Original solutions aligned to CLRS Fourth Edition, Sections 16.1–16.4.
 
 ## 16.2 Accounting method
 
-**16.2-1. Stack.** Charge PUSH 2 and POP 0. Store one credit on each pushed object; its credit pays for its eventual pop, including a pop inside MULTIPOP.
+**16.2-1. Periodic stack backup.** Assume the stack has at most k items and a backup copies the current stack after every k stack operations. Charge each PUSH and POP an amortized cost of 2: one unit pays for the operation, and one unit is saved in a global backup account. During any block of k operations, at most k credits accumulate; the backup copies at most k items, so those credits pay its cost. The account is nonnegative, and n operations plus all backups cost O(n).
 
-**16.2-2. Binary counter.** Charge 2 per increment. One unit pays for setting the bit; one is stored on each bit set to 1 and pays for its later reset.
+**16.2-2. Exercise 16.1-3 by accounting.** Charge every operation 3. Ordinary operations cost 1 and deposit 2 credits. An operation at i=2^j costs 2^j; the accumulated account is sufficient because the total actual cost through any prefix n is at most n+Σ_(2^j≤n)2^j<3n. Thus the account never becomes negative and the amortized cost is 3.
 
-**16.2-3. Dynamic table.** Charge 3 per insertion. One unit pays for insertion; two credits are saved against future copying. By the next expansion, there have been enough insertions to place one credit on each item being copied.
+**16.2-3. INCREMENT and RESET.** Keep a pointer h to the highest-order 1-bit (h=−1 when the counter is zero). INCREMENT performs the usual carry, updating h when a new highest 1-bit is set. RESET examines and clears only A[0…h], then sets h=−1. Use potential Φ(x)=x+popcount(x), where x is the counter's integer value. For an increment that resets t trailing ones and sets one zero, actual cost is at most t+1, while ΔΦ=1+(1−t)=2−t; amortized cost is at most 3. RESET costs at most h+1≤k; it changes x to 0 and popcount(x) to 0, so ΔΦ=−x−popcount(x). Since a nonzero k-bit value with highest set bit h satisfies x≥2^h≥h+1, the amortized reset cost is nonpositive. Starting from zero, Φ is nonnegative, so any sequence of n INCREMENT/RESET operations costs O(n).
 
 ## 16.3 Potential method
 
