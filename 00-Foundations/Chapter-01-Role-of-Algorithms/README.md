@@ -254,6 +254,10 @@ Therefore the smallest positive integer is (n=15).
 
 ---
 
+## Chapter notes
+
+The chapter's notes point readers toward broad algorithm textbooks, practical algorithm-design references, and computational-biology resources. The main takeaway is that algorithm study spans both rigorous mathematical foundations and practical problem-solving; the reading list is a set of further references rather than additional required algorithms for this chapter.
+
 ## Revision sheet
 
 - **Algorithm:** finite, precisely specified computational procedure.
