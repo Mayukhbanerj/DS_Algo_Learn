@@ -26,7 +26,7 @@ Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are
 
 **13.2-2. Number of rotations.** Each of the n−1 parent-child edges supports exactly one rotation direction: a left rotation if the child is right, a right rotation if the child is left. Thus n−1 possible single rotations.
 
-**13.2-3. Depth changes under left rotation.** For x with right child y and subtrees α, β, γ: nodes in α keep their depth; nodes in β move up one level; nodes in γ move up one level; x moves down one level and y moves up one level.
+**13.2-3. Depth changes under left rotation.** For x with right child y and subtrees α, β, γ: α moves down one level because x moves down; β keeps the same depth; γ moves up one level with y; x moves down one level and y moves up one level.
 
 **13.2-4. Transform any BST into any other.** At most n−1 right rotations convert a BST into a right-going chain. Convert the target tree to the same chain using at most n−1 right rotations, then reverse that sequence (using left rotations) to obtain the target from the chain. Total O(n) rotations.
 
@@ -58,7 +58,7 @@ Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are
 
 **13.4-2. Root black after fixup.** The loop exits only when x is the root or x is RED. If x is the root, line 44 colors it BLACK; if x is RED, line 44 also colors it BLACK. Thus the root is BLACK.
 
-**13.4-3. Red x and red parent.** The extra black is attached to x. If x is RED, the loop condition fails and line 44 colors x BLACK, absorbing the extra black; its parent remains BLACK under the pre-fixup configuration, restoring property 4.
+**13.4-3. Red x and red parent.** The extra black is attached to x. If x is RED, the loop condition fails and line 44 colors x BLACK, absorbing the extra black. Its parent may remain RED, but its child is now BLACK, so the red-red violation is removed and property 4 holds.
 
 **13.4-4. Delete 8,12,19,31,38,41.** Starting from the final tree in 13.3-2:
 - Delete 8: root 38(B); left 19(R) with children 12(B),31(B); right 41(B).
