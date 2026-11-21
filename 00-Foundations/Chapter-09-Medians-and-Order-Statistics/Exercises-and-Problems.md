@@ -116,7 +116,7 @@ E[X_{ijk}]=
 \dfrac{2}{i-j+1},&j<k<i.
 \end{cases}
 \]
-The cases correspond to whether the pair straddles (or touches) the target rank, lies entirely above it, or lies entirely below it. If both keys are on the same side of the target, pivots outside the pair but between the pair and the target can eliminate one or both before the pair is compared; consequently the probability depends on the distance to i, not just on k−j.
+The pair is compared exactly when the first pivot chosen from the interval that can separate the pair is one of its two endpoints. If j≤i≤k, that interval is z_j,…,z_k; if i<j<k, it is z_i,…,z_k; if j<k<i, it is z_j,…,z_i. A pivot strictly inside the relevant interval separates the two keys or terminates at the target before they meet. Since each rank in the interval is equally likely to be its first pivot, the probability is 2 divided by the interval's size, giving the three cases above. This also explains why same-side pairs depend on their distance from i, not just on k−j.
 
 Let X_i be the total number of element-to-element comparisons. By linearity of expectation, sum E[X_{ijk}] over all j<k. Splitting the pairs into the three cases gives exactly the upper-bound expression in CLRS part (b):
 \[
