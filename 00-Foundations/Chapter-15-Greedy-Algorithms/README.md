@@ -81,6 +81,8 @@ A simple implementation scans the cache on each miss and computes each block's n
 
 Offline optimal caching is a benchmark, not a realistic online policy: real caches do not know future requests. LRU is a practical online heuristic but is not always optimal.
 
+**Model caveat (Exercise 15.4-4):** the section defines a miss only when a requested block is absent. If prefetching unrequested blocks is free, capacity 2 with requests A,B lets a manager fetch A and B on the first miss and achieve one demand miss, while a one-block-per-request policy incurs two. The exercise's claim therefore needs an additional assumption that prefetched block transfers are charged; see the companion solution for the counterexample.
+
 ## Visual aids
 
 - [Activity-selection exchange argument](images/activity-selection-exchange.svg)
