@@ -345,7 +345,7 @@ Files:
 - [x] Correct the exact potential function for Exercise 16.3-2 using cumulative credit Φ(i)=3i−C(i)
 - [x] Correct terminating/nonterminating red-black fixup case classification in Problem 16-4(b)
 - [ ] Complete explicit per-case w(x) potential deltas for Problem 16-4(f) and (g); current summary is not a sufficient proof
-- [ ] Complete an amortized deletion strategy for Problem 16-2(c), or explicitly bound and state the best supported strategy
+- [x] Correct Problem 16-2(c): state the requested O(n) worst-case and O(n) amortized upper bound for the split-based mixed-update strategy; clarify that O(lg n) amortized INSERT applies only to insertion-only sequences
 - [x] Add Python stack, binary-counter, dynamic-array, Gray-code and sorted-run implementations
 - [x] Add 7 unit-test scenarios
 - [ ] Audit every derivation and red-black-tree case analysis against the source
