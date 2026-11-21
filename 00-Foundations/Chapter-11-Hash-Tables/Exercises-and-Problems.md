@@ -42,7 +42,7 @@ Original study solutions based on CLRS Fourth Edition. Indices are zero-based un
 
 ## 11.4 Open addressing
 
-**11.4-1. Insertions.** Reproduce the specified key order in m=11 using linear probes (k+i) mod 11 and double hashing (k+i(1+k mod 10)) mod 11. The implementation/test artifact will record every probe and final slot for independent checking.
+**11.4-1. Insertions.** For keys 10,22,31,4,15,28,17,88,59 in m=11, linear probing yields slots [10,0,9,4,5,6,7,1,8], so the final table by slot 0…10 is [22,88,NIL,NIL,4,15,28,17,59,31,10]. Double hashing with h1(k)=k mod 11 and h2(k)=1+(k mod 10) yields slots [10,0,9,4,5,6,3,7,2], final table [22,NIL,59,17,4,15,28,88,NIL,31,10].
 
 **11.4-2. Tombstones.** DELETE writes DELETED. SEARCH continues past DELETED but stops at NIL. INSERT remembers the first DELETED, continues until NIL to rule out an existing duplicate, then inserts at the remembered tombstone; if no NIL remains, reuse the tombstone or report full.
 
