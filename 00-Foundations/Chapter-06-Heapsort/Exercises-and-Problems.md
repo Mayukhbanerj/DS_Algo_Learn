@@ -191,3 +191,196 @@ For both increasing and decreasing input, the asymptotic running time remains \(
 
 Use an input in decreasing order. It is already a max-heap. At each extraction, the last (smallest remaining) element moves to the root and must sift down to a leaf, following a path of length \(\lfloor\lg i\rfloor-O(1)\) while the heap has \(i\) elements. Summing over the loop gives \(\sum_{i=2}^{n}\Theta(\lg i)=\Theta(n\lg n)\). Thus the worst-case running time is \(\boxed{\Theta(n\lg n)}\).
 
+### 6.4-5 — Best case with distinct keys
+
+Consider a perfect heap with \(n=2^k-1\). During the first \(n/2\) extractions, the algorithm removes the largest half of the keys. The nodes containing those keys form an ancestor-closed subtree: if a node is in the set, every ancestor has a larger key and is also in the set. This subtree has \(m=2^{k-1}\) nodes.
+
+A rooted binary tree with \(m\) nodes has \(m-1\) edges, and each internal node has at most two children. It therefore has at least \((m-1)/2=\Theta(n)\) internal nodes. Call their number \(d\).
+
+Each of these internal elements must be promoted toward the root before it can be extracted. To minimize the total number of promotions, pack \(d\) nodes as shallowly as possible in a binary tree. Since the first \(j\) levels contain fewer than \(2^j\) positions, a linear fraction of these \(d\) nodes must have depth \(\Omega(\lg d)\). The total number of promotions is consequently \(\Omega(d\lg d)=\Omega(n\lg n)\). This lower bound is incurred during the first half of the sorting phase alone. Since heapsort always has an \(O(n\lg n)\) upper bound, its best-case running time with distinct keys is
+\[
+\boxed{\Theta(n\lg n)}.
+\]
+
+This is a nontrivial structural lower-bound argument; the chapter notes credit Schaffer and Sedgewick with the best-case movement analysis.
+
+## Exercises 6.5 — Priority queues
+
+### 6.5-1 — EXTRACT-MAX trace
+
+For \(A=\langle15,13,9,5,12,8,7,4,0,6,2,1\rangle\), remove 15, move the last key 1 to the root, and sift down:
+\[
+\langle1,13,9,5,12,8,7,4,0,6,2\rangle
+\to\langle13,1,9,5,12,8,7,4,0,6,2\rangle
+\to\langle13,12,9,5,1,8,7,4,0,6,2\rangle
+\to\boxed{\langle13,12,9,5,6,8,7,4,0,1,2\rangle}.
+\]
+
+### 6.5-2 — MAX-HEAP-INSERT(A, 10)
+
+Append 10 to the supplied heap:
+\[
+\langle15,13,9,5,12,8,7,4,0,6,2,1,10\rangle.
+\]
+Its parent is 8, so exchange:
+\[
+\boxed{\langle15,13,10,5,12,9,7,4,0,6,2,1,8\rangle}.
+\]
+The new key stops because its new parent 15 is larger.
+
+### 6.5-3 — Min-priority queue pseudocode
+
+    MIN-HEAP-MINIMUM(A)
+        if A.heap_size < 1: error "heap underflow"
+        return A[1]
+
+    MIN-HEAP-EXTRACT-MIN(A)
+        if A.heap_size < 1: error "heap underflow"
+        answer = A[1]
+        A[1] = A[A.heap_size]
+        A.heap_size -= 1
+        if A.heap_size > 0: MIN-HEAPIFY(A, 1)
+        return answer
+
+    MIN-HEAP-DECREASE-KEY(A, i, key)
+        if key > A[i].key: error "new key is larger"
+        A[i].key = key
+        while i > 1 and A[PARENT(i)].key > A[i].key
+            exchange A[i] with A[PARENT(i)]
+            i = PARENT(i)
+
+    MIN-HEAP-INSERT(A, x)
+        if A.heap_size == A.capacity: error "heap overflow"
+        A.heap_size += 1
+        key = x.key
+        x.key = +infinity
+        A[A.heap_size] = x
+        MIN-HEAP-DECREASE-KEY(A, A.heap_size, key)
+
+The operation costs are \(O(1)\) for MINIMUM and \(O(\lg n)\) for the other operations.
+
+### 6.5-4 — MAX-HEAP-DECREASE-KEY
+
+    MAX-HEAP-DECREASE-KEY(A, i, key)
+        if key > A[i].key: error "new key is larger"
+        A[i].key = key
+        MAX-HEAPIFY(A, i)
+
+Decreasing a key can violate the max-heap property only with its children, so sift downward. The running time is \(O(\lg n)\).
+
+### 6.5-5 — Why initialize the new key to negative infinity?
+
+MAX-HEAP-INSERT first appends a new leaf. Setting its key to \(-\infty\) ensures that the heap property is valid before the key is raised. MAX-HEAP-INCREASE-KEY can then use one uniform upward-repair routine. The sentinel also guarantees the new key is no smaller than the temporary key.
+
+### 6.5-6 — Why MAX-HEAPIFY cannot replace the upward loop
+
+After increasing a key, the node may be larger than its parent, while its child subtrees remain max-heaps. MAX-HEAPIFY assumes the child subtrees are heaps and moves a too-small parent value downward. Here the violation is upward, so the key must move toward the root by comparing with parents.
+
+### 6.5-7 — Loop invariant for INCREASE-KEY
+
+The invariant states that all heap relations hold except possibly between \(i\) and its parent, and that the parent of \(i\) remains at least as large as the roots of the two child subtrees of \(i\). Initially, only the increased key may violate its parent relation; its children were no larger before the increase and remain no larger afterward. If the while test is true, swap \(i\) with its parent. The promoted key is now at the parent, and the displaced parent key is no larger than the promoted key; the only possible violation moves to the new index \(PARENT(i)\). The two sibling-subtree conditions remain valid. When the loop stops, either \(i=1\) or its parent is at least its key, so no violation remains and the max-heap property holds.
+
+### 6.5-8 — Reduce exchanges to one assignment
+
+Use a hole-based upward sift. Save the inserted object's key/pointer in a temporary variable, then shift each smaller parent down into the hole:
+    
+    x = A[i]
+    while i > 1 and A[PARENT(i)].key < x.key
+        A[i] = A[PARENT(i)]
+        update_index(A[i], i)
+        i = PARENT(i)
+    A[i] = x
+    update_index(x, i)
+
+Each level uses one array assignment rather than a three-assignment swap. The final placement uses one more assignment.
+
+### 6.5-9 — Implement FIFO queue and stack with a priority queue
+
+For a FIFO queue, assign each inserted item a monotonically increasing timestamp and use a min-priority queue; extract the smallest timestamp first. For a stack, use a monotonically increasing timestamp and a max-priority queue; extract the newest timestamp first. If equal priorities are possible, include a unique sequence number as a tie-breaker.
+
+### 6.5-10 — MAX-HEAP-DELETE in O(lg n)
+
+Given a handle to object \(x\), find its heap index \(i\) in \(O(1)\) mapping time. Replace \(A[i]\) with the final heap element, decrement heap_size, and update the moved object's handle. If the replacement key is larger than its parent, sift it upward with the INCREASE-KEY loop; otherwise call MAX-HEAPIFY at \(i\). The path length is \(O(\lg n)\), so deletion takes \(O(\lg n)\) plus mapping overhead.
+
+### 6.5-11 — Merge k sorted lists
+
+Insert the first unconsumed element of each nonempty list into a min-heap, storing its list identifier and position. Repeatedly:
+1. Extract the minimum and append it to the output.
+2. From that same list, insert its next element if one remains.
+
+The heap contains at most \(k\) elements. Each of the \(n\) total elements is inserted and extracted at most once, each in \(O(\lg k)\), so the total running time is \(\boxed{O(n\lg k)}\), with \(O(k)\) auxiliary heap space.
+
+---
+
+## Problems for Chapter 6
+
+### 6-1 — Building a heap using insertion
+
+**(a) Do BUILD-MAX-HEAP and BUILD-MAX-HEAP' always create the same heap?**
+
+No. For example, use input \(\langle1,2,3\rangle\). Bottom-up BUILD-MAX-HEAP first heapifies node 1 and produces \(\langle3,2,1\rangle\). Repeated insertion starts with 1, inserts 2 to obtain \(\langle2,1\rangle\), then inserts 3 to obtain \(\langle3,1,2\rangle\). The resulting heaps differ.
+
+**(b) Worst-case time of repeated insertion**
+
+The \(i\)-th insertion can move its key from a leaf to the root, costing \(\Theta(\lg i)\). Choose an increasing input order so each newly inserted key is larger than all previous keys. Then every insertion traverses the full path to the root. The total is
+\[
+\sum_{i=2}^{n}\Theta(\lg i)=\Theta(n\lg n).
+\]
+
+### 6-2 — Analysis of d-ary heaps
+
+**(a) Array representation.** With 1-based indexing, the parent of \(i>1\) is
+\[
+PARENT_d(i)=\left\lfloor\frac{i-2}{d}\right\rfloor+1,
+\]
+and the children are
+\[
+d(i-1)+2,\ d(i-1)+3,\ldots,di+1,
+\]
+when their indices do not exceed heap_size.
+
+**(b) Height.** A full d-ary tree of height \(h\) has \((d^{h+1}-1)/(d-1)\) nodes. Therefore \(h=\Theta(\log_d n)\).
+
+**(c) EXTRACT-MAX.** Save the root, move the last element to the root, shrink the heap, and sift down by finding the largest among the node and up to \(d\) children. Each level costs \(O(d)\), and there are \(O(\log_d n)\) levels:
+\[
+O(d\log_d n).
+\]
+
+**(d) INCREASE-KEY.** Raise the key and repeatedly compare it with its parent, swapping upward while it is larger. One comparison and constant work per level gives \(O(\log_d n)\).
+
+**(e) INSERT.** Append a leaf with key \(-\infty\), then apply INCREASE-KEY. The time is \(O(\log_d n)\).
+
+### 6-3 — Young tableaux
+
+**(a) A 4-by-4 tableau.** One valid arrangement of the nine values is
+\[
+\begin{bmatrix}
+2&3&5&8\\
+4&9&14&\infty\\
+12&16&\infty&\infty\\
+\infty&\infty&\infty&\infty
+\end{bmatrix}.
+\]
+Rows and columns are nondecreasing.
+
+**(b) Empty and full tests.** If \(Y[1,1]=\infty\), every entry to its right or below must be at least infinity, hence infinity; the tableau is empty. If \(Y[m,n]<\infty\), every entry above or left is no larger than this finite value and therefore finite; the tableau is full.
+
+**(c) EXTRACT-MIN.** Save \(Y[1,1]\), put infinity there, then recursively compare the right and lower neighbors and move the smaller one into the vacancy. Continue the vacancy into the neighbor's old cell until it reaches the last row or column. Each step moves one row down or one column right, so there are at most \(m+n-2\) steps. The cost is \(O(m+n)\).
+
+**(d) INSERT.** Put the new key in the bottom-right empty cell. While it is smaller than its upper or left neighbor, swap it with the larger of those violating neighbors. Each swap moves one row up or one column left; there are at most \(m+n-2\) moves, so the cost is \(O(m+n)\).
+
+**(e) Sort \(n^2\) numbers.** Build an \(n\times n\) Young tableau by inserting the \(n^2\) values, each in \(O(n)\) time, for \(O(n^3)\). Then extract-min \(n^2\) times, each \(O(n)\), again \(O(n^3)\). The extracted sequence is sorted, and the total is \(\boxed{O(n^3)}\).
+
+**(f) Search.** Start at the top-right cell. If it equals the target, return its location. If it is greater, move left (everything below is at least as large); if it is smaller, move down (everything to the left is at most as small). Each move eliminates a row or column, so there are at most \(m+n-1\) moves and the running time is \(O(m+n)\).
+
+---
+
+## Final Chapter 6 checklist
+
+- [ ] Derive heap index arithmetic and height.
+- [ ] Prove MAX-HEAPIFY's precondition and correctness.
+- [ ] Explain the linear-time BUILD-MAX-HEAP summation.
+- [ ] Prove the HEAPSORT loop invariant.
+- [ ] Implement all priority-queue operations and update handles.
+- [ ] Analyze d-ary heap operations.
+- [ ] Implement Young-tableau insertion, extraction, and search.
