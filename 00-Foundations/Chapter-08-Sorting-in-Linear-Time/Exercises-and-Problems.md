@@ -104,7 +104,12 @@ Represent each key in three base-\(n\) digits. Each digit lies in \([0,n-1]\). T
 
 ### 8.3-6 — Most-significant-digit-first card sorting
 
-In the worst case, all \(n\) cards can share the first \(d-1\) digits, forcing recursive sorting to continue to the last digit. A 10-way distribution at each digit requires up to \(d\) digit-level sorting stages; keeping aside all other bins while processing one bin can require \(9d+1\) active piles in the straightforward worst-case procedure (the exact number depends on whether the input and output decks are counted as piles).
+At recursion depth \(j\), the cards are grouped by their first \(j\) digits. There can be at most \(\min(n,10^j)\) nonempty prefix groups, and each such group that has another digit to process requires one pass. Thus the worst-case number of passes is
+\[
+\boxed{\sum_{j=0}^{d-1}\min(n,10^j)}.
+\]
+The operator may have to set aside the nine other digit piles at each of the \(d\) recursion levels while processing one pile. Counting the active pile, this requires at most \(9d+1\) piles in the straightforward recursive procedure.
+
 
 ## Exercises 8.4 — Bucket sort
 
@@ -137,7 +142,12 @@ E[X]=1,\quad E[X^2]=0+1/2+1=3/2,\quad E[X]^2=1.
 
 ### 8.4-4 — Stratified bucket design
 
-The values are \(A[i]=\lfloor10x_i\rfloor/10+y_i/n\). First partition by the coarse decile \(c=\lfloor10x_i\rfloor\), then within each decile distribute by \(y_i\) into \(n\) finer buckets (or sort each decile's \(y_i\) values with a stable linear-time distribution scheme). There are 10 coarse groups; the independent uniform \(y_i\) values yield expected constant occupancy per fine bucket. The expected total work is \(O(n)\).
+Let \(c_i=\lfloor10A[i]\rfloor\). Since \(n>10\), \(0\le y_i/n<1/n<1/10\), so \(c_i=\lfloor10x_i\rfloor\). Within coarse group \(c\), the residual \(A[i]-c/10=y_i/n\) is uniform on \([0,1/n)\). There are \(n/10\) expected items in each coarse group. Divide that interval into \(n/10\) equal fine buckets, each of width \(10/n^2\). The fine-bucket index is
+\[
+c\cdot(n/10)+\left\lfloor (A[i]-c/10)\frac{n^2}{10}\right\rfloor.
+\]
+There are \(n\) buckets in total, and each has expected constant occupancy. Insertion-sorting within buckets and concatenating in index order therefore takes \(O(n)\) expected time. (For nonmultiples of 10, use groups and bucket counts rounded proportionally.)
+
 
 ### 8.4-5 — Points uniformly distributed in the unit disk
 
