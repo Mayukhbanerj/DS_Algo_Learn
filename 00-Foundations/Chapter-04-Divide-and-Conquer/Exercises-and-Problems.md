@@ -332,7 +332,7 @@ Let \(F(z)=\sum_{i\ge0}F_i z^i\).
 
 ### 4-6 — Chip testing
 
-**(a)** If at least half the chips are bad, bad chips can coordinate reports so the observed pairwise results do not uniquely identify the good chips. Therefore no strategy can always determine the good set in this regime.
+**(a)** It is enough to show an ambiguous instance with \(n\) even and exactly \(n/2\) good chips. Pair each good chip with one bad chip. In each pair, the good chip truthfully reports that its partner is bad; the bad chip can report the same answer. The test therefore reports only “at least one is bad,” and does not reveal which chip is bad. The bad chips can coordinate this behavior across all pairs. The same observed outcomes are consistent with swapping which member of each pair is good, so no strategy can always identify the good set when at least half may be bad.
 
 **(b)** Pair chips and test both directions. Keep one chip only when both report the other is good; otherwise discard both. A good-good pair contributes one good chip. A mixed pair cannot be retained because its good chip reports the other bad. A bad-bad pair may be retained if both lie, but contributes one bad chip. If there are \(x\) good-good pairs, \(y\) mixed pairs, and \(z\) bad-bad pairs, strict original majority gives \(2x+y>y+2z\), hence \(x>z\). The retained set still has a strict good majority and at most \(\lceil n/2\rceil\) chips.
 
