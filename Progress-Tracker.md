@@ -144,7 +144,7 @@ Files:
 - [Python quicksort implementations](Implementations/Python/quicksort.py)
 - [Python quicksort tests](Implementations/Python/test_quicksort.py)
 
-## Chapter 8 — Draft and audit in progress
+## Chapter 8 — Complete
 
 - [x] Sections 8.1–8.4 drafted: decision-tree lower bound, counting sort, radix sort, bucket sort
 - [x] Exercises 8.1-1 through 8.4-6 drafted
@@ -160,8 +160,9 @@ Files:
 - [x] Clarify the inverse-CDF versus forward-CDF assumption in Exercise 8.4-6
 - [x] Prove the nondivisible dirty-row bound and sufficient condition in 8-7(g)
 - [x] Verify the even, divisible padding construction in 8-7(h)
-- [ ] Execute the committed Python test file itself (the repository clone is unavailable in this environment); equivalent locally reconstructed checks have passed, but this is not a committed-suite execution
+- [x] Execute all 10 tests from the exact committed implementation and test-file contents fetched from GitHub main; all passed (the repository clone itself was unavailable)
 - [x] Re-fetch all seven Chapter 8 files after the proof edits and verify the source/chat/GitHub audit
+- [x] Run the exact fetched Python suite: 10 tests passed
 
 Files:
 - [Chapter 8 notes](00-Foundations/Chapter-08-Sorting-in-Linear-Time/README.md)
@@ -174,4 +175,4 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Next:** Finish the Chapter 8 source/chat/GitHub audit. Do not begin Chapter 9 until the remaining columnsort proof and repository verification are complete.
+**Next:** Chapter 9 — Medians and Order Statistics.
