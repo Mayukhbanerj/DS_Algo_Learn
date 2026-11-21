@@ -30,7 +30,7 @@ The other three sequences respect the interval constraints.
 
 **12.2-3. Predecessor.** If x.left≠NIL return TREE-MAXIMUM(x.left). Otherwise set y=x.p; while y≠NIL and x=y.left, set x=y and y=y.p; return y.
 
-**12.2-4. Counterexample.** A smallest counterexample has five nodes: root 2; its right child 4; 4's left child 3 and right child 5; and 3's left child 2.5. Search unsuccessfully for k=3.5: the path is 2→4→3→NIL. The off-path key a=2.5 lies to the left of the path, b=2 lies on it, and c=5 lies to its right, but a>b. Thus A≤B≤C is false. To use integer keys, apply the order-preserving relabeling 2, 2.5, 3, 3.5, 4, 5 ↦ 1, 2, 3, 4, 5, 6 respectively (the searched value 3.5 maps to 4).
+**12.2-4. Counterexample.** A smallest counterexample has five nodes: root 2; its right child 4; 4's left child 3 and right child 5; and 3's left child 2.5. Search unsuccessfully for k=3.5: the path is 2→4→3→NIL. The off-path key a=2.5 lies to the left of the path, b=2 lies on it, and c=5 lies to its right, but a>b. Thus A≤B≤C is false. Five nodes are minimal: a violating a>b requires the search path to go right at an earlier node and later turn left; to have an off-path c on the right as well, the path must then turn right again before terminating. That requires three path nodes plus the two off-path witnesses. To use integer keys, apply the order-preserving relabeling 2, 2.5, 3, 3.5, 4, 5 ↦ 1, 2, 3, 4, 5, 6 respectively (the searched value 3.5 maps to 4).
 
 **12.2-5. Successor/predecessor child.** If x has two children, its successor is the minimum of x.right, so it has no left child. Symmetrically, predecessor is maximum of x.left and has no right child.
 
