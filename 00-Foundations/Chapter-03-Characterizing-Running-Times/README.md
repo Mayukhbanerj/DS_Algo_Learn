@@ -330,7 +330,6 @@ The leading term determines its asymptotic order. A function is polynomially bou
 For \(a>0\), exponent rules include:
 \[
 a=b^{\log_b a}\quad(b>0,\ b\ne1),\qquad
-\[
 a^0=1,\quad a^1=a,\quad a^{-1}=1/a,\quad
 (a^m)^n=a^{mn},\quad a^ma^n=a^{m+n}.
 \]
