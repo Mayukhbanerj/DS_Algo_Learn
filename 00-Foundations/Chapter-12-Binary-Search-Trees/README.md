@@ -108,3 +108,61 @@ With the basic insertion rule, equal keys descend right. Repeated identical keys
 | Insert | O(h) |
 | Delete | O(h) |
 | Space for tree | Θ(n) |
+
+
+## Algorithm patterns and proof obligations
+
+### Iterative search
+
+```text
+ITERATIVE-TREE-SEARCH(x, k)
+    while x ≠ NIL and k ≠ x.key
+        if k < x.key
+            x = x.left
+        else
+            x = x.right
+    return x
+```
+
+At every iteration, if k exists in the current subtree, it must be in the subtree rooted at x. When k<x.key, the BST invariant rules out x and the entire right subtree; the symmetric argument applies when k>x.key. The algorithm therefore never discards the only possible location of k. Each iteration descends one level, so it performs O(h) work.
+
+### Successor: why the two cases are exhaustive
+
+If x.right exists, every key in x's right subtree is greater than or equal to x.key, and its minimum is the least key encountered after x in inorder. If x.right is NIL, no later node can be below x. Move upward while x is a right child: each such parent has already appeared before x in inorder. The first ancestor reached from its left child is visited after x and before any higher candidate. If the climb reaches NIL, x was the maximum.
+
+### Inorder traversal: exact call count
+
+For n internal nodes, every internal node generates exactly two recursive calls, one for each child pointer, and the recursion tree has n internal-call nodes and n+1 NIL-call leaves. Total calls are 2n+1. Each call does constant nonrecursive work, so the total is Θ(n), independent of tree shape. The recursion stack can nevertheless be Θ(h), which becomes Θ(n) for a chain.
+
+### Insertion loop invariant
+
+At the start of each iteration, y is the parent of x, and every node above x has already been classified relative to z.key: z belongs in the subtree rooted at x. The comparison chooses the only child subtree consistent with the BST invariant. When x becomes NIL, the child link just followed is exactly the unique insertion position; attaching z there preserves the invariant. The search path has at most h+1 nodes.
+
+### Deletion: pointer-update checklist
+
+The two-child case is easiest to audit by separating splicing out the successor from moving it into z's position:
+
+```text
+TREE-DELETE(T, z)
+    if z.left == NIL
+        TRANSPLANT(T, z, z.right)
+    elseif z.right == NIL
+        TRANSPLANT(T, z, z.left)
+    else
+        y = TREE-MINIMUM(z.right)
+        if y != z.right
+            TRANSPLANT(T, y, y.right)
+            y.right = z.right
+            y.right.p = y
+        TRANSPLANT(T, z, y)
+        y.left = z.left
+        y.left.p = y
+```
+
+Why does this preserve order? y is the minimum of z.right, so every key in z.left is ≤ z.key ≤ y.key, and every key remaining in z.right is ≥ y.key. When y is not z.right, it has no left child, so replacing y by y.right at its old location preserves that subtree. When y=z.right, it is already in the position where it must remain and only its left link changes. This is why the direct-child branch must not splice y out first.
+
+The procedure moves the successor node object rather than copying its key. Thus a caller holding a pointer to z can rely on z itself being the deleted object; other node identities remain intact.
+
+### Adversarial shape and sorting connection
+
+Inserting already sorted keys creates a chain: the i-th insertion compares against i−1 existing nodes, for total Σ(i−1)=n(n−1)/2=Θ(n²). Conversely, if each insertion sees height O(lg n), total insertion cost is O(n lg n). Inorder output then adds Θ(n). This is the BST-sort reduction behind Exercise 12.1-5's comparison-sorting lower bound.
