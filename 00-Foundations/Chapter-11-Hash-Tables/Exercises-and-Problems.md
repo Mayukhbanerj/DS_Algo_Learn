@@ -20,7 +20,7 @@ Original study solutions based on CLRS Fourth Edition. Indices are zero-based un
 
 **11.2-3. Sorted chains.** Search can stop once a key exceeds the target. Successful and unsuccessful expected search remain Θ(1+α) asymptotically under uniform hashing, though comparisons may improve. INSERT must find the sorted position, costing Θ(chain length); DELETE by node pointer remains Θ(1) in a doubly linked chain.
 
-**11.2-4. Free list.** Keep unused cells in a singly linked free list. Allocate by popping the head; deallocate by pushing to the head. Both Θ(1); a singly linked free list suffices. A flag distinguishes occupied cells from free-list linkage.
+**11.2-4. Free list.** Maintain a singly linked free list of unused cells; pop its head to allocate and push a released cell at the head to deallocate, both Θ(1). For the bucket chains, use doubly linked lists so deletion by object pointer is Θ(1). The stated slot layout supports either an active element plus its chain pointer, or the two links needed while the cell is on the free list; a flag tells which interpretation applies. The free list itself need not be doubly linked.
 
 **11.2-5. Large collision class.** There are m hash values. If every class had at most n−1 keys, |U|≤m(n−1). Thus |U|>m(n−1) implies some class contains at least n keys. Choosing n of them yields a chain with Θ(n) worst-case search.
 
@@ -42,7 +42,7 @@ Original study solutions based on CLRS Fourth Edition. Indices are zero-based un
 
 ## 11.4 Open addressing
 
-**11.4-1. Insertions.** For keys 10,22,31,4,15,28,17,88,59 in m=11, linear probing yields slots [10,0,9,4,5,6,7,1,8], so the final table by slot 0…10 is [22,88,NIL,NIL,4,15,28,17,59,31,10]. Double hashing with h1(k)=k mod 11 and h2(k)=1+(k mod 10) yields slots [10,0,9,4,5,6,3,7,2], final table [22,NIL,59,17,4,15,28,88,NIL,31,10].
+**11.4-1. Insertions.** For keys 10,22,31,4,15,28,17,88,59 in m=11, linear probing yields slots [10,0,9,4,5,6,7,1,8], final table by slot 0…10: [22,88,NIL,NIL,4,15,28,17,59,31,10]. CLRS uses h1(k)=k (not k mod 11, which is equivalent in the first probe) and h2(k)=1+(k mod 10). Double hashing yields slots [10,0,9,4,5,6,3,7,2], final table [22,NIL,59,17,4,15,28,88,NIL,31,10].
 
 **11.4-2. Tombstones.** DELETE writes DELETED. SEARCH continues past DELETED but stops at NIL. INSERT remembers the first DELETED, continues until NIL to rule out an existing duplicate, then inserts at the remembered tombstone; if no NIL remains, reuse the tombstone or report full.
 
