@@ -402,6 +402,10 @@ T(n)=c_2nlg n+c_1n=Theta(nlg n).
 
 ---
 
+## Complete worked solutions
+
+The detailed step-by-step solutions for every exercise 2.1-1 through 2.3-8 and Problems 2-1 through 2-4 are in [Exercises and Problems](Exercises-and-Problems.md).
+
 ## Exercises 2.3 — Study responses
 
 - **2.3-1:** Sorting ([3,41,52,26,38,57,9,49]) by merge sort produces ([3,9,26,38,41,49,52,57]).
