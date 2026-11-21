@@ -27,6 +27,7 @@ The goal is to develop algorithmic reasoning—not memorize solutions. Notes dis
 | `00-Foundations/Chapter-09-Medians-and-Order-Statistics/` | Chapter 9 notes, exercises, selection illustration |
 | `00-Foundations/Chapter-10-Elementary-Data-Structures/` | Chapter 10 notes, exercises, data-structure illustrations |
 | `00-Foundations/Chapter-11-Hash-Tables/` | Chapter 11 notes, exercises, hash-table analysis |
+| `00-Foundations/Chapter-12-Binary-Search-Trees/` | Chapter 12 notes, exercises, binary-search-tree operations |
 | `Implementations/Python/` | Python implementations and tests |
 | `Progress-Tracker.md` | Study progress and next steps |
 
