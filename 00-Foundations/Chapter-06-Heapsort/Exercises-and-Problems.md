@@ -229,9 +229,10 @@ The new key stops because its new parent 15 is larger.
     MIN-HEAP-INSERT(A, x)
         if A.heap_size == A.capacity: error "heap overflow"
         A.heap_size += 1
+        key = x.key
         x.key = +infinity
         A[A.heap_size] = x
-        MIN-HEAP-DECREASE-KEY(A, A.heap_size, original_key)
+        MIN-HEAP-DECREASE-KEY(A, A.heap_size, key)
 
 The operation costs are \(O(1)\) for MINIMUM and \(O(\lg n)\) for the other operations.
 
