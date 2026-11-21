@@ -69,7 +69,7 @@ Binary-search a partition i in X and j=n−i in Y so the left halves contain n v
 
 ### 9-2 — Simplified randomized select
 (a) If pivot rank equals i, the simplified procedure recurses on a subarray that still includes the pivot and may repeat the same size; worst-case nontermination is possible.
-(b) Expected O(n) requires a recurrence accounting for the nonshrinking event (probability 1/n) and is retained for detailed proof audit.
+(b) Let T(n,i) be expected time for rank i. A uniform pivot rank k gives T(n,i) ≤ an + (1/n)[Σ(k=1 to i−1) T(n−k,i−k) + Σ(k=i to n) T(k,i)]. The k=n term is T(n,i), with coefficient 1/n; move it to the left. Assuming inductively T(m,j)≤cm for m<n, the sum of recursive subproblem sizes is Σ(k=1 to i−1)(n−k)+Σ(k=i to n)k = n(n+1)/2+(i−1)n−i(i−1) ≤ 3n²/4+O(n). After moving the self-term left, choosing c sufficiently larger than a proves T(n,i)=O(n).
 
 ### 9-3 — Weighted median
 (a) Equal weights 1/n make the weighted-median condition the ordinary lower-median condition.
