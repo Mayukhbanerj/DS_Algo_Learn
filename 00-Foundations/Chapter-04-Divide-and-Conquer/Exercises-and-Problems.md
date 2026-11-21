@@ -346,7 +346,7 @@ A matrix is Monge if \(A[i,j]+A[k,l]\le A[i,l]+A[k,j]\) for all \(i<k,j<l\).
 
 - **(a)** The global inequality implies the adjacent one. Conversely, rearrange the adjacent inequality to \(A[i,j]-A[i,j+1]\le A[i+1,j]-A[i+1,j+1]\). Sum over adjacent columns and rows to obtain the global inequality.
 - **(b)** The only violated adjacent inequality in the supplied array is \(23+7>22+6\) in the first two rows and columns 2–3. Change \(22\) to \(24\). All adjacent inequalities then hold, so the matrix is Monge.
-- **(c)** Let \(f(i)\) be the leftmost minimum column of row \(i\). If \(i<k\) but \(f(i)>f(k)\), apply the Monge inequality to columns \(f(k)<f(i)\); the row-minimum properties contradict the leftmost choice in row \(k\). Hence \(f(1)\le\cdots\le f(m)\).
+- **(c)** Let \(p=f(i)\) and \(q=f(k)\) for \(i<k\). Suppose \(p>q\). Since \(p\) is the leftmost minimum in row \(i\), \(A[i,p]<A[i,q]\). Since \(q\) is a minimum in row \(k\), \(A[k,q]\le A[k,p]\). Therefore \(A[i,q]+A[k,p]>A[i,p]+A[k,q]\), contradicting the Monge inequality applied to columns \(q<p\). Hence \(f(i)\le f(k)\), and the leftmost-minimum indices are nondecreasing.
 - **(d)** Find minima in even rows recursively. By part (c), the minimum of an odd row lies between the minima of its neighboring even rows. Scan only that interval. The intervals have total length \(O(n+m)\) because the endpoints move monotonically.
 - **(e)** \(T(m,n)=T(\lceil m/2\rceil,n)+O(m+n)\). The \(m\)-terms sum geometrically to \(O(m)\); the \(n\)-term is paid over \(O(\lg m)\) levels. Thus \(T(m,n)=O(m+n\lg m)\).
 
