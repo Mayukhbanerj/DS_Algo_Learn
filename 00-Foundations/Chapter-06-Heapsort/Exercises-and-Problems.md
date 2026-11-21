@@ -128,12 +128,12 @@ Input: \(\langle5,3,17,10,84,19,6,22,9\rangle\). Start at \(i=\lfloor9/2\rfloor=
 
 The final max-heap is
 \[
-\boxed{\langle84,22,19,10,9,17,6,5,3\rangle}.
+\boxed{\langle84,22,19,10,3,17,6,5,9\rangle}.
 \]
 
 ### 6.3-2 — Show the ceiling is at least one-half
 
-For \(0\le h\le\lfloor\lg n\rfloor\), we have \(n/2^{h+1}>1/4\), and for the relevant integer range the ceiling is at least 1 whenever the quotient is positive. In particular it is at least \(1/2\). This is the bound needed to use \(\lceil x\rceil\le2x\) for \(x\ge1/2\) in the linear-time summation.
+For \(h\le\lfloor\lg n\rfloor\), \(2^h\le n\), so \(n/2^{h+1}\ge1/2\). The ceiling is therefore at least \(1/2\) (indeed, it is at least 1). This permits the bound \(\lceil x\rceil\le2x\) for \(x\ge1/2\) in the BUILD-MAX-HEAP summation.
 
 ### 6.3-3 — Why the loop runs downward
 
