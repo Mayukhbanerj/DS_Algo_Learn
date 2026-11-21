@@ -20,6 +20,7 @@ Chapters 1–7 are complete study packages. Each chapter has been checked agains
 | 8 — Sorting in Linear Time | Sections 8.1–8.4, Exercises 8.1-1–8.4-6, Problems 8-1–8-7 | **Complete** |
 | 9 — Medians and Order Statistics | Sections 9.1–9.3, Exercises 9.1-1–9.3-10, Problems 9-1–9-6 | **Complete** |
 | 10 — Elementary Data Structures | Sections 10.1–10.3, Exercises 10.1-1–10.3-6, Problems 10-1–10-3 | **Complete** |
+| 11 — Hash Tables | Sections 11.1–11.5, Exercises 11.1-1–11.5-3, Problems 11-1–11-4 | **Complete** |
 
 ## Chapter 1
 
@@ -222,7 +223,7 @@ Files:
 **Current:** Chapter 10 complete. Chapter 11 is next.
 
 
-## Chapter 11 — Draft and audit in progress
+## Chapter 11 — Complete
 
 - [x] Reopen source PDF printed pages 273–311; capture Sections 11.1–11.5, all exercises 11.1-1–11.5-3, and Problems 11-1–11-4
 - [x] Draft notes on direct addressing, chaining, load-factor analysis, hash-function families, open addressing, linear probing, deletion and memory hierarchy
@@ -234,7 +235,8 @@ Files:
 - [x] Add linear-probing backward-shift deletion; randomized local checks across table sizes 2–19 passed
 - [x] Execute exact fetched Python implementation and test contents in a temporary package; all 11 unittest cases passed
 - [x] Add an original chaining diagram
-- [ ] Fetch every Chapter 11 file after final edits and complete source/chat/GitHub reconciliation
+- [x] Fetch every Chapter 11 file after final edits; verify README, exercise solutions, SVG, Python implementation/tests, repository map and tracker on GitHub main
+- [x] Complete three-way reconciliation against source PDF printed pages 273–311, conversation instructions and GitHub main
 
 Files:
 - [Chapter 11 notes](00-Foundations/Chapter-11-Hash-Tables/README.md)
@@ -242,4 +244,4 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 11 — Hash Tables (final reconciliation in progress).
+**Current:** Chapter 11 complete. Chapter 12 is next.
