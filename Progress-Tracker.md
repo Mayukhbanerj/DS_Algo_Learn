@@ -6,7 +6,7 @@
 
 ## Completion audit — 21 November 2026
 
-Chapters 1–3 are complete study packages. Chapter 4 has been drafted and is undergoing its three-way audit against the uploaded PDF, this conversation, and GitHub `main`.
+Chapters 1–4 are complete study packages. Each chapter has been checked against the uploaded PDF, this conversation's requirements and prior decisions, and the committed GitHub files.
 
 | Chapter | Coverage | Status |
 |---|---|---|
