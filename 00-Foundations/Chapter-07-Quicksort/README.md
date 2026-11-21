@@ -15,6 +15,8 @@ Quicksort is an in-place divide-and-conquer sorting algorithm. Unlike merge sort
 - Derive the expected \(O(n\lg n)\) comparison bound using indicator random variables.
 - Understand equal-key handling, Hoare partitioning, tail-recursion elimination, and pivot strategies.
 
+![Lomuto partition invariant](images/partition-invariant.svg)
+
 ## 7.1 Description of quicksort
 
 For a subarray \(A[p:r]\), partitioning rearranges values into a low side, a pivot, and a high side. If the pivot finishes at index \(q\), every value in \(A[p:q-1]\) is at most \(A[q]\), and every value in \(A[q+1:r]\) is at least the pivot. Quicksort recursively sorts the two sides. No merge is needed.
