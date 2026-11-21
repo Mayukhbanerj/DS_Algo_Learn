@@ -47,11 +47,11 @@ class TestBST(unittest.TestCase):
         self.assertEqual(t.inorder(),[3,4,7,9,15,17,18,20])
 
     def test_delete_successor_direct_right_child(self):
-        t,_=self.build([10,5,15,12,18])
+        t,_=self.build([10,5,15,18])
         z=t.search(10); successor=t.successor(z)
         t.delete(z)
         self.assertIs(t.search(12),successor)
-        self.assertEqual(t.inorder(),[5,12,15,18])
+        self.assertEqual(t.inorder(),[5,15,18])
         self.assertTrue(t.validate())
 
     def test_delete_successor_deeper(self):
