@@ -32,7 +32,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 ## 14.3 Elements of dynamic programming
 
-**14.3-1. Exhaustive parenthesization vs recursive recurrence.** Both are exponential, but RECURSIVE-MATRIX-CHAIN has less redundant work than enumerating all parenthesizations explicitly; it still repeats subproblems exponentially, while memoization/tabulation is O(n³).
+**14.3-1. Exhaustive parenthesization vs recursive recurrence.** Enumerating all parenthesizations examines C_(n−1)=Θ(4^n/n^(3/2)) candidates. RECURSIVE-MATRIX-CHAIN takes Θ(2^n) time by its recurrence, so it is asymptotically more efficient, although still exponential; memoization/tabulation reduces this to O(n³).
 
 **14.3-2. Merge-sort recursion tree.** The recursion tree has disjoint subarrays at each level. No identical nontrivial subproblem recurs, so memoization provides no asymptotic benefit and adds table overhead.
 
@@ -88,6 +88,6 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14-10. Investment strategy.** By linearity of returns and a single fixed switch fee, an optimal strategy can place all capital in one investment each year. Let V[j,i] be maximum wealth at the end of year j when invested in i. Transition: V[j,i]=max_h(V[j−1,h]·r_(i,j)−(f1 if h=i else f2)). The fee is subtracted at the end of the year, after applying the return. O(Tn²) time and O(Tn) space.
 
-**14-11. Inventory planning.** DP over months and ending inventory: F[i,j]=minimum cost through month i with j machines in inventory. Transition from prior inventory k with production max(0,d_i+j−k), overtime cost c·max(0,production−m), and holding cost h(j). Restrict feasible states 0…D. O(nD²) time and O(nD) space.
+**14-11. Inventory planning.** DP over months and ending inventory: F[i,j]=minimum cost through month i with j machines in inventory. Transition from prior inventory k only when d_i+j−k≥0; production is d_i+j−k, overtime cost is c·max(0,production−m), and holding cost is h(j). Restrict feasible states 0…D. O(nD²) time and O(nD) space.
 
 **14-12. Free-agent baseball.** This is a multiple-choice knapsack: for each position choose at most one player (or none), with budget X measured in $100,000 units. DP over positions and budget, maximizing total WAR; store choices to reconstruct signings. O(NPX) time and O(NX) space (or O(X) value space plus decision storage).
