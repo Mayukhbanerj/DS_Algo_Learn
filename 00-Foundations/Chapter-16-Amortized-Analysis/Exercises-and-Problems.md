@@ -30,7 +30,7 @@ Original solutions aligned to CLRS Fourth Edition, Sections 16.1–16.4.
 
 **16.3-5. Queue with two stacks.** ENQUEUE pushes onto input stack. DEQUEUE pops output; if output is empty, transfer all input items to output, then pop. Each item is pushed once onto input, transferred once, and popped once. A sequence costs O(m), amortized O(1) per queue operation.
 
-**16.3-6. DELETE-LARGER-HALF.** Use linear-time selection to partition around the median, then discard the largest ceil(|S|/2) elements. Each deletion removes at least half the current elements, so the total sizes of the sets partitioned over all deletion operations form a geometric series, O(total inserted items). Store survivors in an array; output in O(|S|). Total sequence cost O(m).
+**16.3-6. DELETE-LARGER-HALF.** Use linear-time selection to partition around the median, then discard the largest ceil(|S|/2) elements. Let n_j be the multiset size immediately before deletion j, and let a_j be the number of INSERTs since the preceding deletion (take the initial size as 0). Since each deletion leaves at most half its input, n_(j+1)≤n_j/2+a_(j+1). Summing this recurrence gives Σ_j n_j≤2Σ_j a_j plus the initial-size term. Thus the total linear-time selection/partition work over all deletions is O(total INSERTs), and INSERT itself is O(1). Store survivors in an array; output in O(|S|). Total sequence cost is O(m).
 
 ## 16.4 Dynamic tables
 
@@ -51,7 +51,7 @@ Original solutions aligned to CLRS Fourth Edition, Sections 16.1–16.4.
 **16-2. Making binary search dynamic.**
 (a) SEARCH binary-searches every nonempty sorted array A_i. There are O(lg n) arrays, each of size at most n, so O(lg² n) worst-case.
 (b) INSERT treats the key as a singleton run. If A_0 is full, merge its contents with the run and carry the sorted result to A_1, continuing like binary addition. Worst-case O(n); each level-i array is rewritten only once per 2^i insertions, so O(n lg n) total merge work and O(lg n) amortized insertion.
-(c) DELETE: find the key, remove it, then redistribute/rebuild lower-level sorted arrays to restore the binary-size invariant. The exact amortized bound depends on the redistribution strategy; this draft flags the missing implementation detail rather than claiming a bound without a complete strategy.
+(c) DELETE: find the key, remove it, then redistribute/rebuild lower-level sorted arrays to restore the binary-size invariant. After removing x from A_i, its remaining 2^i−1 keys are already sorted. Partition this sorted sequence into i consecutive sorted arrays of sizes 1,2,4,…,2^(i−1), thereby restoring the binary representation of n−1. This costs Θ(2^i) in the worst case. SEARCH remains O(lg² n); DELETE is O(n) worst case. A simple alternating sequence can repeatedly force a large split followed by a carry-merge, so this straightforward strategy does not establish an O(lg n) amortized DELETE bound. A stronger deletion strategy/potential is still needed for the requested combined-operation amortized bound; keep this part flagged rather than overclaiming.
 
 **16-3. Amortized weight-balanced trees.**
 (a) Inorder-traverse the subtree into a sorted array, then recursively choose middle elements as roots. Θ(m) time and O(m) auxiliary space.
