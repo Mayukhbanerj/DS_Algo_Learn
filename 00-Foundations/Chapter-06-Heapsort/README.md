@@ -203,9 +203,10 @@ A min-priority queue supports MINIMUM, EXTRACT-MIN, DECREASE-KEY, and INSERT, us
     MAX-HEAP-INSERT(A, x)
         if A.heap_size == A.capacity: error "heap overflow"
         A.heap_size += 1
+        key = x.key
         x.key = -infinity
         A[A.heap_size] = x
-        MAX-HEAP-INCREASE-KEY(A, A.heap_size, original_key)
+        MAX-HEAP-INCREASE-KEY(A, A.heap_size, key)
 
 INCREASE-KEY moves the raised key upward because only the parent relationship can now be violated. MAX-HEAPIFY is the wrong direction for this repair: it moves a value downward and assumes the child subtrees are already heaps.
 
