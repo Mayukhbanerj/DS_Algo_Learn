@@ -171,11 +171,15 @@ For both increasing and decreasing input, the asymptotic running time remains \(
 
 ### 6.4-4 — Worst-case lower bound
 
-During each extraction, the element moved from the last leaf to the root can be forced to move down a path of logarithmic length. Such a path has \(\Theta(\lg n)\) levels, and this occurs for a linear number of extractions. Therefore the worst-case work is \(\Omega(n\lg n)\); the upper bound is \(O(n\lg n)\). Hence \(\boxed{\Theta(n\lg n)}\).
+Use an input in decreasing order. It is already a max-heap. At each extraction, the last (smallest remaining) element moves to the root and must sift down to a leaf, following a path of length \(\lfloor\lg i\rfloor-O(1)\) while the heap has \(i\) elements. Summing over the loop gives \(\sum_{i=2}^{n}\Theta(\lg i)=\Theta(n\lg n)\). Thus the worst-case running time is \(\boxed{\Theta(n\lg n)}\).
 
 ### 6.4-5 — Best case with distinct keys
 
-After each extraction, the element moved from the last position originated at a leaf. Every ancestor on its original root-to-leaf path (except the removed root) has a larger distinct key. When this leaf element is moved to the root, it must be exchanged downward past those larger keys until it reaches its original level. The last leaf has depth \(\lfloor\lg n\rfloor\), so the first repair alone can require logarithmic work; across the successive heap sizes, the total lower bound is the harmonic sum of heap heights over a constant fraction of the sizes, \(\Omega(n\lg n)\). Together with the upper bound, the best-case running time is \(\boxed{\Theta(n\lg n)}\).
+Consider a perfect heap with \(n=2^k-1\). During the first \(n/2\) extractions, the algorithm removes the \(n/2\) largest keys. Their nodes form a rooted subtree: whenever a node is among the largest half, all its ancestors have larger keys and are also among that half. This subtree has \(2^{k-1}\) nodes. At most half of them can be leaves, because each included leaf has a distinct included parent. Therefore at least \(d=2^{k-2}-1=\Theta(n)\) of these nodes are internal.
+
+An internal node cannot be extracted directly from a leaf position: before it can be removed as the root, it must be promoted along parent-child links. To minimize the total number of such promotions, pack the \(d\) internal nodes as shallowly as possible in a binary tree. A binary tree with \(d\) nodes has a total depth of at least \(\Omega(d\lg d)\): the first \(j\) levels contain fewer than \(2^j\) nodes, so a linear number of the \(d\) nodes must lie at depth \(\Omega(\lg d)\). Each promotion is a heap exchange, so the first half of the extractions alone require \(\Omega(n\lg n)\) work. The general upper bound is \(O(n\lg n)\); hence even the best case with distinct keys is \(\boxed{\Theta(n\lg n)}\).
+
+This is a nontrivial lower-bound argument; the chapter notes credit Schaffer and Sedgewick with the best-case movement analysis. The argument above follows the structural counting idea, rather than assuming every individual MAX-HEAPIFY call traverses a full-height path.
 
 ## Exercises 6.5 — Priority queues
 
