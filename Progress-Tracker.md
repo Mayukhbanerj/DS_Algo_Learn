@@ -17,7 +17,8 @@ Chapters 1–7 are complete study packages. Each chapter has been checked agains
 | 5 — Probabilistic Analysis and Randomized Algorithms | Sections 5.1–5.4, Exercises 5.1-1–5.4-8, Problems 5-1–5-2 | **Complete** |
 | 6 — Heapsort | Sections 6.1–6.5, Exercises 6.1-1–6.5-11, Problems 6-1–6-3 | **Complete** |
 | 7 — Quicksort | Sections 7.1–7.4, Exercises 7.1-1–7.4-6, Problems 7-1–7-7 | **Complete** |
-| 8 — Sorting in Linear Time | Sections 8.1–8.4, Exercises 8.1-1–8.4-6, Problems 8-1–8-7 | **Draft / audit in progress** |
+| 8 — Sorting in Linear Time | Sections 8.1–8.4, Exercises 8.1-1–8.4-6, Problems 8-1–8-7 | **Complete** |
+| 9 — Medians and Order Statistics | Sections 9.1–9.3, Exercises 9.1-1–9.3-10, Problems 9-1–9-6 | **Draft / audit in progress** |
 
 ## Chapter 1
 
@@ -170,6 +171,24 @@ Files:
 - [Counting sort illustration](00-Foundations/Chapter-08-Sorting-in-Linear-Time/images/counting-sort-stability.svg)
 - [Python implementations](Implementations/Python/linear_sorting.py)
 - [Python tests](Implementations/Python/test_linear_sorting.py)
+
+## Chapter 9 — Draft and audit in progress
+
+- [x] Source pages 227–247 reopened and section structure captured
+- [x] Sections 9.1–9.3 drafted
+- [x] Exercises and Problems companion drafted
+- [x] Python minimum/maximum, randomized selection, and deterministic selection added
+- [x] Python tests added; all 8 tests passed from the exact fetched committed file contents
+- [x] Selection partition diagram added
+- [ ] Audit exercise and problem proofs against exact source wording; resolve flagged gaps in 9.3-5, Problem 9-2(b), Problem 9-5, and Problem 9-6
+- [ ] Fetch all Chapter 9 files and finish source/chat/GitHub audit
+
+Files:
+- [Chapter 9 notes](00-Foundations/Chapter-09-Medians-and-Order-Statistics/README.md)
+- [Chapter 9 exercises and problems](00-Foundations/Chapter-09-Medians-and-Order-Statistics/Exercises-and-Problems.md)
+- [Selection partition illustration](00-Foundations/Chapter-09-Medians-and-Order-Statistics/images/selection-partition.svg)
+- [Python implementations](Implementations/Python/order_statistics.py)
+- [Python tests](Implementations/Python/test_order_statistics.py)
 
 ## Completion standard
 
