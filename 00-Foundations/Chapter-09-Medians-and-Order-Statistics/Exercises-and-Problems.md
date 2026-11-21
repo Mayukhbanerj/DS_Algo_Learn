@@ -84,7 +84,19 @@ Binary-search a partition i in X and j=n−i in Y so the left halves contain n v
 (e) Under Manhattan distance, x and y contributions separate; choose weighted medians independently for each coordinate.
 
 ### 9-4 — Small order statistics
-Pair elements and retain the smaller from each pair, then recurse among those candidates. The recurrence is U_i(n)=S(n) for i≥n/2, otherwise floor(n/2)+U_i(ceil(n/2))+S(2i). Repeated halving yields n+O(S(2i) log(n/i)); for constant i, n+O(log n).
+Pair the n elements and compare each pair. The ith smallest must be among the smaller member of each pair together with (at most) the unpaired element, so recursively select the ith smallest from this reduced candidate set. Once that candidate is found, at most 2i elements can be smaller than or equal to it in the original set: each candidate has at most one paired larger partner. Use SELECT on those at most 2i elements to identify the exact ith smallest. This gives the stated recurrence
+\[
+U_i(n)=
+\begin{cases}
+S(n),&i\ge n/2,\\
+\lfloor n/2\rfloor+U_i(\lceil n/2\rceil)+S(2i),&i<n/2.
+\end{cases}
+\]
+After t=O(\lg(n/i)) halvings, the reduced size is at most 2i and the base case applies. The sum of the pair-comparison costs over all levels is bounded by n+n/2+n/4+…<2n. There are O(lg(n/i)) calls to SELECT on at most 2i elements, so
+\[
+U_i(n)=n+O(S(2i)\lg(n/i)).
+\]
+If i is constant, S(2i)=O(1), giving n+O(lg n). If i=n/k, then lg(n/i)=lg k, giving n+O(S(2n/k) lg k).
 
 ### 9-5 — Indicator analysis of randomized selection
 For j<k, the exact comparison probability is
