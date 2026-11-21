@@ -9,7 +9,17 @@
 | Chapter | Topic | Status |
 |---|---|---|
 | 1 | The Role of Algorithms in Computing | Study notes drafted; review and practice recommended |
-| 2 | Getting Started | Not started |
+| 2 | Getting Started | Notes drafted; review and practice recommended |
+
+## Chapter 2 coverage
+
+- [x] 2.1 Insertion sort and loop-invariant correctness
+- [x] Pseudocode conventions and Python translation
+- [x] 2.2 RAM model, statement counting, best/worst/average case, order of growth
+- [x] 2.3 Divide and conquer, merge, merge sort, recurrence and recursion-tree analysis
+- [x] Exercises 2.1-1 through 2.3-8 (worked study responses)
+- [x] Problems 2-1 through 2-4 (worked study responses)
+- [ ] Independently solve exercises and audit every proof
 
 ## Chapter 1 coverage
 
@@ -28,4 +38,5 @@
 
 1. Review Chapter 1 and attempt the exercises without looking at solutions.
 2. Verify the full Problem 1-1 table against the textbook.
-3. Begin Chapter 2 only after the Chapter 1 foundations are comfortable.
+3. Review Chapter 2 and attempt its exercises without looking at solutions.
+4. Begin Chapter 3 — Characterizing Running Times.
