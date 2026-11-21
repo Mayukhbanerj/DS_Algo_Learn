@@ -320,12 +320,12 @@ f(n)=n\,g_i(n)\quad\text{when }n\equiv 2i\pmod{60}.
 Assume \(f,g\) are asymptotically positive.
 
 - **(a) False.** Let \(f(n)=n\), \(g(n)=n^2\). Then \(f=O(g)\), but \(g\notin O(f)\).
-- **(b) False.** If \(f=g=n\), then \(f+g=2n=\Theta(n)\), so this example does not disprove it. Instead take \(f=n\), \(g=n^2\): the sum is \(\Theta(n^2)\), while the minimum is \(n\). Thus it is not \(\Theta(\min(f,g))\).
+- **(b) False.** Take \(f(n)=n\) and \(g(n)=n^2\). Then the sum is \(\Theta(n^2)\), while the minimum is \(n\), so the sum is not \(\Theta(\min(f,g))\).
 - **(c) True under the stated positivity conditions.** If \(f=O(g)\), then eventually \(f\le cg\). Taking logs gives \(\lg f\le\lg c+\lg g\). Since \(\lg g\ge1\), the additive constant is absorbed, so \(\lg f=O(\lg g)\).
 - **(d) False.** Let \(f(n)=2n\), \(g(n)=n\). Then \(f=O(g)\), but \(2^{f(n)}=4^n\notin O(2^n)\).
 - **(e) True.** Since \(f=O(f^2)\) for asymptotically positive \(f\ge1\), the claim holds.
 - **(f) True.** If \(f=O(g)\), transpose symmetry gives \(g=\Omega(f)\).
-- **(g) False.** Let \(f(n)=n\). Then \(f(n/2)=n/2\), so \(f(n)=2f(n/2)\), which is \(\Theta(f(n/2))\). This particular example supports it; a counterexample is \(f(n)=2^n\), where \(f(n)/f(n/2)=2^{n/2}\), not bounded. Hence the conjecture is false.
+- **(g) False.** Let \(f(n)=2^n\). Then \(f(n)/f(n/2)=2^{n/2}\), which is unbounded, so \(f(n)\ne\Theta(f(n/2))\).
 - **(h) True.** If \(h=o(f)\), then \(h/f\to0\), so \((f+h)/f=1+h/f\to1\). Therefore \(f+h=\Theta(f)\).
 
 ### 3-5 — Manipulating asymptotic notation
