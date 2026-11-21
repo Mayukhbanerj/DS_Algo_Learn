@@ -171,38 +171,38 @@ Line 8: c8, executed n - 1 times
 
 Thus:
 
-[
+\[
 T(n)=c_1n+c_2(n-1)+c_4(n-1)+c_5sum_{i=2}^{n}t_i
 +c_6sum_{i=2}^{n}(t_i-1)+c_7sum_{i=2}^{n}(t_i-1)+c_8(n-1).
-]
+\]
 
 ### Best case
 
 When the input is already sorted, the inner condition is tested once for every (i), so (t_i=1). The inner body never executes. The resulting running time is a linear function:
 
-[
+\[
 T(n)=an+b=Theta(n).
-]
+\]
 
 ### Worst case
 
 When the input is reverse sorted, (t_i=i). Use:
 
-[
-sum_{i=2}^{n}i=rac{n(n+1)}2-1
-]
+\[
+sum_{i=2}^{n}i=\fracrac{n(n+1)}2-1
+\]
 
 and
 
-[
-sum_{i=2}^{n}(i-1)=rac{n(n-1)}2.
-]
+\[
+sum_{i=2}^{n}(i-1)=\fracrac{n(n-1)}2.
+\]
 
 The resulting running time is quadratic:
 
-[
+\[
 T(n)=an^2+bn+c=Theta(n^2).
-]
+\]
 
 ### Worst-case and average-case analysis
 
@@ -214,9 +214,9 @@ For randomly ordered insertion-sort inputs, the expected number of comparisons f
 
 For large input sizes, the leading term dominates lower-order terms. For example:
 
-[
+\[
 an^2+bn+c
-]
+\]
 
 has order of growth (Theta(n^2)). CLRS introduces (Theta)-notation informally in this chapter and formalizes it in Chapter 3. Constants and lower-order terms can still matter for small inputs.
 
@@ -377,13 +377,13 @@ This uses temporary lists for merging, like the textbook's auxiliary arrays. It 
 
 If a problem creates (a) subproblems, each of size (n/b), and division and combination cost (D(n)) and (C(n)), respectively, then:
 
-[
+\[
 T(n)=
-egin{cases}
+\boxedegin{cases}
 Theta(1),&n<n_0,\
 aT(n/b)+D(n)+C(n),&	ext{otherwise}.
 end{cases}
-]
+\]
 
 Floors and ceilings may be omitted when they do not affect the order of growth. The base case is often omitted in abbreviated recurrence notation when it is understood to be constant time.
 
@@ -395,39 +395,39 @@ Floors and ceilings may be omitted when they do not affect the order of growth. 
 
 Therefore:
 
-[
+\[
 T(n)=2T(n/2)+Theta(n)
-]
+\]
 
 The master theorem, developed in Chapter 4, gives:
 
-[
-oxed{T(n)=Theta(nlg n)}
-]
+\[
+\boxedoxed{T(n)=Theta(nlg n)}
+\]
 
 ### Recursion-tree intuition
 
 For (n) an exact power of 2, use:
 
-[
+\[
 T(n)=
-egin{cases}
+\boxedegin{cases}
 c_1,&n=1,\
 2T(n/2)+c_2n,&n>1.
 end{cases}
-]
+\]
 
 At level (i), there are (2^i) nodes. Each node contributes (c_2(n/2^i)), so the total cost at every non-leaf level is:
 
-[
-2^icdot c_2rac{n}{2^i}=c_2n.
-]
+\[
+2^icdot c_2\fracrac{n}{2^i}=c_2n.
+\]
 
 There are (lg n) non-leaf levels. The leaf level has (n) leaves, each costing (c_1). Thus:
 
-[
+\[
 T(n)=c_2nlg n+c_1n=Theta(nlg n).
-]
+\]
 
 ### Insertion sort versus merge sort
 
@@ -481,17 +481,17 @@ The algorithm repeatedly swaps adjacent out-of-order values.
 
 For (P(x)=sum_{k=0}^{n}a_kx^k), Horner's form is:
 
-[
+\[
 a_0+x(a_1+x(a_2+cdots+x(a_{n-1}+xa_n))).
-]
+\]
 
 The procedure executes (n+1) constant-work iterations, so it takes (Theta(n)) time. A naive method that recomputes powers by repeated multiplication takes (Theta(n^2)) arithmetic operations.
 
 The loop invariant supplied in the problem states that at the start of iteration (i):
 
-[
+\[
 p=sum_{k=0}^{n-(i+1)}A[k+i+1]x^k.
-]
+\]
 
 Initially the sum is empty and (p=0). The update (p=A[i]+xp) incorporates the next coefficient. At termination it yields (p=sum_{k=0}^{n}A[k]x^k).
 
