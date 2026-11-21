@@ -4,39 +4,43 @@
 **Working language:** Python  
 **Target branch:** `main`
 
-## Current status
+## Audit status (21 November 2026)
 
-| Chapter | Topic | Status |
+The initial GitHub notes were drafts, not complete chapter packages. The audit has now reopened the uploaded PDF and compared the source chapter structure with the repository files. Updated exercise/problem documents have been prepared, but the notes still require a final page-by-page verification and visual review before a chapter is certified complete.
+
+| Chapter | Topic | Current status |
 |---|---|---|
-| 1 | The Role of Algorithms in Computing | Study notes drafted; review and practice recommended |
-| 2 | Getting Started | Notes drafted; review and practice recommended |
+| 1 | The Role of Algorithms in Computing | Exercises and Problem 1-1 corrected/expanded; chapter notes still need full source-page audit |
+| 2 | Getting Started | Exercises and Problems expanded with proofs and derivations; main notes still need full source-page audit and figure check |
 
-## Chapter 2 coverage
+## Chapter 1 audit
+- [x] 1.1 Algorithms: problem/instance, correctness, examples, data structures, design techniques, hard problems, alternate models
+- [x] 1.2 Algorithms as a technology: asymptotic comparison, hardware example, algorithmic role in other technologies, machine learning and data science
+- [x] Exercises 1.1-1 through 1.1-6
+- [x] Exercises 1.2-1 through 1.2-3
+- [x] Problem 1-1: inverse formulas and all seven time budgets across eight growth functions
+- [ ] Final independent numerical audit of all table entries
+- [ ] Recreated/annotated figures and page-by-page source coverage check
 
-- [x] 2.1 Insertion sort and loop-invariant correctness
-- [x] Pseudocode conventions and Python translation
-- [x] 2.2 RAM model, statement counting, best/worst/average case, order of growth
-- [x] 2.3 Divide and conquer, merge, merge sort, recurrence and recursion-tree analysis
-- [x] Exercises 2.1-1 through 2.3-8 (worked study responses)
-- [x] Problems 2-1 through 2-4 (worked study responses)
-- [ ] Independently solve exercises and audit every proof
+## Chapter 2 audit
+- [x] 2.1 Insertion sort and loop-invariant reasoning
+- [x] Pseudocode conventions, array indexing, references, NIL, parameters, returns, short-circuit Boolean operators, error
+- [x] 2.2 RAM model, input size, statement counts, best/worst case, order of growth
+- [x] 2.3 Divide and conquer, MERGE, MERGE-SORT, recurrence, recursion tree
+- [x] Exercises 2.1-1 through 2.3-8 expanded
+- [x] Problems 2-1 through 2-4 expanded
+- [ ] Final code execution/tests for Python translations
+- [ ] Recreated figures 2.1-2.5 and compare all visual explanations to source
+- [ ] Page-by-page source coverage and final proof audit
 
-## Chapter 1 coverage
-
-- [x] 1.1 Algorithms
-- [x] 1.2 Algorithms as a technology
-- [x] Exercises 1.1-1 through 1.1-6 (worked study responses)
-- [x] Exercises 1.2-1 through 1.2-3 (worked study responses)
-- [x] Problem 1-1: comparison of running times (method and selected numerical values)
-- [x] Revision checklist and self-assessment
-
-## Important note
-
-“Notes drafted” does not mean every sentence, figure, proof, or exercise in the source has been reproduced. Use the chapter audit checklist and read the original chapter alongside these notes.
+## Completion rule
+A chapter is not marked complete merely because notes have been drafted or pushed. Completion requires:
+1. Every section and subsection in the source chapter is accounted for.
+2. All exercises and problems are answered at the requested level, with proofs where requested.
+3. Mathematical notation renders correctly.
+4. Figures are included or clearly recreated when they convey algorithm steps or proof intuition.
+5. Python translations are checked with representative tests.
+6. The chapter notes and problem solutions are committed and the GitHub files are fetched back to verify the published content.
 
 ## Next
-
-1. Review Chapter 1 and attempt the exercises without looking at solutions.
-2. Verify the full Problem 1-1 table against the textbook.
-3. Review Chapter 2 and attempt its exercises without looking at solutions.
-4. Begin Chapter 3 — Characterizing Running Times.
+Finish the remaining source/figure/code audits for Chapters 1 and 2. Do not begin Chapter 3 until both earlier chapters pass the completion rule.
