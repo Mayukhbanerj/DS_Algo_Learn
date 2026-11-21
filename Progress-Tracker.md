@@ -245,7 +245,7 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 12 complete. Chapter 13 is next.
+**Current:** Chapter 12 complete. Chapter 13 — Red-Black Trees (draft in progress).
 
 
 ## Chapter 12 — Complete
@@ -270,3 +270,22 @@ Files:
 - [Chapter 12 exercises and problems](00-Foundations/Chapter-12-Binary-Search-Trees/Exercises-and-Problems.md)
 - [Python BST implementation](Implementations/Python/binary_search_tree.py)
 - [Python BST tests](Implementations/Python/test_binary_search_tree.py)
+
+
+## Chapter 13 — Draft and audit in progress
+
+- [x] Reopen source PDF printed pages 331–359; capture Sections 13.1–13.4, Exercises 13.1-1–13.4-9 and Problems 13-1–13-3
+- [ ] Draft full notes on red-black properties, black-height, height proof, rotations, insertion fixup and deletion fixup
+- [ ] Solve and audit all exercises 13.1-1 through 13.4-9
+- [ ] Solve Problems 13-1 persistent sets, 13-2 RB-JOIN and 13-3 AVL trees
+- [ ] Implement sentinel-based red-black tree in Python with search, insert, delete, rotations and invariant validation
+- [ ] Add Python unit tests including all insertion/deletion fixup cases
+- [ ] Add original red-black insertion/deletion case diagrams
+- [ ] Execute exact fetched implementation and tests; fix failures
+- [ ] Fetch every Chapter 13 file and reconcile source, chat, and GitHub main
+
+Files:
+- [Chapter 13 notes](00-Foundations/Chapter-13-Red-Black-Trees/README.md)
+- [Chapter 13 exercises and problems](00-Foundations/Chapter-13-Red-Black-Trees/Exercises-and-Problems.md)
+- [Python red-black tree implementation](Implementations/Python/red_black_tree.py)
+- [Python red-black tree tests](Implementations/Python/test_red_black_tree.py)
