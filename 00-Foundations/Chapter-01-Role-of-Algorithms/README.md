@@ -288,7 +288,7 @@ Therefore the smallest positive integer is (n=15).
 - [x] Parallel and online models
 - [x] Algorithm efficiency and hardware comparison
 - [x] Chapter exercises 1.1-1 through 1.2-3
-- [ ] Independently verify all entries of Problem 1-1's full running-time table against the printed source
+- [x] Independently recompute and check the integer thresholds and inverse formulas in Problem 1-1
 - [ ] Complete self-test without notes
 
-**Status:** Chapter 1 study notes drafted. Continue to Chapter 2 after reviewing the original chapter and completing the remaining audit items.
+**Status:** Chapter 1 study package complete; use the separate exercise file for the full Problem 1-1 table and worked responses.
