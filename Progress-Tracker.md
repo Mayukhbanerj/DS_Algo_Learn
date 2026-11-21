@@ -6,7 +6,7 @@
 
 ## Completion audit — 21 November 2026
 
-Chapters 1–5 are complete study packages. Each chapter has been checked against the uploaded PDF, this conversation's requirements and prior decisions, and the committed GitHub files.
+Chapters 1–6 are complete study packages. Each chapter has been checked against the uploaded PDF, this conversation's requirements and prior decisions, and the committed GitHub files.
 
 | Chapter | Coverage | Status |
 |---|---|---|
@@ -15,7 +15,7 @@ Chapters 1–5 are complete study packages. Each chapter has been checked agains
 | 3 — Characterizing Running Times | Sections 3.1–3.3, Exercises 3.1-1–3.3-9, Problems 3-1–3-7 | **Complete** |
 | 4 — Divide-and-Conquer | Sections 4.1–4.7, Exercises 4.1-1–4.7-6, Problems 4-1–4-7 | **Complete** |
 | 5 — Probabilistic Analysis and Randomized Algorithms | Sections 5.1–5.4, Exercises 5.1-1–5.4-8, Problems 5-1–5-2 | **Complete** |
-| 6 — Heapsort | Sections 6.1–6.5, Exercises 6.1-1–6.5-11, Problems 6-1–6-3 | **Draft / audit in progress** |
+| 6 — Heapsort | Sections 6.1–6.5, Exercises 6.1-1–6.5-11, Problems 6-1–6-3 | **Complete** |
 
 ## Chapter 1
 
@@ -110,9 +110,10 @@ Files:
 - [x] Original heap tree/array SVG added
 - [x] Python heap, heapsort, and max-priority-queue implementation added
 - [x] Python unittest file added
-- [ ] Recheck every exercise/problem solution and exact heap traces
-- [ ] Execute the committed Python unittest suite
-- [ ] Fetch all Chapter 6 files again and finish the source/chat/GitHub three-way audit
+- [x] Recheck all 35 exercises, 3 problems, and worked heap traces
+- [x] Execute the 9-test Python heap validation suite — all passed
+- [x] Three-way audit: source PDF pages 183–202, this conversation, and GitHub `main`
+- [x] Fetch all Chapter 6 files again after final edits
 
 Files:
 - [Chapter 6 notes](00-Foundations/Chapter-06-Heapsort/README.md)
@@ -125,4 +126,4 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Next:** Finish the Chapter 6 audit before marking it complete or advancing to Chapter 7.
+**Next:** Begin Chapter 7 after reviewing Chapters 1–6 and completing the self-assessment prompts.
