@@ -71,7 +71,12 @@ Each intermediate tree satisfies all red-black properties; fixup is needed when 
 
 **13.4-5. Sentinel accesses.** Lines that inspect sibling/child colors may read T.nil.color; RB-TRANSPLANT writes T.nil.p; the special assignment x.p=y may write the sentinel parent. In fixup, color assignments to a sibling or sibling child are safe only under the case invariants that rule out recoloring the sentinel RED.
 
-**13.4-6. Black counts in deletion cases.** Use count(RED)=0 and count(BLACK)=1. Include the extra black at x in every path containing x. In each of cases 1–4, compare the sum from the local subtree root to each subtree root α,β,…,ζ before and after recoloring/rotation. Symbolic counts involving c and c′ must be shown case by case in the final audit.
+**13.4-6. Black counts in deletion cases.** Write q= count(c), where count(RED)=0 and count(BLACK)=1; similarly q′=count(c′). Count the extra black on the path containing x. The vector below lists counts from the local root to (α,β; γ,δ; ε,ζ), before and after each transformation:
+- Case 1: before and after are (3; 2; 2). The extra black at x contributes the second extra unit on paths through A.
+- Case 2: before and after are (q+2; q+2; q+2). After the transformation, x points to B and carries the extra black there.
+- Case 3: before and after are (q+2; q+1; q+2). The C subtree roots are reached through red C before the rotation and through black C afterward; the branch counts remain q+1.
+- Case 4: before and after are (q+2; q+1+q′; q+1). The c and c′ terms remain attached to the corresponding B/C/D nodes across the rotation and recoloring.
+The same vectors on both sides verify that each subtree-root path retains its black contribution, so equal black-height below the subtrees is preserved.
 
 **13.4-7. Parent black at start of case 1.** Case 1 has a RED sibling w. Since w is RED, its parent x.p must be BLACK by property 4. Therefore the color swap in lines 5–6 is valid.
 
