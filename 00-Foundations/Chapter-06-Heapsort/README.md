@@ -28,6 +28,10 @@ The array \(A[1:n]\) has an attribute \(A.heap\text{-}size\), with
 \]
 Only \(A[1:A.heap\text{-}size]\) belongs to the heap. The remaining array suffix may contain values already placed in final sorted positions.
 
+![Max-heap represented as a tree and array](images/max-heap-tree-array.svg)
+
+For Python's 0-based list indexing, the corresponding formulas are \(\operatorname{parent}(i)=\lfloor(i-1)/2\rfloor\), \(\operatorname{left}(i)=2i+1\), and \(\operatorname{right}(i)=2i+2\).
+
 ### Index calculations
 
 For the textbook's 1-based indexing:
