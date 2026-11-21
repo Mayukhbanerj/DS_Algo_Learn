@@ -1,38 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
-<rect width="1280" height="720" rx="24" fill="#f8fafc"/>
-<text x="56" y="64" font-family="Arial,sans-serif" font-size="38" font-weight="700" fill="#0f172a">Lomuto PARTITION: invariant regions</text>
-<text x="56" y="108" font-family="Arial,sans-serif" font-size="22" fill="#475569">Pivot x = 4 · i marks the end of the low side · j scans the unclassified region</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="620" viewBox="0 0 1280 620">
+<rect width="1280" height="620" rx="24" fill="#f8fafc"/>
+<text x="56" y="64" font-family="Arial,sans-serif" font-size="38" font-weight="700" fill="#0f172a">Lomuto PARTITION: the loop invariant</text>
+<text x="56" y="108" font-family="Arial,sans-serif" font-size="22" fill="#475569">Example pivot x = 4 · i ends the low side · j scans unclassified values</text>
 <g font-family="Arial,sans-serif" text-anchor="middle" font-size="27" font-weight="700">
 <g fill="#dcfce7" stroke="#16a34a" stroke-width="3">
-<rect x="56" y="190" width="105" height="74" rx="10"/><rect x="161" y="190" width="105" height="74" rx="10"/><rect x="266" y="190" width="105" height="74" rx="10"/>
+<rect x="56" y="180" width="105" height="74" rx="10"/><rect x="161" y="180" width="105" height="74" rx="10"/><rect x="266" y="180" width="105" height="74" rx="10"/>
 </g>
 <g fill="#dbeafe" stroke="#2563eb" stroke-width="3">
-<rect x="371" y="190" width="105" height="74" rx="10"/><rect x="476" y="190" width="105" height="74" rx="10"/>
+<rect x="371" y="180" width="105" height="74" rx="10"/><rect x="476" y="180" width="105" height="74" rx="10"/>
 </g>
-<g fill="#fef3c7" stroke="#d97706" stroke-width="3"><rect x="581" y="190" width="105" height="74" rx="10"/></g>
+<g fill="#fef3c7" stroke="#d97706" stroke-width="3"><rect x="581" y="180" width="105" height="74" rx="10"/></g>
 <g fill="#e2e8f0" stroke="#64748b" stroke-width="3">
-<rect x="686" y="190" width="105" height="74" rx="10"/><rect x="791" y="190" width="105" height="74" rx="10"/><rect x="896" y="190" width="105" height="74" rx="10"/>
+<rect x="686" y="180" width="105" height="74" rx="10"/><rect x="791" y="180" width="105" height="74" rx="10"/><rect x="896" y="180" width="105" height="74" rx="10"/>
 </g>
-<g fill="#166534"><text x="108" y="237">1</text><text x="213" y="237">2</text><text x="318" y="237">3</text></g>
-<g fill="#1e40af"><text x="423" y="237">7</text><text x="528" y="237">9</text></g>
-<g fill="#92400e"><text x="633" y="237">4</text></g>
-<g fill="#334155"><text x="738" y="237">6</text><text x="843" y="237">8</text><text x="948" y="237">5</text></g>
+<g fill="#166534"><text x="108" y="227">1</text><text x="213" y="227">2</text><text x="318" y="227">3</text></g>
+<g fill="#1e40af"><text x="423" y="227">7</text><text x="528" y="227">9</text></g>
+<text x="633" y="227" fill="#92400e">4</text>
+<g fill="#334155"><text x="738" y="227">6</text><text x="843" y="227">8</text><text x="948" y="227">5</text></g>
 </g>
 <g font-family="Arial,sans-serif" font-size="21" fill="#0f172a">
-<text x="56" y="310" font-weight="700">A[p … i]</text><text x="56" y="340" fill="#166534">≤ pivot</text>
-<text x="371" y="310" font-weight="700">A[i+1 … j−1]</text><text x="371" y="340" fill="#1e40af">greater than pivot</text>
-<text x="686" y="310" font-weight="700">A[j … r−1]</text><text x="686" y="340" fill="#475569">not examined yet</text>
-<text x="896" y="310" font-weight="700">A[r]</text><text x="896" y="340" fill="#92400e">pivot x</text>
+<text x="56" y="300" font-weight="700">A[p … i]</text><text x="56" y="330" fill="#166534">≤ pivot</text>
+<text x="371" y="300" font-weight="700">A[i+1 … j−1]</text><text x="371" y="330" fill="#1e40af">greater than pivot</text>
+<text x="686" y="300" font-weight="700">A[j … r−1]</text><text x="686" y="330" fill="#475569">not examined</text>
+<text x="896" y="300" font-weight="700">A[r]</text><text x="896" y="330" fill="#92400e">pivot x</text>
 </g>
-<path d="M56 390 H1001" stroke="#94a3b8" stroke-width="2"/>
-<text x="56" y="450" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">After the scan finishes</text>
+<path d="M56 380 H1001" stroke="#94a3b8" stroke-width="2"/>
+<text x="56" y="435" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">After the scan and final pivot exchange</text>
 <g font-family="Arial,sans-serif" text-anchor="middle" font-size="27" font-weight="700">
-<g fill="#dcfce7" stroke="#16a34a" stroke-width="3"><rect x="56" y="500" width="105" height="74" rx="10"/><rect x="161" y="500" width="105" height="74" rx="10"/><rect x="266" y="500" width="105" height="74" rx="10"/></g>
-<g fill="#fef3c7" stroke="#d97706" stroke-width="3"><rect x="371" y="500" width="105" height="74" rx="10"/></g>
-<g fill="#dbeafe" stroke="#2563eb" stroke-width="3"><rect x="476" y="500" width="105" height="74" rx="10"/><rect x="581" y="500" width="105" height="74" rx="10"/><rect x="686" y="500" width="105" height="74" rx="10"/></g>
-<g fill="#166534"><text x="108" y="547">1</text><text x="213" y="547">2</text><text x="318" y="547">3</text></g>
-<text x="423" y="547" fill="#92400e">4</text><g fill="#1e40af"><text x="528" y="547">7</text><text x="633" y="547">9</text><text x="738" y="547">6</text></g>
+<g fill="#dcfce7" stroke="#16a34a" stroke-width="3"><rect x="56" y="475" width="105" height="74" rx="10"/><rect x="161" y="475" width="105" height="74" rx="10"/><rect x="266" y="475" width="105" height="74" rx="10"/></g>
+<g fill="#fef3c7" stroke="#d97706" stroke-width="3"><rect x="371" y="475" width="105" height="74" rx="10"/></g>
+<g fill="#dbeafe" stroke="#2563eb" stroke-width="3"><rect x="476" y="475" width="105" height="74" rx="10"/></g>
+<g fill="#166534"><text x="108" y="522">1</text><text x="213" y="522">2</text><text x="318" y="522">3</text></g>
+<text x="423" y="522" fill="#92400e">4</text><text x="528" y="522" fill="#1e40af"> &gt; 4 </text>
 </g>
-<text x="820" y="545" font-family="Arial,sans-serif" font-size="22" fill="#334155">Pivot is in final position</text>
-<text x="820" y="580" font-family="Arial,sans-serif" font-size="22" fill="#334155">Recurse on either side</text>
+<text x="620" y="515" font-family="Arial,sans-serif" font-size="22" fill="#334155">All remaining values are greater than 4</text>
+<text x="620" y="550" font-family="Arial,sans-serif" font-size="22" fill="#334155">The pivot is now in its final position.</text>
 </svg>
