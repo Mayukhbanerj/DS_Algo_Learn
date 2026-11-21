@@ -388,7 +388,7 @@ Let \(\Omega_\infty\) denote the alternative definition requiring \(f(n)\ge cg(n
   Both are nonnegative. On even inputs \(f/g=1/n\to0\); on odd inputs \(f/g=n\to\infty\). Hence neither \(f=O(g)\) nor \(f=\Omega(g)\).
 - **(c)** Advantage: \(\Omega_\infty\) gives a lower-bound comparison on infinitely many inputs, including some oscillating functions that fail an eventual lower bound. Disadvantage: it does not guarantee a lower bound for all sufficiently large inputs, so it is weaker as a worst-case guarantee.
 - **(d)** Let \(O'\) mean \(|f(n)|=O(g(n))\). The forward direction of Theorem 3.1 remains true: \(f=\Theta(g)\) implies \(f=O'(g)\) and \(f=\Omega(g)\). The reverse direction also remains true under the theorem's asymptotic-positivity condition: if \(f=\Omega(g)\), then \(f\) is eventually positive, so \(|f|=f\) eventually; combining \(O'(g)\) with \(\Omega(g)\) therefore gives the usual \(\Theta(g)\). Without the positivity condition, the reverse implication can fail.
-- **(e)** Define \(\widetilde O(g(n))\) by \(f(n)\le c\,g(n)(\lg n)^k\) eventually for positive constants \(c,k,n_0\). Define \(\widetilde\Omega\) by reversing the bound, and \(\widetilde\Theta=\widetilde O\cap\widetilde\Omega\). The analogue of Theorem 3.1 follows directly from this intersection definition.
+- **(e)** Define \(\widetilde O(g(n))\) by \(f(n)\le c\,g(n)(\lg n)^k\) eventually for positive constants \(c,k,n_0\). Define \(\widetilde\Omega(g(n))\) by requiring \(f(n)\ge c\,g(n)/(\lg n)^k\) eventually for positive constants \(c,k,n_0\), and define \(\widetilde\Theta=\widetilde O\cap\widetilde\Omega\). The analogue of Theorem 3.1 follows directly from this intersection definition.
 
 ### 3-7 — Iterated functions
 
