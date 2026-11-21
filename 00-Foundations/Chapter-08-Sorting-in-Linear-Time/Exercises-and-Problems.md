@@ -248,7 +248,7 @@ r\ge 2s(2s-1).
 \]
 This supplies enough clean separation for the half-column shift and final column sort.
 
-**(h) Padding.** Add dummy \(+\infty\) keys until the row count \(r'\) is divisible by \(s\), even, and at least \(2s^2\). Apply the divisible-case columnsort to the padded matrix and then delete the dummy keys. Since every dummy is larger than every real key, the dummies appear at the end; removing them leaves the real keys in sorted order.
+**(h) Modify step 1 by padding each column.** Let \(r'=s\lceil r/s\rceil\), the smallest multiple of \(s\) that is at least \(r\). In step 1, append \(r'-r\) dummy keys of value \(+\infty\) to each column and sort the resulting \(r'\)-element column. Perform steps 2–8 on the resulting \(r'\times s\) array. Now \(s\mid r'\), and if the original parameters meet the required row bound, choose the padded row count so that \(r'\ge2s^2\) (otherwise the theorem's size condition is not met). The divisible-case proof therefore applies to the augmented array. All dummy keys are \(+\infty\), so they appear after all real keys in the final sorted order. Removing them leaves the original \(n=rs\) keys sorted. This is the requested change to step 1: padding is done independently within each column before its first sort, not by inserting arbitrary sentinels into the already reshaped matrix.
 
 ---
 
