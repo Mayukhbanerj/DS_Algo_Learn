@@ -15,6 +15,7 @@ Chapters 1–5 are complete study packages. Each chapter has been checked agains
 | 3 — Characterizing Running Times | Sections 3.1–3.3, Exercises 3.1-1–3.3-9, Problems 3-1–3-7 | **Complete** |
 | 4 — Divide-and-Conquer | Sections 4.1–4.7, Exercises 4.1-1–4.7-6, Problems 4-1–4-7 | **Complete** |
 | 5 — Probabilistic Analysis and Randomized Algorithms | Sections 5.1–5.4, Exercises 5.1-1–5.4-8, Problems 5-1–5-2 | **Complete** |
+| 6 — Heapsort | Sections 6.1–6.5, Exercises 6.1-1–6.5-11, Problems 6-1–6-3 | **Draft / audit in progress** |
 
 ## Chapter 1
 
@@ -100,8 +101,28 @@ Files:
 - [Chapter 5 notes](00-Foundations/Chapter-05-Probabilistic-Analysis/README.md)
 - [Chapter 5 exercises and problems](00-Foundations/Chapter-05-Probabilistic-Analysis/Exercises-and-Problems.md)
 
+## Chapter 6 — Draft and audit in progress
+
+- [x] Sections 6.1–6.5 drafted: heaps, heapify, linear-time build, heapsort, priority queues
+- [x] d-ary heaps and Young tableaux covered
+- [x] Exercises 6.1-1 through 6.5-11 drafted
+- [x] Problems 6-1 through 6-3 drafted
+- [x] Original heap tree/array SVG added
+- [x] Python heap, heapsort, and max-priority-queue implementation added
+- [x] Python unittest file added
+- [ ] Recheck every exercise/problem solution and exact heap traces
+- [ ] Execute the committed Python unittest suite
+- [ ] Fetch all Chapter 6 files again and finish the source/chat/GitHub three-way audit
+
+Files:
+- [Chapter 6 notes](00-Foundations/Chapter-06-Heapsort/README.md)
+- [Chapter 6 exercises and problems](00-Foundations/Chapter-06-Heapsort/Exercises-and-Problems.md)
+- [Heap tree and array illustration](00-Foundations/Chapter-06-Heapsort/images/max-heap-tree-array.svg)
+- [Python heap implementation](Implementations/Python/heaps.py)
+- [Python heap tests](Implementations/Python/test_heaps.py)
+
 ## Completion standard
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Next:** Begin Chapter 6 after reviewing Chapters 1–5 and completing the self-assessment prompts.
+**Next:** Finish the Chapter 6 audit before marking it complete or advancing to Chapter 7.
