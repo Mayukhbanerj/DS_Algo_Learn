@@ -127,6 +127,67 @@ def lcs(x: Sequence, y: Sequence):
     out.reverse()
     return out, c
 
+def lcs_memoized(x: Sequence, y: Sequence) -> int:
+    """Top-down memoized LCS length in O(mn) time."""
+    m, n = len(x), len(y)
+    memo = [[None] * (n + 1) for _ in range(m + 1)]
+    def solve(i, j):
+        if i == 0 or j == 0:
+            return 0
+        if memo[i][j] is not None:
+            return memo[i][j]
+        if x[i - 1] == y[j - 1]:
+            value = solve(i - 1, j - 1) + 1
+        else:
+            value = max(solve(i - 1, j), solve(i, j - 1))
+        memo[i][j] = value
+        return value
+    return solve(m, n)
+
+def lis_quadratic(values: Sequence):
+    """Return one strictly increasing subsequence in O(n^2) time."""
+    n = len(values)
+    if n == 0:
+        return []
+    length = [1] * n
+    previous = [None] * n
+    for i in range(n):
+        for j in range(i):
+            if values[j] < values[i] and length[j] + 1 > length[i]:
+                length[i] = length[j] + 1
+                previous[i] = j
+    end = max(range(n), key=length.__getitem__)
+    out = []
+    while end is not None:
+        out.append(values[end])
+        end = previous[end]
+    return out[::-1]
+
+def lis_nlogn(values: Sequence):
+    """Return one strictly increasing subsequence in O(n log n) time."""
+    from bisect import bisect_left
+    tails = []
+    tail_indices = []
+    previous = [None] * len(values)
+    for i, value in enumerate(values):
+        pos = bisect_left(tails, value)
+        if pos == len(tails):
+            tails.append(value)
+            tail_indices.append(i)
+        else:
+            tails[pos] = value
+            tail_indices[pos] = i
+        if pos > 0:
+            previous[i] = tail_indices[pos - 1]
+    if not tails:
+        return []
+    idx = tail_indices[-1]
+    out = []
+    while idx is not None:
+        out.append(values[idx])
+        idx = previous[idx]
+    return out[::-1]
+
 def lcs_length_linear_space(x: Sequence, y: Sequence) -> int:
     """LCS length using two rows and O(min(m,n)) auxiliary entries."""
     if len(y) > len(x):
