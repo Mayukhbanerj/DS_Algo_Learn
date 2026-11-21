@@ -32,7 +32,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 ## 14.3 Elements of dynamic programming
 
-**14.3-1. Exhaustive parenthesization vs recursive recurrence.** Enumerating all parenthesizations examines C_(n−1)=Θ(4^n/n^(3/2)) candidates. RECURSIVE-MATRIX-CHAIN takes Θ(2^n) time by its recurrence, so it is asymptotically more efficient, although still exponential; memoization/tabulation reduces this to O(n³).
+**14.3-1. Exhaustive parenthesization vs recursive recurrence.** Enumerating all parenthesizations examines C_(n−1)=Θ(4^n/n^(3/2)) candidates. The recurrence T(1)=1, T(n)=2Σ_(i=1…n−1)T(i)+n implies T(n)=3T(n−1)+1, hence T(n)=Θ(3^n). It is asymptotically more efficient than enumerating all Catalan parenthesizations, Θ(4^n/n^(3/2)), although still exponential; memoization/tabulation reduces this to O(n³).
 
 **14.3-2. Merge-sort recursion tree.** The recursion tree has disjoint subarrays at each level. No identical nontrivial subproblem recurs, so memoization provides no asymptotic benefit and adds table overhead.
 
