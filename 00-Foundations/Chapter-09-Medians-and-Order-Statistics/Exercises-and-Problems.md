@@ -104,7 +104,7 @@ E[X_i]\le 2\left(
 +\sum_{j=1}^{i-2}\frac{i-j-1}{i-j+1}
 \right).
 \]
-The first double sum is O(n): for each fixed distance d=k−j, at most d+1 pairs straddle i, and each contributes 1/(d+1), so each distance contributes O(1), across at most n distances. Each of the other two sums has at most n terms, each bounded by 1, and is therefore O(n). CLRS further asks to establish the explicit bound E[X_i]≤4n in part (c); the linear bound above establishes the required O(n) result, while the sharper constant-bound arithmetic is retained for a final line-by-line check. Part (d) follows because each partition's work is proportional to the number of comparisons, giving O(n) expected running time.
+For the explicit constant, the first double sum is at most n: group by d=k−j; for each d there are at most d+1 crossing pairs, each contributing 1/(d+1), so each of the at most n distance classes contributes at most 1. In the second sum, (k−i−1)/(k−i+1)≤1, and there are n−i terms. In the third, (i−j−1)/(i−j+1)≤1, and there are i−2 terms. Thus the expression in (b) is at most 2[n+(n−i)+(i−2)]≤4n. This proves (c), and (d) follows because the partition work is proportional to the number of comparisons, giving O(n) expected running time. Part (d) follows because each partition's work is proportional to the number of comparisons, giving O(n) expected running time.
 
 ### 9-6 — Select with groups of three
 (a) For groups of odd size 2t+1 with t≥2, the median-of-medians pivot discards a fixed fraction on both sides. The pivot recursion has size about n/(2t+1), and the selection recursion is bounded by a fraction whose sum with 1/(2t+1) is strictly below 1. The recurrence is linear.
