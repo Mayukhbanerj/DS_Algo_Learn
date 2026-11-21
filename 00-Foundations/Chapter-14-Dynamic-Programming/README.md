@@ -83,6 +83,11 @@ e[i,j]=min_{i≤r≤j}(e[i,r−1]+e[r+1,j]+w[i,j]).
 
 Store root[i,j]=r. Compute w incrementally: w[i,j]=w[i,j−1]+p_j+q_j. Fill by increasing interval length. Standard OPTIMAL-BST takes Θ(n³) time and Θ(n²) space. Knuth's monotonicity property permits an O(n²) optimization.
 
+## Visual aids
+
+- [Matrix-chain split recurrence](images/matrix-chain-split.svg)
+- [LCS table dependencies](images/lcs-dependencies.svg)
+
 ## Engineering checklist
 
 - Define state precisely, including indices and empty-subproblem boundaries.
