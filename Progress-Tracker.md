@@ -14,6 +14,7 @@ Chapters 1–4 are complete study packages. Each chapter has been checked agains
 | 2 — Getting Started | Sections 2.1–2.3, pseudocode conventions, Exercises 2.1-1–2.3-8, Problems 2-1–2-4 | **Complete** |
 | 3 — Characterizing Running Times | Sections 3.1–3.3, Exercises 3.1-1–3.3-9, Problems 3-1–3-7 | **Complete** |
 | 4 — Divide-and-Conquer | Sections 4.1–4.7, Exercises 4.1-1–4.7-6, Problems 4-1–4-7 | **Complete** |
+| 5 — Probabilistic Analysis and Randomized Algorithms | Sections 5.1–5.4, Exercises 5.1-1–5.4-8, Problems 5-1–5-2 | **Complete** |
 
 ## Chapter 1
 
@@ -84,6 +85,20 @@ Files:
 - [Chapter 4 notes](00-Foundations/Chapter-04-Divide-and-Conquer/README.md)
 - [Chapter 4 exercises and problems](00-Foundations/Chapter-04-Divide-and-Conquer/Exercises-and-Problems.md)
 - [Recursion-tree illustration](00-Foundations/Chapter-04-Divide-and-Conquer/images/recursion-tree-level-costs.svg)
+
+## Chapter 5
+
+- [x] Section 5.1: hiring problem, worst case, probabilistic analysis, randomized algorithms
+- [x] Section 5.2: indicator random variables, linearity of expectation, expected hiring cost
+- [x] Section 5.3: randomized hiring, uniform random permutations, loop-invariant proof
+- [x] Section 5.4: birthday paradox, balls and bins, streaks, online hiring
+- [x] Exercises 5.1-1 through 5.4-8
+- [x] Problems 5-1 and 5-2
+- [x] Three-way audit: source PDF pages 148–177, this conversation, and GitHub main
+
+Files:
+- [Chapter 5 notes](00-Foundations/Chapter-05-Probabilistic-Analysis/README.md)
+- [Chapter 5 exercises and problems](00-Foundations/Chapter-05-Probabilistic-Analysis/Exercises-and-Problems.md)
 
 ## Completion standard
 
