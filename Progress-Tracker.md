@@ -23,6 +23,7 @@ Chapters 1–7 are complete study packages. Each chapter has been checked agains
 | 11 — Hash Tables | Sections 11.1–11.5, Exercises 11.1-1–11.5-3, Problems 11-1–11-4 | **Complete** |
 | 12 — Binary Search Trees | Sections 12.1–12.3, Exercises 12.1-1–12.3-7, Problems 12-1–12-4 | **Complete** |
 | 13 — Red-Black Trees | Sections 13.1–13.4, Exercises 13.1-1–13.4-9, Problems 13-1–13-3 | **Complete** |
+| 14 — Dynamic Programming | Sections 14.1–14.5, Exercises 14.1-1–14.5-4, Problems 14-1–14-12 | **Complete** |
 
 ## Chapter 1
 
@@ -246,7 +247,7 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 13 complete. Chapter 14 — Dynamic Programming (draft in progress).
+**Current:** Chapter 14 complete. Chapter 15 is next.
 
 
 ## Chapter 12 — Complete
@@ -303,7 +304,8 @@ Files:
 - [x] Add Python rod-cutting, matrix-chain, LCS and optimal-BST implementations
 - [x] Add initial Python tests and original matrix-chain/LCS diagrams
 - [x] Reconstruct fetched Python implementations and all 10 committed unittest scenarios locally; all passed after adjusting the edit-distance test's operation costs. Also passed 350 randomized LCS/matrix-chain checks and 500 randomized LIS checks
-- [ ] Fetch every Chapter 14 file and reconcile source, chat, and GitHub main
+- [x] Fetch every Chapter 14 file after final edits; verify notes, exercise/problem solutions, diagrams, Python implementation/tests, repository map and tracker on GitHub main
+- [x] Complete three-way reconciliation against source PDF printed pages 361–416, conversation instructions and GitHub main
 
 Files:
 - [Chapter 14 notes](00-Foundations/Chapter-14-Dynamic-Programming/README.md)
