@@ -30,7 +30,7 @@ Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are
 
 **13.2-4. Transform any BST into any other.** At most n−1 right rotations convert a BST into a right-going chain. Convert the target tree to the same chain using at most n−1 right rotations, then reverse that sequence (using left rotations) to obtain the target from the chain. Total O(n) rotations.
 
-**13.2-5. Right-conversion.** Right rotations preserve the inorder sequence and have a directional restriction; not every target tree is reachable from every source by right rotations alone. Example and O(n²) upper-bound proof are pending final audit.
+**13.2-5. Right-conversion.** Let T1 be the all-right chain on keys 1,2,3 and T2 the balanced tree with root 2 and children 1,3. T1 has no left child, so no RIGHT-ROTATE is possible and T2 is unreachable. For the bound, define Φ(T) as the number of ancestor-descendant pairs (u,v) with u.key>v.key. A right rotation at y with left child x removes the inversion pair (y,x), and removes every inversion pair (y,a) for a in the former left subtree α of x; it creates no new inversion pair. Thus Φ strictly decreases by at least 1. Since 0≤Φ≤binom(n,2), any right-rotation sequence has at most binom(n,2)=O(n²) calls.
 
 ## 13.3 Insertion
 
