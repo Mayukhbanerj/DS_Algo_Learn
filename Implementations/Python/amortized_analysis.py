@@ -59,11 +59,10 @@ class DynamicArray:
         cost = 1
         if self.capacity == 0:
             self.capacity = 1
-            self.data = [None] * self.capacity
+            self.data = []
         elif len(self.data) == self.capacity:
             new_capacity = 2 * self.capacity
-            new = [None] * new_capacity
-            new[:len(self.data)] = self.data
+            new = list(self.data)
             cost += len(self.data)
             self.copies += len(self.data)
             self.data = new
@@ -80,8 +79,7 @@ class DynamicArray:
             self.capacity = 0
         elif self.capacity > 1 and len(self.data) < self.capacity / 4:
             new_capacity = max(1, self.capacity // 2)
-            new = [None] * new_capacity
-            new[:len(self.data)] = self.data
+            new = list(self.data)
             cost += len(self.data)
             self.copies += len(self.data)
             self.data = new
