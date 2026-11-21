@@ -36,7 +36,13 @@ Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are
 
 **13.3-1. Why insert RED?** Inserting a RED node leaves the black count on every root-to-leaf path unchanged. Inserting BLACK increases the count only on paths through the new node, violating property 5.
 
-**13.3-2. Insert 41, 38, 31, 12, 19, 8.** Standard CLRS fixup trace to be added with each recoloring/rotation and resulting tree after every insertion.
+**13.3-2. Insert 41, 38, 31, 12, 19, 8.** The trees after each insertion (notation key/color, with omitted children NIL):
+- 41: root 41(B).
+- 38: root 41(B), left 38(R).
+- 31: root 38(B), children 31(R), 41(R) (case 3, right rotation at 41).
+- 12: root 38(B); left 31(B) with left 12(R); right 41(B) (case 1 recoloring).
+- 19: root 38(B); left 19(B) with children 12(R),31(R); right 41(B) (case 2 then case 3, rotations).
+- 8: root 38(B); left 19(R) with children 12(B),31(B), where 12 has left 8(R); right 41(B) (case 1 recoloring).
 
 **13.3-3. Black-height labels.** For Figures 13.5 and 13.6, assign each subtree root black-height k; count the black contribution of each displayed node on paths to α, β, γ, δ, ε and verify the transformations preserve each total. Detailed labels pending.
 
@@ -54,7 +60,14 @@ Original solutions based on CLRS Fourth Edition, Sections 13.1–13.4. These are
 
 **13.4-3. Red x and red parent.** The extra black is attached to x. If x is RED, the loop condition fails and line 44 colors x BLACK, absorbing the extra black; its parent remains BLACK under the pre-fixup configuration, restoring property 4.
 
-**13.4-4. Delete 8,12,19,31,38,41.** Start from the tree produced by Exercise 13.3-2 and trace RB-DELETE after each key. Full color/pointer trace pending.
+**13.4-4. Delete 8,12,19,31,38,41.** Starting from the final tree in 13.3-2:
+- Delete 8: root 38(B); left 19(R) with children 12(B),31(B); right 41(B).
+- Delete 12: root 38(B); left 19(B) with right 31(R); right 41(B).
+- Delete 19: root 38(B) with children 31(B),41(B).
+- Delete 31: root 38(B) with right 41(R).
+- Delete 38: root 41(B).
+- Delete 41: empty tree.
+Each intermediate tree satisfies all red-black properties; fixup is needed when a removed black node creates an extra black.
 
 **13.4-5. Sentinel accesses.** Lines that inspect sibling/child colors may read T.nil.color; RB-TRANSPLANT writes T.nil.p; the special assignment x.p=y may write the sentinel parent. In fixup, color assignments to a sibling or sibling child are safe only under the case invariants that rule out recoloring the sentinel RED.
 
