@@ -36,33 +36,33 @@ A route-planning application uses algorithms to represent the road network, sear
 
 ### 1.2-2 — Comparing 8n² and 64n lg n
 Insertion sort wins under the stated step-count models when:
-[
+\[
 8n^2 < 64nlg n.
-]
+\]
 For positive (n), divide by (8n):
-[
+\[
 n < 8lg n.
-]
+\]
 Checking the integer boundary gives:
 - (n=43): (43 < 8lg 43 approx 43.48), true.
 - (n=44): (44 < 8lg 44 approx 43.73), false.
 The positive integer range in which insertion sort wins is therefore:
-[
-oxed{2le nle 43}
-]
+\[
+\boxedoxed{2le nle 43}
+\]
 (The comparison is between the stated mathematical models, not a benchmark claim.)
 
 ### 1.2-3 — Comparing 100n² and 2ⁿ
 We seek the smallest positive integer (n) for which:
-[
+\[
 100n^2 < 2^n.
-]
+\]
 At (n=14): (100(14)^2=19{,}600), while (2^{14}=16{,}384), so the inequality is false.
 At (n=15): (100(15)^2=22{,}500), while (2^{15}=32{,}768), so it is true.
 Checking the preceding integer establishes minimality:
-[
-oxed{n=15}
-]
+\[
+\boxedoxed{n=15}
+\]
 
 ---
 
