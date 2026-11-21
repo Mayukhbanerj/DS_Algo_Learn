@@ -6,7 +6,7 @@
 
 ## Completion audit — 21 November 2026
 
-Chapters 1–4 are complete study packages. Each chapter has been checked against the uploaded PDF, this conversation's requirements and prior decisions, and the committed GitHub files.
+Chapters 1–5 are complete study packages. Each chapter has been checked against the uploaded PDF, this conversation's requirements and prior decisions, and the committed GitHub files.
 
 | Chapter | Coverage | Status |
 |---|---|---|
@@ -104,4 +104,4 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Next:** Begin Chapter 5 after reviewing Chapters 1–4 and completing the self-assessment prompts.
+**Next:** Begin Chapter 6 after reviewing Chapters 1–5 and completing the self-assessment prompts.
