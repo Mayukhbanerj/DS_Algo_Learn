@@ -2,7 +2,7 @@
 
 **Reference:** CLRS, *Introduction to Algorithms*, Fourth Edition (2022), Chapter 9, printed pages 227–247.
 
-Selection returns the element of a set having a specified rank, not the entire sorted order. The minimum has rank 1, the maximum rank n, and CLRS consistently calls the lower median the median: rank floor((n+1)/2). The chapter assumes distinct keys for analysis; the algorithms generally extend to duplicates.
+Selection returns the element of a set having a specified rank, not the entire sorted order. The minimum has rank 1, the maximum rank n, and CLRS consistently calls the lower median the median: rank floor((n+1)/2). For even n, this is the smaller of the two central elements—not their average. The chapter assumes distinct keys for analysis; the algorithms generally extend to duplicates.
 
 ## Learning objectives
 - Prove the optimal n−1 comparison bound for minimum or maximum.
@@ -53,6 +53,10 @@ With g=n/5 groups, at least about half the group medians are on either side of t
 T(n) ≤ T(ceil(n/5))+T(7n/10+O(1))+O(n).
 The recursive fractions sum to 9/10<1, so substitution gives T(n)=O(n). The group sorting/partition work is Ω(n), hence T(n)=Θ(n) worst case.
 
+## Comparison-model perspective
+
+SELECT and RANDOMIZED-SELECT learn order information only through pairwise comparisons. The Ω(n lg n) comparison lower bound for sorting does not apply to selection: finding one rank does not require determining the relative order of every pair. Thus sorting and indexing is asymptotically slower than either linear-time selection method.
+
 ## Algorithm choice
 
 | Method | Worst case | Expected case |
@@ -67,4 +71,8 @@ The recursive fractions sum to 9/10<1, so substitution gives T(n)=O(n). The grou
 - For duplicates, use a three-way partition (< pivot, = pivot, > pivot) to avoid repeatedly processing equal keys. CLRS's core analysis assumes distinct keys.
 - Randomized pivots should use a sound pseudorandom generator; do not confuse randomization with a deterministic pivot rule.
 
-**Status:** Initial source-aligned draft. Companion solutions, implementations, and proof audit are in progress.
+## Chapter notes
+
+CLRS credits the worst-case linear-time median-finding algorithm to Blum, Floyd, Pratt, Rivest, and Tarjan; the fast randomized selection algorithm is due to Hoare. Floyd and Rivest later developed a randomized improvement using a recursively selected pivot from a sample. The exact comparison count for median finding remains a subject of refined upper- and lower-bound research.
+
+**Status:** Source-aligned notes and companion solutions audited against Chapter 9 (printed pages 227–247). Python implementation and tests are included; equivalent local algorithm checks passed, but the committed unittest file was not executed in this environment.
