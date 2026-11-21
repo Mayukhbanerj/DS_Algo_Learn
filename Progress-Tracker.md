@@ -22,6 +22,7 @@ Chapters 1–7 are complete study packages. Each chapter has been checked agains
 | 10 — Elementary Data Structures | Sections 10.1–10.3, Exercises 10.1-1–10.3-6, Problems 10-1–10-3 | **Complete** |
 | 11 — Hash Tables | Sections 11.1–11.5, Exercises 11.1-1–11.5-3, Problems 11-1–11-4 | **Complete** |
 | 12 — Binary Search Trees | Sections 12.1–12.3, Exercises 12.1-1–12.3-7, Problems 12-1–12-4 | **Complete** |
+| 13 — Red-Black Trees | Sections 13.1–13.4, Exercises 13.1-1–13.4-9, Problems 13-1–13-3 | **Complete** |
 
 ## Chapter 1
 
@@ -245,7 +246,7 @@ Files:
 - [Python hash-table implementations](Implementations/Python/hash_tables.py)
 - [Python tests](Implementations/Python/test_hash_tables.py)
 
-**Current:** Chapter 12 complete. Chapter 13 — Red-Black Trees (draft in progress).
+**Current:** Chapter 13 complete. Chapter 14 is next.
 
 
 ## Chapter 12 — Complete
@@ -282,7 +283,8 @@ Files:
 - [x] Add initial Python unit tests; expand coverage to all insertion/deletion fixup cases
 - [x] Add original red-black insertion/deletion case diagrams
 - [x] Reconstruct fetched red-black implementation and all 8 unittest cases locally; all 8 passed, plus 31,434 seeded stress operations with invariant/order checks
-- [ ] Fetch every Chapter 13 file after final edits and reconcile source, chat, and GitHub main
+- [x] Fetch every Chapter 13 file after final edits; verify notes, exercise solutions, diagrams, Python implementation/tests, repository map and tracker on GitHub main
+- [x] Complete three-way reconciliation against source PDF printed pages 331–359, conversation instructions and GitHub main
 
 Files:
 - [Chapter 13 notes](00-Foundations/Chapter-13-Red-Black-Trees/README.md)
