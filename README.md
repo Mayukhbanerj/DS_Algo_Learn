@@ -31,6 +31,7 @@ The goal is to develop algorithmic reasoning—not memorize solutions. Notes dis
 | `00-Foundations/Chapter-13-Red-Black-Trees/` | Chapter 13 notes, exercises, balanced-tree analysis |
 | `00-Foundations/Chapter-14-Dynamic-Programming/` | Chapter 14 notes, exercises, dynamic-programming algorithms |
 | `00-Foundations/Chapter-15-Greedy-Algorithms/` | Chapter 15 notes, exercises, greedy algorithms |
+| `00-Foundations/Chapter-16-Amortized-Analysis/` | Chapter 16 notes, exercises, amortized-analysis algorithms |
 | `Implementations/Python/` | Python implementations and tests |
 | `Progress-Tracker.md` | Study progress and next steps |
 
