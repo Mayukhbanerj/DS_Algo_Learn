@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="620" viewBox="0 0 1500 620">
+<rect width="1500" height="620" rx="24" fill="#f8fafc"/>
+<text x="70" y="70" font-family="Arial,sans-serif" font-size="38" font-weight="700" fill="#0f172a">Three ways to bound a function</text>
+<g font-family="Arial,sans-serif" fill="#0f172a">
+<g transform="translate(70 125)">
+<rect width="420" height="420" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="28" y="48" font-size="30" font-weight="700">O(g(n))</text>
+<text x="28" y="82" font-size="19" fill="#475569">Asymptotic upper bound</text>
+<path d="M55 345 V125 M55 345 H375" stroke="#334155" stroke-width="3" fill="none"/>
+<path d="M65 330 C125 300 190 250 355 130" stroke="#2563eb" stroke-width="6" fill="none"/>
+<path d="M65 330 C130 315 200 285 355 250" stroke="#ea580c" stroke-width="6" fill="none"/>
+<text x="260" y="118" font-size="20" fill="#2563eb">c·g(n)</text>
+<text x="275" y="245" font-size="20" fill="#ea580c">f(n)</text>
+</g>
+<g transform="translate(540 125)">
+<rect width="420" height="420" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="28" y="48" font-size="30" font-weight="700">Ω(g(n))</text>
+<text x="28" y="82" font-size="19" fill="#475569">Asymptotic lower bound</text>
+<path d="M55 345 V125 M55 345 H375" stroke="#334155" stroke-width="3" fill="none"/>
+<path d="M65 330 C125 300 190 250 355 130" stroke="#ea580c" stroke-width="6" fill="none"/>
+<path d="M65 330 C130 260 210 205 355 155" stroke="#2563eb" stroke-width="6" fill="none"/>
+<text x="265" y="145" font-size="20" fill="#ea580c">f(n)</text>
+<text x="260" y="190" font-size="20" fill="#2563eb">c·g(n)</text>
+</g>
+<g transform="translate(1010 125)">
+<rect width="420" height="420" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="28" y="48" font-size="30" font-weight="700">Θ(g(n))</text>
+<text x="28" y="82" font-size="19" fill="#475569">Tight upper and lower bounds</text>
+<path d="M55 345 V125 M55 345 H375" stroke="#334155" stroke-width="3" fill="none"/>
+<path d="M65 330 C125 300 190 250 355 130" stroke="#2563eb" stroke-width="5" fill="none"/>
+<path d="M65 340 C125 315 190 275 355 185" stroke="#16a34a" stroke-width="5" fill="none"/>
+<path d="M65 335 C125 307 190 262 355 155" stroke="#ea580c" stroke-width="6" fill="none"/>
+<text x="255" y="125" font-size="18" fill="#2563eb">c₂g(n)</text>
+<text x="255" y="185" font-size="18" fill="#16a34a">c₁g(n)</text>
+<text x="270" y="150" font-size="18" fill="#ea580c">f(n)</text>
+</g>
+<text x="750" y="590" font-size="20" text-anchor="middle" fill="#475569">Schematic only: inequalities must hold for every sufficiently large n after some threshold n₀.</text>
+</g>
+</svg>
