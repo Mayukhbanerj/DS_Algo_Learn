@@ -253,12 +253,12 @@ Files:
 - [x] Draft core notes on BST invariants, traversals, queries, successor/predecessor, insertion, transplant and deletion
 - [x] Draft exercise/problem solutions
 - [x] Add Python BST implementation and initial unit tests
-- [ ] Audit Exercise 12.1-1 exact height examples and Exercise 12.2-1 invalid search traces
-- [ ] Correct and verify Exercise 12.2-4 smallest counterexample and Exercise 12.3-5 deletion noncommutativity
-- [ ] Complete exact pseudocode for Exercise 12.3-6 successor-pointer representation
-- [ ] Audit Problem 12-1 duplicate-key strategies and Problem 12-3 recurrence/proof details
+- [x] Audit Exercise 12.1-1 exact height-2-through-6 constructions and Exercise 12.2-1 invalid search traces (c and e)
+- [x] Correct Exercise 12.2-4 with a minimal five-node unsuccessful-search counterexample; verify Exercise 12.3-5 with an explicit noncommuting deletion example
+- [x] Complete O(h) successor-pointer-only algorithms for Exercise 12.3-6, including predecessor links and parent lookup
+- [x] Audit Problem 12-1 duplicate-key strategies and strengthen the randomized expected-cost argument; verify Problem 12-3 recurrence and Problem 12-4 Catalan derivation
 - [ ] Execute exact fetched Python source and tests; fix edge cases
-- [ ] Add original BST/transplant/deletion diagram
+- [x] Add original search-path counterexample SVG
 - [ ] Fetch every Chapter 12 file and reconcile source, chat, and GitHub main
 
 Files:
