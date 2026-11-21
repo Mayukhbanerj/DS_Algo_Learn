@@ -281,7 +281,7 @@ At depth \(j\), there are \(a^j\) subproblems, each of size \(n/b^j\). Summing t
 
 ## Chapter notes
 
-The chapter notes place divide-and-conquer in the history of algorithm design, including Karatsuba and Ofman, and mention Gauss's early fast Fourier transform idea. Strassen's 1969 matrix-multiplication algorithm was a major breakthrough; Winograd later reduced the number of additions while retaining seven multiplications. The notes also point to the history of recurrence analysis and the Akra–Bazzi method.
+The chapter notes place divide-and-conquer in the history of algorithm design, including Karatsuba and Ofman, and mention Gauss's early fast Fourier transform idea. Strassen's 1969 matrix-multiplication algorithm was a major breakthrough; Winograd later reduced the number of additions while retaining seven multiplications. The notes also trace Fibonacci numbers and generating functions, early general methods for solving recurrences, the master method, and the Akra–Bazzi method, as well as research on floors, ceilings, and polynomial-growth conditions.
 
 ## Coverage audit
 
