@@ -68,7 +68,7 @@ class DynamicArray:
             self.copies += len(self.data)
             self.data = new
             self.capacity = new_capacity
-        self.data[len(self.data)] = value
+        self.data.append(value)
         return cost
     def delete_at(self, index):
         if index < 0 or index >= len(self.data):
@@ -109,7 +109,7 @@ class DynamicSortedArrays:
                     return level, i
         return None
     def insert(self, key):
-        from bisect import merge
+        from heapq import merge
         carry = [key]
         level = 0
         while True:
