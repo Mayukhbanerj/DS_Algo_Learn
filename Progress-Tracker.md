@@ -104,7 +104,7 @@ Files:
 - [Chapter 5 notes](00-Foundations/Chapter-05-Probabilistic-Analysis/README.md)
 - [Chapter 5 exercises and problems](00-Foundations/Chapter-05-Probabilistic-Analysis/Exercises-and-Problems.md)
 
-## Chapter 6 — Draft and audit in progress
+## Chapter 6 — Complete
 
 - [x] Sections 6.1–6.5 drafted: heaps, heapify, linear-time build, heapsort, priority queues
 - [x] d-ary heaps and Young tableaux covered
@@ -125,7 +125,7 @@ Files:
 - [Python heap implementation](Implementations/Python/heaps.py)
 - [Python heap tests](Implementations/Python/test_heaps.py)
 
-## Chapter 7 — Draft and audit in progress
+## Chapter 7 — Complete
 
 - [x] Sections 7.1–7.4 drafted, including partition invariant and expected comparison analysis
 - [x] Exercises 7.1-1 through 7.4-6 drafted
@@ -172,7 +172,7 @@ Files:
 - [Python implementations](Implementations/Python/linear_sorting.py)
 - [Python tests](Implementations/Python/test_linear_sorting.py)
 
-## Chapter 9 — Draft and audit in progress
+## Chapter 9 — Complete
 
 - [x] Source pages 227–247 reopened and section structure captured
 - [x] Sections 9.1–9.3 drafted
@@ -181,8 +181,12 @@ Files:
 - [x] Python tests added; equivalent local checks passed for min/max and randomized/deterministic selection (the committed test file itself was not executed)
 - [x] Selection partition diagram added
 - [x] Resolve and recheck: six-comparison median-of-five; simplified randomized-select expected-time recurrence; indicator probabilities including target-at-endpoint cases and 4n comparison bound; SELECT3 exact rounding recurrence; simultaneous min/max candidate-membership lower bound; small-order-statistics recurrence
-- [ ] Audit remaining exercise/problem solutions and reconcile all Chapter 9 notes against the source pages
-- [ ] Fetch all Chapter 9 files and finish source/chat/GitHub audit
+- [x] Audit every exercise 9.1-1 through 9.3-10 and Problems 9-1 through 9-6 against source pages 249–269
+- [x] Correct the lower-median convention in 9.3-10; clarify exact k-quantile recursion and distance-tie handling
+- [x] Correct candidate-set roles in 9.1-4 and make the weighted-median threshold recursion explicit
+- [x] Reconcile chapter notes, exercises, Python implementation/tests, repository map, and progress tracker
+- [x] Fetch all Chapter 9 files from GitHub main after final edits and verify the committed content
+- [x] Equivalent local algorithm checks passed for min/max and randomized/deterministic selection; committed unittest file not executed
 
 Files:
 - [Chapter 9 notes](00-Foundations/Chapter-09-Medians-and-Order-Statistics/README.md)
@@ -195,4 +199,4 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Current:** Chapter 9 — Medians and Order Statistics (audit in progress).
+**Current:** Chapter 10 — Elementary Data Structures (ready to begin).
