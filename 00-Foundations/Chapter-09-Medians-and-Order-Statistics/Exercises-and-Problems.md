@@ -92,7 +92,7 @@ Binary-search a partition i in X and j=n−i in Y so the left halves contain n v
 (e) Under Manhattan distance, x and y contributions separate; choose weighted medians independently for each coordinate.
 
 ### 9-4 — Small order statistics
-Pair the n elements and compare each pair. The ith smallest must be among the smaller member of each pair together with (at most) the unpaired element, so recursively select the ith smallest from this reduced candidate set. Once that candidate is found, at most 2i elements can be smaller than or equal to it in the original set: each candidate has at most one paired larger partner. Use SELECT on those at most 2i elements to identify the exact ith smallest. This gives the stated recurrence
+Pair the n elements and compare each pair. Recursively select the ith smallest element x among the smaller members of the pairs (including the unpaired element, if any). At least i original elements are no greater than x, so the true ith smallest is no greater than x. Moreover, at most i selected smaller members are no greater than x, and each has at most one paired larger partner; therefore at most 2i original elements are no greater than x. Filter to those elements and use SELECT to identify the exact ith smallest. This gives the stated recurrence
 \[
 U_i(n)=
 \begin{cases}
