@@ -200,7 +200,7 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-## Chapter 10 — Draft and audit in progress
+## Chapter 10 — Complete
 
 - [x] Source pages 251–271 reopened; sections 10.1–10.3 and all exercise/problem statements captured
 - [x] Core notes drafted: arrays, matrices, stacks, circular queues, deques, linked lists, sentinels, binary trees, and left-child/right-sibling trees
@@ -209,8 +209,8 @@ A chapter is complete only after its source pages, the relevant conversation ins
 - [x] Add unittest coverage for core implementations and a circular-queue illustration
 - [x] Resolve and verify the two-pointer/one-boolean representation in Exercise 10.3-6; parent lookup follows the sibling chain to its last-child marker
 - [x] Audit Problem 10-3 tail-sum/integral bound and construct a repeated-key input where strict skips cannot advance within the duplicate run
-- [ ] Execute the committed Python test file and fix any failures
-- [ ] Fetch all Chapter 10 files after final edits and finish source/chat/GitHub audit
+- [x] Execute the fetched implementation and test contents in a temporary local package; all 9 unittest cases passed
+- [x] Fetch all Chapter 10 files after final edits and finish source/chat/GitHub audit
 
 Files:
 - [Chapter 10 notes](00-Foundations/Chapter-10-Elementary-Data-Structures/README.md)
@@ -219,4 +219,4 @@ Files:
 - [Python implementations](Implementations/Python/elementary_structures.py)
 - [Python tests](Implementations/Python/test_elementary_structures.py)
 
-**Current:** Chapter 10 — Elementary Data Structures (draft in progress).
+**Current:** Chapter 10 complete. Chapter 11 is next.
