@@ -29,6 +29,7 @@ The goal is to develop algorithmic reasoning—not memorize solutions. Notes dis
 | `00-Foundations/Chapter-11-Hash-Tables/` | Chapter 11 notes, exercises, hash-table analysis |
 | `00-Foundations/Chapter-12-Binary-Search-Trees/` | Chapter 12 notes, exercises, binary-search-tree operations |
 | `00-Foundations/Chapter-13-Red-Black-Trees/` | Chapter 13 notes, exercises, balanced-tree analysis |
+| `00-Foundations/Chapter-14-Dynamic-Programming/` | Chapter 14 notes, exercises, dynamic-programming algorithms |
 | `Implementations/Python/` | Python implementations and tests |
 | `Progress-Tracker.md` | Study progress and next steps |
 
