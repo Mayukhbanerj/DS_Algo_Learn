@@ -182,6 +182,10 @@ When choosing or reviewing an algorithm, ask:
 
 ---
 
+## Complete exercise and problem solutions
+
+The full worked exercise set, including **Problem 1-1's complete running-time table**, is in [Exercises and Problem 1-1](Exercises-and-Problem-1-1.md).
+
 ## Chapter 1 exercises — study responses
 
 These are original study responses to the chapter exercises, not quotations from an official solutions manual.
