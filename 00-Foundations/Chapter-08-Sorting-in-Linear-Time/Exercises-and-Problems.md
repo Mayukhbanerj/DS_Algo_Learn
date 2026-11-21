@@ -204,7 +204,7 @@ d(k)=\min_{1\le i<k}\{d(i)+d(k-i)+k\}.
 
 **(e)** A k-sorted array can be merged from its \(k\) sorted residue lists using a min-heap of size \(k\). Each of \(n\) outputs costs \(O(\lg k)\), so \(O(n\lg k)\).
 
-**(f)** If \(k\) is constant, then \(O(n\lg k)=O(n)\) would sort a k-sorted array if k-sorting itself were linear. But producing a k-sorted array allows one to sort arbitrary input in \(O(n\lg k)\) by the part (e) method only if the array is already k-sorted. The comparison lower bound therefore implies \(\Omega(n\lg n)\) to produce a k-sorted array for constant k.
+**(f)** Suppose k-sorting arbitrary input took \(o(n\lg n)\) time for constant \(k\). Part (e) then sorts the resulting k-sorted array in \(O(n\lg k)=O(n)\) time. The composition would sort arbitrary input in \(o(n\lg n)\), contradicting the comparison-sorting lower bound. Therefore k-sorting requires \(\Omega(n\lg n)\) time for constant \(k\).
 
 ### 8-6 — Lower bound on merging two sorted lists
 
