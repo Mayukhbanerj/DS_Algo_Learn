@@ -18,7 +18,8 @@ Chapters 1–7 are complete study packages. Each chapter has been checked agains
 | 6 — Heapsort | Sections 6.1–6.5, Exercises 6.1-1–6.5-11, Problems 6-1–6-3 | **Complete** |
 | 7 — Quicksort | Sections 7.1–7.4, Exercises 7.1-1–7.4-6, Problems 7-1–7-7 | **Complete** |
 | 8 — Sorting in Linear Time | Sections 8.1–8.4, Exercises 8.1-1–8.4-6, Problems 8-1–8-7 | **Complete** |
-| 9 — Medians and Order Statistics | Sections 9.1–9.3, Exercises 9.1-1–9.3-10, Problems 9-1–9-6 | **Draft / audit in progress** |
+| 9 — Medians and Order Statistics | Sections 9.1–9.3, Exercises 9.1-1–9.3-10, Problems 9-1–9-6 | **Complete** |
+| 10 — Elementary Data Structures | Sections 10.1–10.3, Exercises 10.1-1–10.3-6, Problems 10-1–10-3 | **Draft / audit in progress** |
 
 ## Chapter 1
 
@@ -199,4 +200,16 @@ Files:
 
 A chapter is complete only after its source pages, the relevant conversation instructions and prior decisions, and the committed GitHub files agree. The notes are original explanations; SVGs are original teaching diagrams, not textbook scans. Tests are reported as passed only after execution.
 
-**Current:** Chapter 10 — Elementary Data Structures (ready to begin).
+## Chapter 10 — Draft and audit in progress
+
+- [x] Source pages 251–271 reopened; sections 10.1–10.3 and all exercise/problem statements captured
+- [x] Core notes drafted: arrays, matrices, stacks, circular queues, deques, linked lists, sentinels, binary trees, and left-child/right-sibling trees
+- [ ] Complete all Exercises 10.1-1 through 10.3-6 and Problems 10-1 through 10-3
+- [ ] Add original diagrams and Python implementations/tests
+- [ ] Audit edge cases, complexity analyses, and source alignment
+- [ ] Fetch all Chapter 10 files and finish source/chat/GitHub audit
+
+Files:
+- [Chapter 10 notes](00-Foundations/Chapter-10-Elementary-Data-Structures/README.md)
+
+**Current:** Chapter 10 — Elementary Data Structures (draft in progress).
