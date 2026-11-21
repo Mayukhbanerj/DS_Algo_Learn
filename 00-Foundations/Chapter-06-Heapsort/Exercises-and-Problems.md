@@ -155,7 +155,20 @@ Input: \(\langle5,13,2,25,7,17,20,8,4\rangle\). BUILD-MAX-HEAP produces
 \[
 \langle25,13,20,8,7,17,2,5,4\rangle.
 \]
-Repeatedly exchange the root with the final heap element, shrink the heap, and MAX-HEAPIFY. The resulting sorted array is
+The array after each extraction and heap repair is:
+\[
+\begin{aligned}
+&\langle20,13,17,8,7,4,2\mid25\rangle\\
+&\langle17,13,5,8,7,4,2\mid20,25\rangle\\
+&\langle13,8,5,2,7,4\mid17,20,25\rangle\\
+&\langle8,7,5,2,4\mid13,17,20,25\rangle\\
+&\langle7,4,5,2\mid8,13,17,20,25\rangle\\
+&\langle5,4,2\mid7,8,13,17,20,25\rangle\\
+&\langle4,2\mid5,7,8,13,17,20,25\rangle\\
+&\langle2\mid4,5,7,8,13,17,20,25\rangle.
+\end{aligned}
+\]
+The vertical bar separates the active heap from the sorted suffix. The resulting sorted array is
 \[
 \boxed{\langle2,4,5,7,8,13,17,20,25\rangle}.
 \]
