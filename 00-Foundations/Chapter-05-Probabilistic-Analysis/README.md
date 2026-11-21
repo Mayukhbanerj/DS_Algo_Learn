@@ -241,4 +241,4 @@ The chapter notes point to advanced probability texts and randomized-algorithm s
 - [x] Exercises 5.1-1 through 5.4-8 — companion file
 - [x] Problems 5-1 and 5-2 — companion file
 
-**Status:** Chapter 5 notes drafted; companion solutions and three-way audit remain before completion.
+**Status:** Chapter 5 study package complete. Notes and companion solutions were checked against the source chapter, this conversation's requirements, and the committed GitHub files.
