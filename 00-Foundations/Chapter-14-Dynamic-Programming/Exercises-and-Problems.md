@@ -26,7 +26,7 @@ Original study solutions based on CLRS Fourth Edition, Sections 14.1–14.5. Wor
 
 **14.2-4. Subproblem graph.** Vertices are index intervals (i,j), 1≤i≤j≤n: n(n+1)/2 vertices. Each interval of length L has 2(L−1) outgoing dependency edges. Thus E=2Σ_(L=2…n)(n−L+1)(L−1)=(n³−n)/3.
 
-**14.2-5. Table-reference count.** Count references to m[i,j] as a subproblem in every larger interval and split. Summing over interval lengths and split positions gives n³/3−n/3 references in total.
+**14.2-5. Table-reference count.** A fixed entry m[i,j] is referenced as the left subproblem by each interval [i,b] with b>j (n−j choices), and as the right subproblem by each interval [a,j] with a<i (i−1 choices). Thus it is referenced n−j+i−1 times. Summing over 1≤i≤j≤n gives Σ(n−j+i−1)=n³/3−n/3.
 
 **14.2-6. Parenthesis count.** A full parenthesization of n operands is a full binary expression tree with n leaves and n−1 internal multiplication nodes. Each internal node contributes one pair of parentheses, hence n−1 pairs.
 
