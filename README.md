@@ -17,6 +17,7 @@ The goal is to develop algorithmic reasoning—not memorize solutions. Notes dis
 | Path | Purpose |
 |---|---|
 | `00-Foundations/Chapter-01-Role-of-Algorithms/` | Chapter 1 notes, exercises, revision |
+| `00-Foundations/Chapter-02-Getting-Started/` | Chapter 2 notes, exercises, illustrations |
 | `Implementations/Python/` | Python implementations added as chapters introduce algorithms |
 | `Progress-Tracker.md` | Study progress and next steps |
 
