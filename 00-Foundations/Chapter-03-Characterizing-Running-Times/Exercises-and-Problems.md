@@ -268,32 +268,52 @@ Notes:
 
 ### 3-3 — Ordering by asymptotic growth rates
 
-The source lists 30 expressions. A reliable way to order them is to simplify equivalent expressions first, then compare dominant scales. The ordered equivalence classes (slowest to fastest) are:
+The 30 expressions in the source list, grouped from slowest to fastest, are:
 
-1. \(1\)
-2. \(\lg\lg n\)
-3. \(\lg^*n\)
-4. \(\lg^*(\lg n)\) (same order as \(\lg^*n\))
-5. \(\lg n\)
-6. \((\lg n)^2\)
-7. \(\sqrt{\lg n}\) (place before \(\lg n\))
-8. \(\sqrt n\)
-9. \(n^{1/\lg n}=2\) (constant; merge with class 1)
-10. \(n\)
-11. \(n\lg n\)
-12. \(n^2\)
-13. \(n^3\)
-14. \(n^{\lg\lg n}\)
-15. \(2^n\)
-16. \(2^{2^n}\)
-17. \(n!\)
-18. \((\lg n)!\)
-19. \((n+1)!\)
-20. \(n^n\)
+1. \(\{1,\ n^{1/\lg n}\}\), since \(n^{1/\lg n}=2\).
+2. \(\lg(\lg^* n)\).
+3. \(\{\lg^* n,\ \lg^*(\lg n)\}\). These differ by at most one for sufficiently large \(n\), so they are \(\Theta\)-equivalent.
+4. \(2^{\lg^* n}\).
+5. \(\ln\ln n\).
+6. \(\sqrt{\lg n}\).
+7. \(\{\ln n,\ \lg n\}\).
+8. \((\lg n)^2\).
+9. \(2^{\sqrt{2\lg n}}\).
+10. \(\sqrt n=(\sqrt2)^{\lg n}\).
+11. \(\{n,\ 2^{\lg n}\}\).
+12. \(\{n\lg n,\ \lg(n!)\}\).
+13. \(\{n^2,\ 4^{\lg n}\}\).
+14. \(n^3\).
+15. \((\lg n)!\).
+16. \(\{n^{\lg\lg n},\ (\lg n)^{\lg n}\}\), which are equal because \((\lg n)^{\lg n}=n^{\lg\lg n}\).
+17. \(n!\).
+18. \((n+1)!\).
+19. \((3/2)^n\).
+20. \(2^n\).
+21. \(n\,2^n\).
+22. \(e^n\).
+23. \(2^{2^n}\).
+24. \(2^{2^{n+1}}\).
 
-**Important:** The printed list contains expressions that are equivalent or need careful interpretation (for example \(2^{\lg n}=n\), \(n^{1/\lg n}=2\), \(c^{\lg n}=n^{\lg c}\), and \(\lg(n!)=\Theta(n\lg n)\)). The full 30-item ranking should be checked against the exact two-column source list before treating this outline as a final answer. Do not rely on the numbered sketch above as a complete ranking.
+**Why the key placements hold:**
 
-**(b)** A function incomparable with all listed functions can be constructed by oscillating between growth rates that dominate and are dominated by each of the finitely many \(g_i\). For instance, define an exponent that alternates over increasingly long intervals between values below and above the exponents represented by the list. The construction must be made explicit for the exact list; the exercise is testing that asymptotic functions need not be totally ordered.
+- Every fixed polylogarithm is smaller than \(2^{\sqrt{2\lg n}}\), because taking logarithms reduces the comparison to \(\sqrt{\lg n}\) versus \(\lg\lg n\).
+- \(2^{\sqrt{2\lg n}}=n^{o(1)}\), so it is smaller than every fixed positive power of \(n\).
+- \((\lg n)!\) eventually exceeds every fixed polynomial in \(n\), but is \(o(n^{\lg\lg n})\), by Stirling's approximation.
+- \(n^{\lg\lg n}\) is superpolynomial but smaller than \(n!\).
+- Factorials eventually exceed every fixed-base exponential.
+- \(n2^n=o(e^n)\), since \(n(2/e)^n\to0\).
+- The final two double exponentials are ordered by their exponents.
+
+**(b) Construct one function incomparable with all 30.** Enumerate the 30 source functions as \(g_1,\ldots,g_{30}\). Define \(f(n)\) by residue classes modulo 60. For \(i=1,\ldots,30\), set
+\[
+f(n)=g_i(n)/n\quad\text{when }n\equiv 2i-1\pmod{60},
+\]
+and
+\[
+f(n)=n\,g_i(n)\quad\text{when }n\equiv 2i\pmod{60}.
+\]
+(Define any positive value for the finitely many small inputs where a \(g_i\) is not defined.) For each fixed \(i\), there are infinitely many inputs in each of its two residue classes. Along the first class, \(f(n)/g_i(n)=1/n\to0\); along the second, \(f(n)/g_i(n)=n\to\infty\). Thus \(f\notin O(g_i)\) and \(f\notin\Omega(g_i)\) for every \(i\). This gives the required single nonnegative function.
 
 ### 3-4 — Asymptotic notation properties
 
@@ -329,6 +349,46 @@ Let \(\Omega_\infty\) denote the alternative definition requiring \(f(n)\ge cg(n
 - **(c)** Advantage: it gives a broad “infinitely often” lower-bound comparison even for oscillating functions. Disadvantage: it does not guarantee a lower bound for all sufficiently large inputs, so it is weaker for worst-case guarantees.
 - **(d)** Replacing \(O\) with \(O'\), where absolute values are bounded, changes the forward direction of Theorem 3.1: \(\Theta(g)\Rightarrow O'(g)\) and \(\Omega(g)\) still hold for nonnegative \(f,g\), but \(O'(g)\) and \(\Omega(g)\) together need not imply \(\Theta(g)\) if \(f\) can be negative or oscillate. For asymptotically nonnegative \(f\), the original equivalence is recovered.
 - **(e)** Define \(\widetilde O(g(n))\) by allowing a logarithmic factor: \(f(n)\le c g(n)(\lg n)^k\) eventually for constants \(c,k>0\). Define \(\widetilde\Omega\) by reversing the inequality, and \(\widetilde\Theta=\widetilde O\cap\widetilde\Omega\). The analogue of Theorem 3.1 follows immediately from the intersection definition.
+
+### 3-7 — Iterated functions
+
+For a monotone increasing function \(f\), \(f_c^*(n)\) counts the number of repeated applications needed to reach at most \(c\).
+
+| Part | Function and threshold | Tight result | Reason |
+|---|---|---|---|
+| (a) | \(f(n)=n-1,\ c=0\) | \(\Theta(n)\) | One decrement per iteration |
+| (b) | \(f(n)=\lg n,\ c=1\) | \(\lg^*n\) | This is the definition of log-star |
+| (c) | \(f(n)=n/2,\ c=1\) | \(\Theta(\lg n)\) | After \(i\) steps, \(n/2^i\le1\) |
+| (d) | \(f(n)=n/2,\ c=2\) | \(\Theta(\lg n)\) | Stop when \(n/2^i\le2\) |
+| (e) | \(f(n)=\sqrt n,\ c=2\) | \(\Theta(\lg\lg n)\) | After \(i\) steps, exponent is \(1/2^i\); solve \(n^{1/2^i}\le2\) |
+| (f) | \(f(n)=\sqrt n,\ c=1\) | Undefined for \(n>1\) | Repeated square roots approach 1 from above but never reach \(\le1\) in a finite number of steps |
+| (g) | \(f(n)=n^{1/3},\ c=2\) | \(\Theta(\lg\lg n)\) | After \(i\) steps, exponent is \(1/3^i\); solve \(n^{1/3^i}\le2\) |
+
+---
+
+## Final chapter checklist
+
+- [ ] State all five asymptotic definitions with the correct quantifiers.
+- [ ] Distinguish a bound on the worst case from a bound on every input.
+- [ ] Prove a \(\Theta\)-bound using both an upper and lower bound.
+- [ ] Explain why some functions are asymptotically incomparable.
+- [ ] Derive the polynomial, exponential, logarithmic, factorial, and Fibonacci growth facts.
+- [ ] Complete the exact 30-function ranking in Problem 3-3 using the source's printed list.
+- [ ] Recheck every proof and every table entry before marking the chapter complete.### 3-6 — Variations on \(O\) and \(\Omega\)
+
+Let \(\Omega_\infty\) denote the alternative definition requiring \(f(n)\ge cg(n)\) for infinitely many integers \(n\).
+
+- **(a)** If \(f=O(g)\), the first alternative holds. If not, then for every \(c>0\) and every threshold \(n_0\), the upper-bound inequality fails for some \(n\ge n_0\). Therefore \(f(n)>cg(n)\) for infinitely many \(n\), which is exactly \(f=\Omega_\infty(g)\). Both relations can hold.
+- **(b)** Define, for positive integers \(n\),
+  \[
+  f(n)=\begin{cases}n,&n\text{ even},\\n^2,&n\text{ odd},\end{cases}
+  \qquad
+  g(n)=\begin{cases}n^2,&n\text{ even},\\n,&n\text{ odd}.\end{cases}
+  \]
+  Both are nonnegative. On even inputs \(f/g=1/n\to0\); on odd inputs \(f/g=n\to\infty\). Hence neither \(f=O(g)\) nor \(f=\Omega(g)\).
+- **(c)** Advantage: \(\Omega_\infty\) gives a lower-bound comparison on infinitely many inputs, including some oscillating functions that fail an eventual lower bound. Disadvantage: it does not guarantee a lower bound for all sufficiently large inputs, so it is weaker as a worst-case guarantee.
+- **(d)** Let \(O'\) mean \(|f(n)|=O(g(n))\). The forward direction of Theorem 3.1 remains true: \(f=\Theta(g)\) implies \(f=O'(g)\) and \(f=\Omega(g)\). The reverse direction also remains true under the theorem's asymptotic-positivity condition: if \(f=\Omega(g)\), then \(f\) is eventually positive, so \(|f|=f\) eventually; combining \(O'(g)\) with \(\Omega(g)\) therefore gives the usual \(\Theta(g)\). Without the positivity condition, the reverse implication can fail.
+- **(e)** Define \(\widetilde O(g(n))\) by \(f(n)\le c\,g(n)(\lg n)^k\) eventually for positive constants \(c,k,n_0\). Define \(\widetilde\Omega\) by reversing the bound, and \(\widetilde\Theta=\widetilde O\cap\widetilde\Omega\). The analogue of Theorem 3.1 follows directly from this intersection definition.
 
 ### 3-7 — Iterated functions
 
