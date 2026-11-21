@@ -350,7 +350,7 @@ Assume \(f,g\) are asymptotically positive.
 - **(b)** A \(\Theta(f)\) term is already bounded above and below by constants times \(f\). Adding an \(O(f)\) term preserves both bounds, so the result is \(\Theta(f)\).
 - **(c)** If \(u=\Theta(f)\) and \(v=\Theta(g)\), then \(u+v=\Theta(f+g)\) by adding the respective upper and lower inequalities.
 - **(d)** If \(u=\Theta(f)\), \(v=\Theta(g)\), multiply the positive lower bounds and upper bounds to obtain \(uv=\Theta(fg)\).
-- **(e)** Since \(a_1,a_2>0\) are constants and \(k_1,k_2\) are fixed, \((a_1n)^{k_1}=\Theta(n^{k_1})\) and \(\lg^{k_2}(b_1n)=\Theta(\lg^{k_2}n)\) for the stated domain. Multiplying gives \(\Theta(n^{k_1}\lg^{k_2}n)\).
+- **(e)** Since \(a_1,b_1>0\) are constants and \(k_1,k_2\) are fixed, \((a_1n)^{k_1}=\Theta(n^{k_1})\) and \(\lg^{k_2}(b_1n)=\Theta(\lg^{k_2}n)\) for the stated domain. Multiplying gives \(\Theta(n^{k_1}\lg^{k_2}n)\).
 - **(f)** For a finite or convergent sum of nonnegative terms, if each summand is bounded above and below by constant multiples of \(f(k)\), summing preserves those same constant-factor inequalities. Therefore the sum is \(\Theta(\sum_{k\in S}f(k))\), provided the common constants and convergence/domain assumptions are valid.
 - **(g)** Let \(S_n=\{1,\ldots,n\}\) and \(f(k)=1/k\). For every \(k\), \(2f(k)=\Theta(f(k))\). But the finite products are
   \[
