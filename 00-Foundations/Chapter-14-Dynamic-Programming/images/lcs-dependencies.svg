@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="300" viewBox="0 0 820 300">
+<rect width="820" height="300" fill="#fff"/>
+<text x="410" y="28" font-family="Arial" font-size="20" text-anchor="middle" fill="#172033">LCS dynamic-programming cell dependencies</text>
+<g stroke="#cbd5e1" stroke-width="1">
+<path d="M270 70 H570 V250 H270 Z M345 70 V250 M420 70 V250 M495 70 V250 M270 115 H570 M270 160 H570 M270 205 H570"/>
+</g>
+<g fill="#dbeafe"><rect x="420" y="160" width="75" height="45"/><rect x="345" y="115" width="75" height="45"/><rect x="420" y="115" width="75" height="45"/></g>
+<g stroke="#2563eb" stroke-width="3" fill="none"><path d="M458 182 L382 137 M458 182 L458 137 M458 182 L533 182"/></g>
+<g fill="#2563eb"><path d="M382 137 l8 -2 -4 8z M458 137 l-4 8 8 0z M533 182 l-8 -4 0 8z"/></g>
+<g font-family="Arial" font-size="14" fill="#172033"><text x="120" y="90">Match: diagonal + 1</text><text x="120" y="130">Mismatch: max(up, left)</text><text x="120" y="170">Boundary row/column = 0</text><text x="410" y="278" text-anchor="middle">A completed table supports reconstruction by following stored directions.</text></g>
+</svg>
