@@ -24,6 +24,12 @@ Sorting takes a sequence of (n) numbers and returns a permutation of that sequen
 
 Example: sorting student records by GPA must preserve each student's name, age, and course information.
 
+### The playing-card model
+
+The hand represents the sorted prefix, and each new card is the key to insert. Compare from right to left, shift larger cards one position, and place the key in the gap.
+
+![Insertion sort using playing cards](images/insertion-sort-playing-cards.svg)
+
 ### Incremental method
 
 Insertion sort maintains a sorted prefix. It takes the next element and inserts it into the correct position in that prefix. The playing-card analogy is useful: keep the cards in one hand sorted while inserting each newly picked-up card.
@@ -45,6 +51,10 @@ INSERTION-SORT(A, n)
 The saved `key` is essential: shifting elements right could otherwise overwrite the value being inserted. The loop scans the sorted prefix from right to left. The `j > 0` condition prevents an invalid 1-based array access.
 
 ### Example
+
+The highlighted cell is the key being inserted in that pass.
+
+![Insertion sort array trace](images/insertion-sort-array-trace.svg)
 
 Starting with `[5, 2, 4, 6, 1, 3]`:
 
@@ -91,6 +101,9 @@ def insertion_sort(arr):
 
 - Indentation specifies blocks.
 - `for`, `while`, `repeat-until`, and `if-else` have familiar meanings.
+- In CLRS pseudocode, a loop counter retains the first value that exceeds the bound after a `for` loop. This matters in the insertion-sort termination proof; Python's loop variable retains its final iterated value.
+- `else` aligns with its matching `if`; `elseif` represents another test in a multiway conditional.
+- Procedure parameters are passed by value. For arrays and objects, the copied parameter is a reference to the same underlying object, so element or attribute mutation is visible to the caller.
 - `to` increments a loop counter; `downto` decrements it; `by` specifies a different step.
 - `//` begins a comment.
 - Variables are local to a procedure unless stated otherwise.
@@ -207,6 +220,22 @@ an^2+bn+c
 
 has order of growth (Theta(n^2)). CLRS introduces (Theta)-notation informally in this chapter and formalizes it in Chapter 3. Constants and lower-order terms can still matter for small inputs.
 
+### Selection sort: loop invariant and termination
+
+Selection sort repeatedly finds the minimum of the unsorted suffix and exchanges it with the first element of that suffix.
+
+```text
+SELECTION-SORT(A, n)
+1  for i = 1 to n - 1
+2      min_index = i
+3      for j = i + 1 to n
+4          if A[j] < A[min_index]
+5              min_index = j
+6      exchange A[i] with A[min_index]
+```
+
+**Outer-loop invariant:** At the start of iteration i, A[1:i-1] contains the i-1 smallest input elements in nondecreasing order. Initialization holds for the empty prefix. The inner scan finds the minimum of A[i:n], and the exchange extends the prefix by one. When the loop finishes, the first n-1 positions contain the n-1 smallest values in order; the remaining element must be the largest, so a final pass is unnecessary.
+
 ### Section 2.2 exercise takeaways
 
 - **2.2-1:** (n^3/1000+100n^2-100n+3=Theta(n^3)).
@@ -234,7 +263,11 @@ Merge sort divides a subarray (A[p:r]) at midpoint (q), recursively sorts (A[p:q
 
 A one-element subarray ((p=r)) is the base case.
 
+![Merge sort split and merge structure](images/merge-sort-recursion.svg)
+
 ### Merge operation
+
+The textbook's MERGE procedure can be understood in four phases: compute the lengths; copy the sorted halves into temporary arrays; repeatedly compare and copy the smallest unmerged item; then copy the remaining suffix of the nonempty temporary array. The textbook version uses temporary arrays indexed from zero, while the destination array uses the chapter's 1-based indexing.
 
 The merge procedure copies the two already-sorted adjacent subarrays into temporary arrays (L) and (R). It repeatedly compares the smallest unmerged values and writes the smaller value into the destination array. When one temporary array is exhausted, the remaining values in the other are copied to the end.
 
@@ -464,3 +497,18 @@ An inversion is a pair of positions ((i,j)) with (i<j) and (A[i]>A[j]).
 - [ ] Explain how merge sort can count inversions.
 
 **Status:** Chapter 2 notes drafted. Review the source chapter and solve the exercises independently before marking the chapter mastered.
+
+
+## Visual guide index
+
+| Illustration | What to study |
+|---|---|
+| [Playing-card insertion sort](images/insertion-sort-playing-cards.svg) | The sorted-hand analogy and insertion of one key |
+| [Insertion-sort array trace](images/insertion-sort-array-trace.svg) | The changing prefix on the example array |
+| [Merge-sort recursion](images/merge-sort-recursion.svg) | Divide into subarrays, sort, then combine |
+
+## Chapter 2 Python implementations
+
+- [Insertion sort](../../Implementations/Python/insertion_sort.py)
+- [Merge sort](../../Implementations/Python/merge_sort.py)
+- [Unit tests](../../Implementations/Python/test_sorting.py)
