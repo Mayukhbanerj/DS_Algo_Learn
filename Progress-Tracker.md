@@ -16,6 +16,7 @@ Chapters 1–6 are complete study packages. Each chapter has been checked agains
 | 4 — Divide-and-Conquer | Sections 4.1–4.7, Exercises 4.1-1–4.7-6, Problems 4-1–4-7 | **Complete** |
 | 5 — Probabilistic Analysis and Randomized Algorithms | Sections 5.1–5.4, Exercises 5.1-1–5.4-8, Problems 5-1–5-2 | **Complete** |
 | 6 — Heapsort | Sections 6.1–6.5, Exercises 6.1-1–6.5-11, Problems 6-1–6-3 | **Complete** |
+| 7 — Quicksort | Sections 7.1–7.4, Exercises 7.1-1–7.4-6, Problems 7-1–7-7 | **Draft / audit in progress** |
 
 ## Chapter 1
 
@@ -121,6 +122,25 @@ Files:
 - [Heap tree and array illustration](00-Foundations/Chapter-06-Heapsort/images/max-heap-tree-array.svg)
 - [Python heap implementation](Implementations/Python/heaps.py)
 - [Python heap tests](Implementations/Python/test_heaps.py)
+
+## Chapter 7 — Draft and audit in progress
+
+- [x] Sections 7.1–7.4 drafted, including partition invariant and expected comparison analysis
+- [x] Exercises 7.1-1 through 7.4-6 drafted
+- [x] Problems 7-1 through 7-7 drafted
+- [x] Deterministic, randomized, Hoare, three-way, and bounded-stack Python quicksort implementations added
+- [x] Python test suite added
+- [x] Original partition invariant illustration added
+- [ ] Recheck Hoare trace, recurrence derivations, median-of-three probabilities, and fuzzy-sort proof against the PDF
+- [ ] Execute committed Python tests and broader randomized checks
+- [ ] Fetch all Chapter 7 files and finish source/chat/GitHub three-way audit
+
+Files:
+- [Chapter 7 notes](00-Foundations/Chapter-07-Quicksort/README.md)
+- [Chapter 7 exercises and problems](00-Foundations/Chapter-07-Quicksort/Exercises-and-Problems.md)
+- [Partition invariant illustration](00-Foundations/Chapter-07-Quicksort/images/partition-invariant.svg)
+- [Python quicksort implementations](Implementations/Python/quicksort.py)
+- [Python quicksort tests](Implementations/Python/test_quicksort.py)
 
 ## Completion standard
 
